@@ -4,9 +4,13 @@ import { UsersRepository } from '@data/user/user.repository';
 import { UsersService } from '@service/user/user.service';
 import { UsersManager } from '@manager/user/user.manager';
 import { UserController } from '@controller/user/user.controller';
+import authRoutes from './api/routes/auth.routes';
 
 const app = express();
 app.use(express.json());
+
+// Auth routes
+app.use('/auth', authRoutes);
 
 const usersRepository = new UsersRepository();
 const usersService = new UsersService(usersRepository);
