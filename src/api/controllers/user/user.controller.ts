@@ -14,7 +14,7 @@ export class UserController {
   }
 
   async getById(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = req.params.id || '';
     const result = await this.usersManager.getById(new GetUserByIdRequest(id));
     res.status(result.status).json(result.data ?? { error: result.error });
   }
@@ -26,14 +26,14 @@ export class UserController {
   }
 
   async update(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = req.params.id || '';
     const { email, firstName, lastName, role, permissions } = req.body;
     const result = await this.usersManager.update(new UpdateUserRequest(id, email, firstName, lastName, role, permissions));
     res.status(result.status).json(result.data ?? { error: result.error });
   }
 
   async delete(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = req.params.id || '';
     const result = await this.usersManager.delete(new DeleteUserRequest(id));
     res.status(result.status).json(result.data ?? { error: result.error });
   }

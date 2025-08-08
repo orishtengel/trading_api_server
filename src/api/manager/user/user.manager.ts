@@ -18,7 +18,7 @@ const createUserSchema = z.object({
 });
 
 const updateUserSchema = z.object({
-  id: z.number().int().positive(),
+  id: z.string().min(1),
   email: z.string().email().optional(),
   firstName: z.string().min(1).optional(),
   lastName: z.string().min(1).optional(),
@@ -30,7 +30,7 @@ export class UsersManager implements IUsersManager {
   constructor(private readonly usersService: IUsersService) {}
 
   async getById(req: GetUserByIdRequest): Promise<GetUserByIdResponse> {
-    if (!Number.isInteger(req.id) || req.id <= 0) {
+    if (!req.id || req.id.trim().length === 0) {
       return new GetUserByIdResponse(400, undefined, 'Invalid id');
     }
     const serviceRequest = new ServiceGetUserByIdRequest(req.id);
@@ -78,7 +78,7 @@ export class UsersManager implements IUsersManager {
   }
 
   async delete(req: DeleteUserRequest): Promise<DeleteUserResponse> {
-    if (!Number.isInteger(req.id) || req.id <= 0) {
+    if (!req.id || req.id.trim().length === 0) {
       return new DeleteUserResponse(400, undefined, 'Invalid id');
     }
     const serviceRequest = new ServiceDeleteUserRequest(req.id);

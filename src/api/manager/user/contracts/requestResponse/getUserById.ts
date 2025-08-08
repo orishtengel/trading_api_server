@@ -1,7 +1,7 @@
 import { User } from '@service/user/contract/user.model';
 
 export class GetUserByIdRequest {
-  constructor(public readonly id: number) {}
+  constructor(public readonly id: string) {}
 }
 
 export class GetUserByIdResponse {
