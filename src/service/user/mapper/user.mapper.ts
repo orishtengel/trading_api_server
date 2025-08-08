@@ -28,7 +28,7 @@ export function mapCreateUserInputToDataRequest(input: CreateUserInput): DataCre
   );
 }
 
-export function mapUpdateUserInputToDataRequest(id: number, input: UpdateUserInput): DataUpdateUserRequest {
+export function mapUpdateUserInputToDataRequest(id: string, input: UpdateUserInput): DataUpdateUserRequest {
   return new DataUpdateUserRequest(
     id,
     input.email,
@@ -39,10 +39,10 @@ export function mapUpdateUserInputToDataRequest(id: number, input: UpdateUserInp
   );
 }
 
-export function mapIdToFindByIdRequest(id: number): FindUserByIdRequest {
+export function mapIdToFindByIdRequest(id: string): FindUserByIdRequest {
   return new FindUserByIdRequest(id);
 }
 
-export function mapIdToDeleteRequest(id: number): DeleteUserRequest {
+export function mapIdToDeleteRequest(id: string): DeleteUserRequest {
   return new DeleteUserRequest(id);
 } 

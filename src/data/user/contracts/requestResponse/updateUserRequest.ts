@@ -1,6 +1,6 @@
 export class UpdateUserRequest {
   constructor(
-    public readonly id: number,
+    public readonly id: string,
     public readonly email?: string,
     public readonly firstName?: string,
     public readonly lastName?: string,
