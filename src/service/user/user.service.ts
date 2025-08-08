@@ -1,7 +1,7 @@
 import { IUsersService } from './user.service.interface';
-import { CreateUserInput, UpdateUserInput, User } from './user.models';
+import { CreateUserInput, UpdateUserInput, User } from './contract/user.model';
 import { IUsersRepository } from '@data/user/user.repository.interface';
-import { mapModelInputToEntityPartial, mapUserEntityToModel } from './user.mappers';
+import { mapModelInputToEntityPartial, mapUserEntityToModel } from './mapper/user.mapper';
 
 export class UsersService implements IUsersService {
   constructor(private readonly usersRepository: IUsersRepository) {}

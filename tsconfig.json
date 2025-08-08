@@ -22,8 +22,6 @@
       "@data/*": ["src/data/*"],
       "@shared/*": ["src/shared/*"]
     },
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
   },
   "include": ["src"]
 } 

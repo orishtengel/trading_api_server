@@ -1,4 +1,4 @@
-import { CreateUserInput, UpdateUserInput, User } from './user.models';
+import { CreateUserInput, UpdateUserInput, User } from './contract/user.model';
 
 export interface IUsersService {
   getById(id: number): Promise<User | null>;

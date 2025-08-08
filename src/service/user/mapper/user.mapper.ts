@@ -1,5 +1,5 @@
-import { UserEntity } from '@data/user/user.entities';
-import { User } from './user.models';
+import { UserEntity } from '@data/user/contracts/user.entities';
+import { User } from '../contract/user.model';
 
 export function mapUserEntityToModel(entity: UserEntity): User {
   return {

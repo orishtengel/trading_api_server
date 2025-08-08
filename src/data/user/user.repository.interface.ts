@@ -1,9 +1,15 @@
-import { UserEntity } from './user.entities';
+import { UserEntity } from './contracts/user.entities';
+import { 
+  FindUserByIdRequest, 
+  CreateUserRequest, 
+  UpdateUserRequest, 
+  DeleteUserRequest 
+} from './contracts/requestResponse';
 
 export interface IUsersRepository {
-  findById(id: number): Promise<UserEntity | null>;
+  findById(request: FindUserByIdRequest): Promise<UserEntity | null>;
   list(): Promise<UserEntity[]>;
-  create(input: Omit<UserEntity, 'id'>): Promise<UserEntity>;
-  update(id: number, input: Partial<Omit<UserEntity, 'id'>>): Promise<UserEntity | null>;
-  delete(id: number): Promise<boolean>;
+  create(request: CreateUserRequest): Promise<UserEntity>;
+  update(request: UpdateUserRequest): Promise<UserEntity | null>;
+  delete(request: DeleteUserRequest): Promise<boolean>;
 } 

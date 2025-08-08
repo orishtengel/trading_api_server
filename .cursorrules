@@ -22,6 +22,7 @@
 - Each feature area (e.g., `users`) has:
   - Manager contracts in `src/api/manager/<area>/<area>.contracts.ts` defining `Request` and `Response` types for manager functions.
   - Controllers must use these exact `Request`/`Response` types (controller and manager share the same contracts).
+  - For every method declared in `I<Area>Manager`, define corresponding `<Action>NameRequest` and `<Action>NameResponse` classes/types under `src/api/manager/<area>/contracts/requestResponse/`. Re-export these from `src/api/manager/<area>/<area>.contracts.ts`. Controllers and managers must import these contracts; do not define ad-hoc request/response shapes.
 - Interfaces per layer:
   - Define interfaces and have classes implement them: `I<Area>Manager`, `I<Area>Service`, `I<Area>Repository`.
   - Prefer colocating these interfaces with their implementation files, or in `*.contracts.ts` next to them.

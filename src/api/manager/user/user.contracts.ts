@@ -1,4 +1,4 @@
-import { User } from '@service/user/user.models';
+import { User } from '@service/user/contract/user.model';
 
 export type GetUserByIdRequest = { id: number };
 export type GetUserByIdResponse = { status: number; data?: User; error?: string };
