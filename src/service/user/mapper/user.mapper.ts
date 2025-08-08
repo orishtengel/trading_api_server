@@ -1,23 +1,48 @@
 import { UserEntity } from '@data/user/contracts/user.entities';
-import { User } from '../contract/user.model';
+import { User, CreateUserInput, UpdateUserInput } from '../contract/user.model';
+import { 
+  FindUserByIdRequest, 
+  CreateUserRequest as DataCreateUserRequest, 
+  UpdateUserRequest as DataUpdateUserRequest, 
+  DeleteUserRequest 
+} from '@data/user/contracts/requestResponse';
 
 export function mapUserEntityToModel(entity: UserEntity): User {
-  return {
-    id: entity.id,
-    email: entity.email,
-    firstName: entity.first_name,
-    lastName: entity.last_name,
-    role: entity.role,
-    permissions: [...entity.permissions],
-  };
+  return new User(
+    entity.id,
+    entity.email,
+    entity.firstName,
+    entity.lastName,
+    entity.role,
+    [...entity.permissions]
+  );
 }
 
-export function mapModelInputToEntityPartial(input: Partial<Omit<User, 'id'>>): Partial<UserEntity> {
-  const out: Partial<UserEntity> = {};
-  if (input.email !== undefined) out.email = input.email;
-  if (input.firstName !== undefined) out.first_name = input.firstName;
-  if (input.lastName !== undefined) out.last_name = input.lastName;
-  if (input.role !== undefined) out.role = input.role;
-  if (input.permissions !== undefined) out.permissions = [...input.permissions];
-  return out;
+export function mapCreateUserInputToDataRequest(input: CreateUserInput): DataCreateUserRequest {
+  return new DataCreateUserRequest(
+    input.email,
+    input.firstName, // service firstName -> data first_name
+    input.lastName,  // service lastName -> data last_name
+    input.role,
+    input.permissions
+  );
+}
+
+export function mapUpdateUserInputToDataRequest(id: number, input: UpdateUserInput): DataUpdateUserRequest {
+  return new DataUpdateUserRequest(
+    id,
+    input.email,
+    input.firstName, // service firstName -> data first_name
+    input.lastName,  // service lastName -> data last_name
+    input.role,
+    input.permissions
+  );
+}
+
+export function mapIdToFindByIdRequest(id: number): FindUserByIdRequest {
+  return new FindUserByIdRequest(id);
+}
+
+export function mapIdToDeleteRequest(id: number): DeleteUserRequest {
+  return new DeleteUserRequest(id);
 } 

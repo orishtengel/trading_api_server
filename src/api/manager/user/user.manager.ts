@@ -1,7 +1,13 @@
 import { z } from 'zod';
 import { IUsersManager } from './user.manager.interface';
-import { CreateUserRequest, CreateUserResponse, DeleteUserRequest, DeleteUserResponse, GetUserByIdRequest, GetUserByIdResponse, ListUsersResponse, UpdateUserRequest, UpdateUserResponse } from './user.contracts';
+import { CreateUserRequest, CreateUserResponse, DeleteUserRequest, DeleteUserResponse, GetUserByIdRequest, GetUserByIdResponse, UpdateUserRequest, UpdateUserResponse } from './user.contracts';
 import { IUsersService } from '@service/user/user.service.interface';
+import {
+  GetUserByIdRequest as ServiceGetUserByIdRequest,
+  CreateUserRequest as ServiceCreateUserRequest,
+  UpdateUserRequest as ServiceUpdateUserRequest,
+  DeleteUserRequest as ServiceDeleteUserRequest
+} from '@service/user/contract/requestResponse';
 
 const createUserSchema = z.object({
   email: z.string().email(),
@@ -25,43 +31,61 @@ export class UsersManager implements IUsersManager {
 
   async getById(req: GetUserByIdRequest): Promise<GetUserByIdResponse> {
     if (!Number.isInteger(req.id) || req.id <= 0) {
-      return { status: 400, error: 'Invalid id' };
+      return new GetUserByIdResponse(400, undefined, 'Invalid id');
     }
-    const user = await this.usersService.getById(req.id);
-    if (!user) return { status: 404, error: 'User not found' };
-    return { status: 200, data: user };
-  }
-
-  async list(): Promise<ListUsersResponse> {
-    const users = await this.usersService.list();
-    return { status: 200, data: users };
+    const serviceRequest = new ServiceGetUserByIdRequest(req.id);
+    const serviceResponse = await this.usersService.getById(serviceRequest);
+    if (!serviceResponse.user) {
+      return new GetUserByIdResponse(404, undefined, 'User not found');
+    }
+    return new GetUserByIdResponse(200, serviceResponse.user);
   }
 
   async create(req: CreateUserRequest): Promise<CreateUserResponse> {
     const parsed = createUserSchema.safeParse(req);
     if (!parsed.success) {
-      return { status: 400, error: parsed.error.flatten().formErrors.join('; ') };
+      return new CreateUserResponse(400, undefined, parsed.error.flatten().formErrors.join('; '));
     }
-    const created = await this.usersService.create(parsed.data);
-    return { status: 201, data: created };
+    const serviceRequest = new ServiceCreateUserRequest(
+      parsed.data.email,
+      parsed.data.firstName,
+      parsed.data.lastName,
+      parsed.data.role,
+      parsed.data.permissions
+    );
+    const serviceResponse = await this.usersService.create(serviceRequest);
+    return new CreateUserResponse(201, serviceResponse.user);
   }
 
   async update(req: UpdateUserRequest): Promise<UpdateUserResponse> {
     const parsed = updateUserSchema.safeParse(req);
     if (!parsed.success) {
-      return { status: 400, error: parsed.error.flatten().formErrors.join('; ') };
+      return new UpdateUserResponse(400, undefined, parsed.error.flatten().formErrors.join('; '));
     }
-    const updated = await this.usersService.update(parsed.data.id, parsed.data);
-    if (!updated) return { status: 404, error: 'User not found' };
-    return { status: 200, data: updated };
+    const serviceRequest = new ServiceUpdateUserRequest(
+      parsed.data.id,
+      parsed.data.email,
+      parsed.data.firstName,
+      parsed.data.lastName,
+      parsed.data.role,
+      parsed.data.permissions
+    );
+    const serviceResponse = await this.usersService.update(serviceRequest);
+    if (!serviceResponse.user) {
+      return new UpdateUserResponse(404, undefined, 'User not found');
+    }
+    return new UpdateUserResponse(200, serviceResponse.user);
   }
 
   async delete(req: DeleteUserRequest): Promise<DeleteUserResponse> {
     if (!Number.isInteger(req.id) || req.id <= 0) {
-      return { status: 400, error: 'Invalid id' };
+      return new DeleteUserResponse(400, undefined, 'Invalid id');
     }
-    const deleted = await this.usersService.delete(req.id);
-    if (!deleted) return { status: 404, error: 'User not found' };
-    return { status: 200, data: { deleted: true } };
+    const serviceRequest = new ServiceDeleteUserRequest(req.id);
+    const serviceResponse = await this.usersService.delete(serviceRequest);
+    if (!serviceResponse.success) {
+      return new DeleteUserResponse(404, undefined, 'User not found');
+    }
+    return new DeleteUserResponse(200, { deleted: true });
   }
 }

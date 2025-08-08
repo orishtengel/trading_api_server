@@ -8,7 +8,6 @@ import {
 
 export interface IUsersRepository {
   findById(request: FindUserByIdRequest): Promise<UserEntity | null>;
-  list(): Promise<UserEntity[]>;
   create(request: CreateUserRequest): Promise<UserEntity>;
   update(request: UpdateUserRequest): Promise<UserEntity | null>;
   delete(request: DeleteUserRequest): Promise<boolean>;

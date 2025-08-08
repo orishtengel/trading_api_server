@@ -1,24 +1,30 @@
-export interface User {
-  id: number;
-  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  permissions: string[];
+export class User {
+  constructor(
+    public readonly id: number,
+    public readonly email: string,
+    public readonly firstName: string,
+    public readonly lastName: string,
+    public readonly role: string,
+    public readonly permissions: string[]
+  ) {}
 }
 
-export interface CreateUserInput {
-  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  permissions: string[];
+export class CreateUserInput {
+  constructor(
+    public readonly email: string,
+    public readonly firstName: string,
+    public readonly lastName: string,
+    public readonly role: string,
+    public readonly permissions: string[]
+  ) {}
 }
 
-export interface UpdateUserInput {
-  email?: string;
-  firstName?: string;
-  lastName?: string;
-  role?: string;
-  permissions?: string[];
+export class UpdateUserInput {
+  constructor(
+    public readonly email?: string,
+    public readonly firstName?: string,
+    public readonly lastName?: string,
+    public readonly role?: string,
+    public readonly permissions?: string[]
+  ) {}
 } 

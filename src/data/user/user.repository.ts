@@ -15,17 +15,13 @@ export class UsersRepository implements IUsersRepository {
     return this.users.get(request.id) ?? null;
     }
 
-  async list(): Promise<UserEntity[]> {
-    return Array.from(this.users.values());
-  }
-
   async create(request: CreateUserRequest): Promise<UserEntity> {
     const now = new Date().toISOString();
     const entity: UserEntity = { 
       id: this.nextId++, 
       email: request.email,
-      first_name: request.first_name,
-      last_name: request.last_name,
+      firstName: request.firstName,
+      lastName: request.lastName,
       role: request.role,
       permissions: request.permissions,
       created_at: now,
@@ -42,8 +38,8 @@ export class UsersRepository implements IUsersRepository {
     const updated: UserEntity = { 
       ...existing, 
       ...(request.email !== undefined && { email: request.email }),
-      ...(request.first_name !== undefined && { first_name: request.first_name }),
-      ...(request.last_name !== undefined && { last_name: request.last_name }),
+      ...(request.firstName !== undefined && { firstName: request.firstName }),
+      ...(request.lastName !== undefined && { lastName: request.lastName }),
       ...(request.role !== undefined && { role: request.role }),
       ...(request.permissions !== undefined && { permissions: request.permissions }),
       updated_at: new Date().toISOString()

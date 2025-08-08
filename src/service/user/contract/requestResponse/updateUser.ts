@@ -1,3 +1,5 @@
+import { User } from '../user.model';
+
 export class UpdateUserRequest {
   constructor(
     public readonly id: number,
@@ -7,4 +9,8 @@ export class UpdateUserRequest {
     public readonly role?: string,
     public readonly permissions?: string[]
   ) {}
+}
+
+export class UpdateUserResponse {
+  constructor(public readonly user: User | null) {}
 } 

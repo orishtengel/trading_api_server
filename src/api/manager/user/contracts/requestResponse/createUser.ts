@@ -1,3 +1,5 @@
+import { User } from '@service/user/contract/user.model';
+
 export class CreateUserRequest {
   constructor(
     public readonly email: string,
@@ -5,5 +7,13 @@ export class CreateUserRequest {
     public readonly lastName: string,
     public readonly role: string,
     public readonly permissions: string[]
+  ) {}
+}
+
+export class CreateUserResponse {
+  constructor(
+    public readonly status: number,
+    public readonly data?: User,
+    public readonly error?: string
   ) {}
 } 

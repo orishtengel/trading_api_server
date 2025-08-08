@@ -1,3 +1,5 @@
+import { User } from '../user.model';
+
 export class CreateUserRequest {
   constructor(
     public readonly email: string,
@@ -6,4 +8,8 @@ export class CreateUserRequest {
     public readonly role: string,
     public readonly permissions: string[]
   ) {}
+}
+
+export class CreateUserResponse {
+  constructor(public readonly user: User) {}
 } 

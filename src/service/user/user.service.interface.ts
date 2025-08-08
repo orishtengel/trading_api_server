@@ -1,9 +1,17 @@
-import { CreateUserInput, UpdateUserInput, User } from './contract/user.model';
+import {
+  GetUserByIdRequest,
+  GetUserByIdResponse,
+  CreateUserRequest,
+  CreateUserResponse,
+  UpdateUserRequest,
+  UpdateUserResponse,
+  DeleteUserRequest,
+  DeleteUserResponse
+} from './contract/requestResponse';
 
 export interface IUsersService {
-  getById(id: number): Promise<User | null>;
-  list(): Promise<User[]>;
-  create(input: CreateUserInput): Promise<User>;
-  update(id: number, input: UpdateUserInput): Promise<User | null>;
-  delete(id: number): Promise<boolean>;
+  getById(request: GetUserByIdRequest): Promise<GetUserByIdResponse>;
+  create(request: CreateUserRequest): Promise<CreateUserResponse>;
+  update(request: UpdateUserRequest): Promise<UpdateUserResponse>;
+  delete(request: DeleteUserRequest): Promise<DeleteUserResponse>;
 }

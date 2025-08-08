@@ -1,40 +1,50 @@
 import { IUsersService } from './user.service.interface';
-import { CreateUserInput, UpdateUserInput, User } from './contract/user.model';
+import {
+  GetUserByIdRequest,
+  GetUserByIdResponse,
+  CreateUserRequest,
+  CreateUserResponse,
+  UpdateUserRequest,
+  UpdateUserResponse,
+  DeleteUserRequest,
+  DeleteUserResponse
+} from './contract/requestResponse';
 import { IUsersRepository } from '@data/user/user.repository.interface';
-import { mapModelInputToEntityPartial, mapUserEntityToModel } from './mapper/user.mapper';
+import { 
+  mapUserEntityToModel, 
+  mapCreateUserInputToDataRequest, 
+  mapUpdateUserInputToDataRequest,
+  mapIdToFindByIdRequest,
+  mapIdToDeleteRequest
+} from './mapper/user.mapper';
 
 export class UsersService implements IUsersService {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
-  async getById(id: number): Promise<User | null> {
-    const entity = await this.usersRepository.findById(id);
-    return entity ? mapUserEntityToModel(entity) : null;
+  async getById(request: GetUserByIdRequest): Promise<GetUserByIdResponse> {
+    const dataRequest = mapIdToFindByIdRequest(request.id);
+    const entity = await this.usersRepository.findById(dataRequest);
+    const user = entity ? mapUserEntityToModel(entity) : null;
+    return new GetUserByIdResponse(user);
   }
 
-  async list(): Promise<User[]> {
-    const entities = await this.usersRepository.list();
-    return entities.map(mapUserEntityToModel);
+  async create(request: CreateUserRequest): Promise<CreateUserResponse> {
+    const dataRequest = mapCreateUserInputToDataRequest(request);
+    const created = await this.usersRepository.create(dataRequest);
+    const user = mapUserEntityToModel(created);
+    return new CreateUserResponse(user);
   }
 
-  async create(input: CreateUserInput): Promise<User> {
-    const entityInput = mapModelInputToEntityPartial(input);
-    const created = await this.usersRepository.create({
-      email: entityInput.email!,
-      first_name: entityInput.first_name!,
-      last_name: entityInput.last_name!,
-      role: entityInput.role!,
-      permissions: entityInput.permissions ?? [],
-    });
-    return mapUserEntityToModel(created);
+  async update(request: UpdateUserRequest): Promise<UpdateUserResponse> {
+    const dataRequest = mapUpdateUserInputToDataRequest(request.id, request);
+    const updated = await this.usersRepository.update(dataRequest);
+    const user = updated ? mapUserEntityToModel(updated) : null;
+    return new UpdateUserResponse(user);
   }
 
-  async update(id: number, input: UpdateUserInput): Promise<User | null> {
-    const entityUpdate = mapModelInputToEntityPartial(input);
-    const updated = await this.usersRepository.update(id, entityUpdate);
-    return updated ? mapUserEntityToModel(updated) : null;
-  }
-
-  async delete(id: number): Promise<boolean> {
-    return this.usersRepository.delete(id);
+  async delete(request: DeleteUserRequest): Promise<DeleteUserResponse> {
+    const dataRequest = mapIdToDeleteRequest(request.id);
+    const success = await this.usersRepository.delete(dataRequest);
+    return new DeleteUserResponse(success);
   }
 }
