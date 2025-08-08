@@ -1,0 +1,100 @@
+# Cursor Rules for trading_api_server
+
+## Architecture
+- We follow strict layered architecture: `controller -> manager -> service -> data`.
+- Dependencies flow only downward. Each layer can only import from the layer(s) below it:
+  - `controller` can import from `manager` and `shared`.
+  - `manager` can import from `service` and `shared`.
+  - `service` can import from `data`, `service`'s local `models` and `mappers`, and `shared`.
+  - `data` can import only from `data` and `shared`.
+- Services must never call other services. Only managers may orchestrate multiple services.
+- Controllers must never call services or data directly. Only managers.
+- Use path aliases defined in `tsconfig.json`: `@controller/*`, `@manager/*`, `@service/*`, `@data/*`, `@shared/*`.
+
+## Layer responsibilities
+- Controller: ultra-thin. Parse inbound `express` request to a typed Request object, call manager, return the manager Response as-is with `status` code. No business logic, no mapping.
+- Manager: orchestrator. Validate inputs, coordinate calls to one or more services, aggregate results, convert `Date` and internal types to transport shape, and return typed Response. No persistence details here. No cross-layer leakage of entities.
+- Service: single responsibility per area (e.g., `users`, `bots`). Encapsulate domain logic for that area only. May use repositories/entities within its own area. No talking to other services. Return domain models defined in its own `models` file(s). Map entities <-> models using `mappers` in the same folder.
+- Data: persistence only. Repositories implement CRUD and query operations and operate on `entities` (persistence shape). No domain logic and no express/http concepts.
+
+
+## Contracts and types
+- Each feature area (e.g., `users`) has:
+  - Manager contracts in `src/api/manager/<area>/<area>.contracts.ts` defining `Request` and `Response` types for manager functions.
+  - Controllers must use these exact `Request`/`Response` types (controller and manager share the same contracts).
+- Interfaces per layer:
+  - Define interfaces and have classes implement them: `I<Area>Manager`, `I<Area>Service`, `I<Area>Repository`.
+  - Prefer colocating these interfaces with their implementation files, or in `*.contracts.ts` next to them.
+- Explicit inputs/outputs:
+  - Every public method must have explicit input and output types.
+  - Manager/controller boundary uses `{ status: number, data?: T, error?: string }` and is shared between them.
+  - Service methods accept domain input types and return domain models (no HTTP envelope). Use `...Input` and model types from `models`.
+  - Data methods accept plain values or typed input objects and return `entities` or primitives; no HTTP envelope.
+- Prefer `ApiSuccess<T>` and `ApiError` from `@shared/http` for helpers internally, but exported Response shapes in contracts remain explicit.
+- Services define internal domain `models` and `Create/Update` inputs under `src/service/<area>/<area>.models.ts`.
+- Data layer defines `entities` under `src/data/<area>/<area>.entities.ts` (persistence shapes only).
+- Mappers live in `src/service/<area>/<area>.mappers.ts` to convert between `entities` and `models` only. Controllers and managers must not import `entities` directly.
+
+## File and naming conventions
+- Controllers: `src/api/controllers/<area>/<area>.controller.ts` exporting a class `<Area>Controller` with methods mirroring route handlers. Keep methods short and only delegating to manager.
+- Managers: `src/api/manager/<area>/<area>.manager.ts` exporting a class `<Area>Manager`. Validation schemas (e.g., `zod`) are local to the manager file or colocated, not shared with controllers.
+- Manager contracts: `src/api/manager/<area>/<area>.contracts.ts` exporting `{ <Action>NameRequest, <Action>NameResponse }` pairs per method.
+- Services: `src/service/<area>/<area>.service.ts` exporting a class `<Area>Service` with methods that accept domain inputs and return domain models.
+- Models: `src/service/<area>/<area>.models.ts` exporting domain types `Type`, `CreateTypeInput`, `UpdateTypeInput`, etc.
+- Mappers: `src/service/<area>/<area>.mappers.ts` exporting pure functions `map<Entity>To<Model>` and optionally `map<Model>To<EntityInput>`.
+- Data entities: `src/data/<area>/<area>.entities.ts` exporting persistence types with fields reflecting storage naming (e.g., `created_at` as string if stored as ISO).
+- Repositories: `src/data/<area>/<area>.repository.ts` exporting class `<Area>Repository` with methods like `findById`, `create`, `update`, etc.
+
+## Import boundary rules (hard)
+- Controllers must not import from `@service/*` or `@data/*`.
+- Managers must not import from `@controller/*` or `@data/*/entities` directly.
+- Services must not import from `@controller/*` or from other services areas (e.g., `@service/bots/*` inside `users`).
+- Data layer must not import from `@controller/*`, `@manager/*`, or `@service/*`.
+- Mappers must not import from controller or manager; they can import service `models` and data `entities`.
+
+## Error handling and validation
+- Validation occurs in the manager using `zod` or similar. Controllers only shape the raw input into the manager `Request` type.
+- Managers return errors via the `{ status, error }` envelope and never throw across the boundary. Services may throw domain errors; managers translate them into responses.
+- Dates crossing the manager/controller boundary must be strings (ISO). Domain `models` may use `Date`.
+
+## Testing/build expectations
+- After edits: ensure `npm run build` passes. Keep controllers small and test managers/services in isolation.
+
+## Example (users area matches these rules)
+- `UsersController` uses `CreateUserRequest`/`Response` and calls `UsersManager` only.
+- `UsersManager` validates with `zod`, orchestrates `UsersService`, and returns `{ status, data | error }` with ISO string for `createdAt`.
+- `UsersService` maps `UserEntity` to `User` model and uses `UsersRepository` for persistence.
+- `UsersRepository` operates on `UserEntity` only.
+
+## Per-area folder structure (example: user)
+
+```
+src/
+  api/
+    controllers/
+      user/
+        user.controller.ts
+    manager/
+      user/
+        user.manager.ts
+        user.contracts.ts
+        user.manager.interface.ts
+  service/
+    user/
+      user.service.ts
+      user.models.ts
+      user.mappers.ts
+      user.service.interface.ts
+  data/
+    user/
+      user.entities.ts
+      user.repository.ts
+      user.repository.interface.ts
+  shared/
+    http/
+      api.ts
+```
+
+- Controllers and managers live under `src/api/...`.
+- Services and data live under `src/service/...` and `src/data/...`.
+- Path aliases in `tsconfig.json` must map `@controller/*` to `src/api/controllers/*` and `@manager/*` to `src/api/manager/*`. 
