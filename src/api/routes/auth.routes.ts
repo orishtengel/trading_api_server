@@ -4,10 +4,7 @@ import { AuthController } from '@controller/auth/auth.controller';
 const router = Router();
 const authController = new AuthController();
 
-// POST /auth/verify-token - Verify Firebase ID token
-router.post('/verify-token', authController.verifyToken.bind(authController));
-
-// GET /auth/user/:uid - Get user by UID (for authenticated requests)
-router.get('/user/:uid', authController.getCurrentUser.bind(authController));
+// Mount the auth controller routes under /api/auth
+router.use('/api/auth', authController.getRouter());
 
 export default router; 

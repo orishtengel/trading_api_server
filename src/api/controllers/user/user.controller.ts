@@ -1,16 +1,25 @@
-import { Router, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { IUsersManager } from '@manager/user/user.manager.interface';
 import { CreateUserRequest, UpdateUserRequest, GetUserByIdRequest, DeleteUserRequest } from '@manager/user/user.contracts';
+import { BaseController } from '@shared/controllers';
 
-export class UserController {
-  public readonly router: Router;
-
+export class UserController extends BaseController {
   constructor(private readonly usersManager: IUsersManager) {
-    this.router = Router();
-    this.router.get('/:id', this.getById.bind(this));
-    this.router.post('/', this.create.bind(this));
-    this.router.put('/:id', this.update.bind(this));
-    this.router.delete('/:id', this.delete.bind(this));
+    super({
+      enableLogging: true,
+      loggingOptions: {
+        extractUserId: (req) => req.params.id || undefined
+      }
+    });
+    
+    this.setupRoutes();
+  }
+
+  private setupRoutes(): void {
+    this.addRoute('get', '/:id', this.getById);
+    this.addRoute('post', '/', this.create);
+    this.addRoute('put', '/:id', this.update);
+    this.addRoute('delete', '/:id', this.delete);
   }
 
   async getById(req: Request, res: Response) {
@@ -36,5 +45,9 @@ export class UserController {
     const id = req.params.id || '';
     const result = await this.usersManager.delete(new DeleteUserRequest(id));
     res.status(result.status).json(result.data ?? { error: result.error });
+  }
+
+  public override getRouter() {
+    return this.router;
   }
 } 
