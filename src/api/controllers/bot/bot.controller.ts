@@ -23,11 +23,11 @@ export class BotController extends BaseController {
   }
 
   private setupRoutes(): void {
-    this.addRoute('post', '/', this.createBot);
-    this.addRoute('get', '/:id', this.getBotById);
-    this.addRoute('put', '/:id', this.updateBot);
-    this.addRoute('delete', '/:id', this.deleteBot);
-    this.addRoute('get', '/', this.getAllBots);
+    this.addRoute('post', '/:userId/bots', this.createBot);
+    this.addRoute('get', '/:userId/bots/:id', this.getBotById);
+    this.addRoute('put', '/:userId/bots/:id', this.updateBot);
+    this.addRoute('delete', '/:userId/bots/:id', this.deleteBot);
+    this.addRoute('get', '/:userId/bots', this.getAllBots);
   }
 
   async createBot(req: AuthenticatedRequest, res: Response): Promise<void> {

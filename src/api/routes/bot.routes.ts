@@ -16,10 +16,10 @@ const botService = new BotService(botRepository);
 const botManager = new BotManager(botService);
 const botController = new BotController(botManager);
 
-// Apply authentication middleware to all bot routes
-router.use('/api/bots', authMiddleware.authenticate);
+// Apply authentication middleware to all user routes (including bots)
+router.use('/api/user', authMiddleware.authenticate);
 
-// Use the controller's router which includes logging middleware
-router.use('/api/bots', botController.getRouter());
+// Mount the bot controller under /api/user which expects /:userId/bots paths
+router.use('/api/user', botController.getRouter());
 
 export default router; 

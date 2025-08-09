@@ -25,10 +25,10 @@ app.use(express.json());
 // Auth routes
 app.use(authRoutes);
 
-// Bot routes
+// Bot routes (now mounted under /api/user)
 app.use(botRoutes);
 
-
+// User routes (for user-specific operations)
 const usersRepository = new UsersRepository();
 const usersService = new UsersService(usersRepository);
 const usersManager = new UsersManager(usersService);

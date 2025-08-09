@@ -190,23 +190,23 @@ export class BotManager implements IBotManager {
       
       if (validatedRequest.userId) {
         bots = await this.botService.getBotsByUserId(validatedRequest.userId);
-      } else {
-        bots = await this.botService.getAllBots();
+        console.log("bots", bots);
+        const responseData = bots.map((bot) => ({
+          id: bot.id,
+          name: bot.name,
+          userId: bot.userId,
+          tokens: bot.tokens,
+          status: bot.status,
+          timeframe: bot.timeframe,
+          agents: bot.agents,
+          createdAt: bot.createdAt.toISOString(),
+          updatedAt: bot.updatedAt.toISOString(),
+        }));
+        return ApiResponse({ bots: responseData }, 200);
       }
 
-      const responseData = bots.map(bot => ({
-        id: bot.id,
-        name: bot.name,
-        userId: bot.userId,
-        tokens: bot.tokens,
-        status: bot.status,
-        timeframe: bot.timeframe,
-        agents: bot.agents,
-        createdAt: bot.createdAt.toISOString(),
-        updatedAt: bot.updatedAt.toISOString()
-      }));
+      return ApiError('User not found', 404);
 
-      return ApiResponse({ bots: responseData }, 200);
     } catch (error) {
       if (error instanceof z.ZodError) {
         return ApiError('Validation failed: ' + error.errors.map(e => e.message).join(', '), 400);
