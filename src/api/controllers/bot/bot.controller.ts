@@ -41,10 +41,8 @@ export class BotController extends BaseController {
     const createRequest: CreateBotRequest = {
       name: req.body.name,
       userId: userId, // Use the authenticated user's UID
-      tokens: req.body.tokens,
       status: req.body.status,
-      timeframe: req.body.timeframe,
-      agents: req.body.agents
+      configuration: req.body.configuration
     };
 
     const response = await this.botManager.createBot(createRequest);
@@ -64,10 +62,8 @@ export class BotController extends BaseController {
     const updateRequest: UpdateBotRequest = {
       id: req.params.id!,
       name: req.body.name,
-      tokens: req.body.tokens,
       status: req.body.status,
-      timeframe: req.body.timeframe,
-      agents: req.body.agents,
+      configuration: req.body.configuration,
       userId: req.user?.uid!
     };
 

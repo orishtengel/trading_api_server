@@ -3,12 +3,16 @@ export interface Bot {
   id: string;
   name: string;
   userId: string;
-  tokens: string[];
   status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
-  timeframe: string;
+  configuration: BotConfiguration;
+}
+
+export interface BotConfiguration {
+  tokens: string[];
+  dataSources: DataSource[];
+  executer: Executer | null;
+  portfolio: Portfolio | null;
   agents: Agent[];
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 // Base interface for all agent types
@@ -17,21 +21,9 @@ export interface BaseAgent {
   name: string;
   type: 'data' | 'portfolio' | 'agent' | 'executer' | 'currency';
   inputs: string[];
-  positions: number[];
+  coordinates?: number[]; // New field for UI positioning
 }
 
-// AI Agent Model
-export interface AIAgent extends BaseAgent {
-  type: 'agent';
-  configuration: AgentConfiguration;
-}
-
-export interface AgentConfiguration {
-  provider: string;
-  role: string;
-  prompt: string;
-  apiKey?: string;
-}
 
 // Portfolio Model
 export interface Portfolio extends BaseAgent {
@@ -84,30 +76,26 @@ export interface ExecuterConfiguration {
   timeInForce: 'GTC' | 'IOC' | 'FOK' | 'DAY' | 'GTX';
 }
 
-// Union type for all agent models
-export type Agent = 
-  | AIAgent 
-  | Portfolio 
-  | Currency 
-  | DataSource 
-  | Executer;
+export interface Agent extends BaseAgent {  
+  type: 'agent';
+  provider: string;
+  role: string;
+  prompt: string;
+  apiKey?: string;
+}
 
 // Input types for bot operations
 export interface CreateBotInput {
   name: string;
   userId: string;
-  tokens: string[];
   status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
-  timeframe: string;
-  agents: Agent[];
+  configuration: BotConfiguration;
 }
 
 export interface UpdateBotInput {
   id: string;
   name?: string;
-  tokens?: string[];
   status?: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
-  timeframe?: string;
-  agents?: Agent[];
+  configuration?: BotConfiguration;
   userId: string;
 } 

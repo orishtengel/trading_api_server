@@ -1,39 +1,35 @@
-import { 
-  DocumentSnapshot as AdminDocumentSnapshot,
-  QueryDocumentSnapshot as AdminQueryDocumentSnapshot 
-} from 'firebase-admin/firestore';
+import { DocumentSnapshot } from '@google-cloud/firestore';
 
-/**
- * Converts Firestore document data to a typed entity with id
- */
-export function firestoreDocToEntity<T extends { id: string }>(
-  doc: AdminDocumentSnapshot | AdminQueryDocumentSnapshot
-): T | null {
+export function firestoreDocToEntity<T>(doc: DocumentSnapshot): T | null {
   if (!doc.exists) {
     return null;
   }
+  return { id: doc.id, ...doc.data() } as T;
+}
+
+// Remove undefined values from objects to prevent Firestore errors
+export function removeUndefinedValues<T extends Record<string, any>>(obj: T): T {
+  const cleaned = {} as T;
   
-  return {
-    id: doc.id,
-    ...doc.data(),
-  } as T;
-}
-
-/**
- * Converts Firestore documents array to typed entities array
- */
-export function firestoreDocsToEntities<T extends { id: string }>(
-  docs: AdminQueryDocumentSnapshot[]
-): T[] {
-  return docs.map(doc => firestoreDocToEntity<T>(doc)!);
-}
-
-/**
- * Strips the id field from an entity for Firestore creation/update
- * (Firestore auto-generates the document ID)
- */
-export function stripIdForFirestore<T extends { id: string }>(
-  entity: Omit<T, 'id'>
-): Omit<T, 'id'> {
-  return entity;
+  for (const [key, value] of Object.entries(obj)) {
+    if (value !== undefined) {
+      if (value && typeof value === 'object' && !Array.isArray(value) && !(value instanceof Date)) {
+        // Recursively clean nested objects
+        cleaned[key as keyof T] = removeUndefinedValues(value);
+      } else if (Array.isArray(value)) {
+        // Clean arrays by removing undefined elements and cleaning nested objects
+        cleaned[key as keyof T] = value
+          .filter(item => item !== undefined)
+          .map(item => 
+            item && typeof item === 'object' && !Array.isArray(item) && !(item instanceof Date)
+              ? removeUndefinedValues(item)
+              : item
+          ) as T[keyof T];
+      } else {
+        cleaned[key as keyof T] = value;
+      }
+    }
+  }
+  
+  return cleaned;
 } 

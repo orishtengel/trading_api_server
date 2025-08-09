@@ -2,7 +2,7 @@ import { IBotRepository } from './bot.repository.interface';
 import { BotEntity } from './bot.entities';
 import { CreateBotRequest, UpdateBotRequest, FindByIdRequest, DeleteBotRequest } from './contracts/requestResponse';
 import { db } from '@shared/firebase/firebase.admin.config';
-import { firestoreDocToEntity } from '@shared/firebase/firestore.utils';
+import { firestoreDocToEntity, removeUndefinedValues } from '@shared/firebase/firestore.utils';
 
 export class BotRepository implements IBotRepository {
   private getBotCollection(userId: string) {
@@ -15,10 +15,8 @@ export class BotRepository implements IBotRepository {
       const entityData = {
         name: request.name,
         userId: request.userId,
-        tokens: request.tokens,
         status: request.status,
-        timeframe: request.timeframe,
-        agents: request.agents,
+        configuration: request.configuration,
         createdAt: now,
         updatedAt: now
       };
@@ -86,12 +84,12 @@ export class BotRepository implements IBotRepository {
 
           // Note: ID and userId cannot be updated
           if (request.name !== undefined) updateData.name = request.name;
-          if (request.tokens !== undefined) updateData.tokens = request.tokens;
           if (request.status !== undefined) updateData.status = request.status;
-          if (request.timeframe !== undefined) updateData.timeframe = request.timeframe;
-          if (request.agents !== undefined) updateData.agents = request.agents;
+          if (request.configuration !== undefined) updateData.configuration = request.configuration;
 
-          await docRef.update(updateData);
+          // Remove undefined values before updating Firestore
+          const cleanUpdateData = removeUndefinedValues(updateData);
+          await docRef.update(cleanUpdateData);
           
           const updatedDocSnap = await docRef.get();
           return firestoreDocToEntity<BotEntity>(updatedDocSnap);

@@ -3,10 +3,16 @@ import { BaseEntity } from '@data/core/baseEntity';
 export interface BotEntity extends BaseEntity {
   name: string;
   userId: string;
-  tokens: string[];
   status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
-  timeframe: string;
-  agents: AgentEntity[];
+  configuration: BotConfigurationEntity;
+}
+
+export interface BotConfigurationEntity {
+  tokens: string[];
+  dataSources: DataSourceEntity[];
+  executer: ExecuterEntity | null;
+  portfolio: PortfolioEntity | null;
+  agents: (AgentEntity)[];
 }
 
 // Base interface for all agent types
@@ -15,7 +21,7 @@ export interface BaseAgentEntity {
   name: string;
   type: 'data' | 'portfolio' | 'agent' | 'executer' | 'currency';
   inputs: string[];
-  positions: number[];
+  coordinates?: number[]; // New field for UI positioning
 }
 
 // Agent (AI Agent) Entity

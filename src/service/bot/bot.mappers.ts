@@ -1,5 +1,5 @@
-import { BotEntity, AgentEntity, AIAgentEntity, PortfolioEntity, CurrencyEntity, DataSourceEntity, ExecuterEntity } from '@data/bot/bot.entities';
-import { Bot, Agent, AIAgent, Portfolio, Currency, DataSource, Executer, CreateBotInput, UpdateBotInput } from './bot.models';
+import { BotEntity, BotConfigurationEntity, AgentEntity, AIAgentEntity, PortfolioEntity, CurrencyEntity, DataSourceEntity, ExecuterEntity } from '@data/bot/bot.entities';
+import { Bot, BotConfiguration, Agent, Portfolio, Currency, DataSource, Executer, CreateBotInput, UpdateBotInput } from './bot.models';
 import { CreateBotRequest, UpdateBotRequest } from '@data/bot/contracts/requestResponse';
 
 // Map BotEntity to Bot domain model
@@ -8,12 +8,19 @@ export function mapBotEntityToBot(entity: BotEntity): Bot {
     id: entity.id,
     name: entity.name,
     userId: entity.userId,
-    tokens: entity.tokens,
     status: entity.status,
-    timeframe: entity.timeframe,
-    agents: entity.agents.map(mapAgentEntityToAgent),
-    createdAt: new Date(entity.createdAt),
-    updatedAt: new Date(entity.updatedAt)
+    configuration: mapBotConfigurationEntityToBotConfiguration(entity.configuration)
+  };
+}
+
+// Map BotConfigurationEntity to BotConfiguration domain model
+export function mapBotConfigurationEntityToBotConfiguration(entity: BotConfigurationEntity): BotConfiguration {
+  return {
+    tokens: entity.tokens,
+    dataSources: entity.dataSources.map(mapDataSourceEntityToDataSource),
+    executer: entity.executer ? mapExecuterEntityToExecuter(entity.executer) : null,
+    portfolio: entity.portfolio ? mapPortfolioEntityToPortfolio(entity.portfolio) : null,
+    agents: entity.agents.map(mapAgentEntityToAgent)
   };
 }
 
@@ -22,28 +29,23 @@ export function mapAgentEntityToAgent(entity: AgentEntity): Agent {
   switch (entity.type) {
     case 'agent':
       return mapAIAgentEntityToAIAgent(entity as AIAgentEntity);
-    case 'portfolio':
-      return mapPortfolioEntityToPortfolio(entity as PortfolioEntity);
-    case 'currency':
-      return mapCurrencyEntityToCurrency(entity as CurrencyEntity);
-    case 'data':
-      return mapDataSourceEntityToDataSource(entity as DataSourceEntity);
-    case 'executer':
-      return mapExecuterEntityToExecuter(entity as ExecuterEntity);
     default:
       throw new Error(`Unknown agent type: ${(entity as any).type}`);
   }
 }
 
 // Individual agent mappers
-function mapAIAgentEntityToAIAgent(entity: AIAgentEntity): AIAgent {
+function mapAIAgentEntityToAIAgent(entity: AIAgentEntity): Agent {
   return {
     id: entity.id,
     name: entity.name,
     type: 'agent',
     inputs: entity.inputs,
-    positions: entity.positions,
-    configuration: entity.configuration
+    coordinates: entity.coordinates,
+    provider: entity.configuration.provider,
+    role: entity.configuration.role,
+    prompt: entity.configuration.prompt,
+    apiKey: entity.configuration.apiKey
   };
 }
 
@@ -53,7 +55,7 @@ function mapPortfolioEntityToPortfolio(entity: PortfolioEntity): Portfolio {
     name: entity.name,
     type: 'portfolio',
     inputs: entity.inputs,
-    positions: entity.positions,
+    coordinates: entity.coordinates,
     riskLevel: entity.riskLevel,
     rebalanceFrequency: entity.rebalanceFrequency,
     stopLoss: entity.stopLoss,
@@ -69,7 +71,7 @@ function mapCurrencyEntityToCurrency(entity: CurrencyEntity): Currency {
     name: entity.name,
     type: 'currency',
     inputs: entity.inputs,
-    positions: entity.positions,
+    coordinates: entity.coordinates,
     selectedToken: entity.selectedToken
   };
 }
@@ -80,7 +82,7 @@ function mapDataSourceEntityToDataSource(entity: DataSourceEntity): DataSource {
     name: entity.name,
     type: 'data',
     inputs: entity.inputs,
-    positions: entity.positions,
+    coordinates: entity.coordinates,
     dataSourceType: entity.dataSourceType,
     marketType: entity.marketType,
     timeframe: entity.timeframe,
@@ -95,7 +97,7 @@ function mapExecuterEntityToExecuter(entity: ExecuterEntity): Executer {
     name: entity.name,
     type: 'executer',
     inputs: entity.inputs,
-    positions: entity.positions,
+    coordinates: entity.coordinates,
     exchange: entity.exchange,
     apiKeyId: entity.apiKeyId,
     configuration: entity.configuration
@@ -107,10 +109,8 @@ export function mapCreateBotInputToCreateBotRequest(input: CreateBotInput): Crea
   return {
     name: input.name,
     userId: input.userId,
-    tokens: input.tokens,
     status: input.status,
-    timeframe: input.timeframe,
-    agents: input.agents.map(mapAgentToAgentEntity)
+    configuration: mapBotConfigurationToBotConfigurationEntity(input.configuration)
   };
 }
 
@@ -118,11 +118,67 @@ export function mapUpdateBotInputToUpdateBotRequest(input: UpdateBotInput): Upda
   return {
     id: input.id,
     name: input.name,
-    tokens: input.tokens,
     status: input.status,
-    timeframe: input.timeframe,
-    agents: input.agents?.map(mapAgentToAgentEntity),
+    configuration: input.configuration ? mapBotConfigurationToBotConfigurationEntity(input.configuration) : undefined,
     userId: input.userId
+  };
+}
+
+// Map BotConfiguration to BotConfigurationEntity
+export function mapBotConfigurationToBotConfigurationEntity(config: BotConfiguration): BotConfigurationEntity {
+  return {
+    tokens: config.tokens,
+    dataSources: config.dataSources.map(mapDataSourceToDataSourceEntity),
+    executer: config.executer ? mapExecuterToExecuterEntity(config.executer) : null,
+    portfolio: config.portfolio ? mapPortfolioToPortfolioEntity(config.portfolio) : null,
+    agents: config.agents.map(mapAgentToAgentEntity)
+  };  
+}
+
+// Map DataSource domain model to DataSourceEntity
+function mapDataSourceToDataSourceEntity(dataSource: DataSource): DataSourceEntity {
+  return {
+    id: dataSource.id,
+    name: dataSource.name,
+    type: 'data',
+    inputs: dataSource.inputs,
+    coordinates: dataSource.coordinates,
+    dataSourceType: dataSource.dataSourceType,
+    marketType: dataSource.marketType,
+    timeframe: dataSource.timeframe,
+    sources: dataSource.sources,
+    accounts: dataSource.accounts
+  };
+}
+
+// Map Executer domain model to ExecuterEntity
+function mapExecuterToExecuterEntity(executer: Executer): ExecuterEntity {
+  return {
+    id: executer.id,
+    name: executer.name,
+    type: 'executer',
+    inputs: executer.inputs,
+    coordinates: executer.coordinates,
+    exchange: executer.exchange,
+    apiKeyId: executer.apiKeyId,
+    configuration: executer.configuration
+  };
+}
+
+// Map Portfolio domain model to PortfolioEntity
+function mapPortfolioToPortfolioEntity(portfolio: Portfolio): PortfolioEntity {
+  return {
+    id: portfolio.id,
+    name: portfolio.name,
+    type: 'portfolio',
+    inputs: portfolio.inputs,
+    coordinates: portfolio.coordinates,
+    riskLevel: portfolio.riskLevel,
+    rebalanceFrequency: portfolio.rebalanceFrequency,
+    stopLoss: portfolio.stopLoss,
+    takeProfit: portfolio.takeProfit,
+    maxDrawdown: portfolio.maxDrawdown,
+    targetReturn: portfolio.targetReturn
   };
 }
 
@@ -135,56 +191,14 @@ function mapAgentToAgentEntity(agent: Agent): AgentEntity {
         name: agent.name,
         type: 'agent',
         inputs: agent.inputs,
-        positions: agent.positions,
-        configuration: agent.configuration
+        coordinates: agent.coordinates,
+        configuration: {
+          provider: agent.provider,
+          role: agent.role,
+          prompt: agent.prompt,
+          apiKey: agent.apiKey
+        }
       } as AIAgentEntity;
-    case 'portfolio':
-      return {
-        id: agent.id,
-        name: agent.name,
-        type: 'portfolio',
-        inputs: agent.inputs,
-        positions: agent.positions,
-        riskLevel: agent.riskLevel,
-        rebalanceFrequency: agent.rebalanceFrequency,
-        stopLoss: agent.stopLoss,
-        takeProfit: agent.takeProfit,
-        maxDrawdown: agent.maxDrawdown,
-        targetReturn: agent.targetReturn
-      } as PortfolioEntity;
-    case 'currency':
-      return {
-        id: agent.id,
-        name: agent.name,
-        type: 'currency',
-        inputs: agent.inputs,
-        positions: agent.positions,
-        selectedToken: agent.selectedToken
-      } as CurrencyEntity;
-    case 'data':
-      return {
-        id: agent.id,
-        name: agent.name,
-        type: 'data',
-        inputs: agent.inputs,
-        positions: agent.positions,
-        dataSourceType: agent.dataSourceType,
-        marketType: agent.marketType,
-        timeframe: agent.timeframe,
-        sources: agent.sources,
-        accounts: agent.accounts
-      } as DataSourceEntity;
-    case 'executer':
-      return {
-        id: agent.id,
-        name: agent.name,
-        type: 'executer',
-        inputs: agent.inputs,
-        positions: agent.positions,
-        exchange: agent.exchange,
-        apiKeyId: agent.apiKeyId,
-        configuration: agent.configuration
-      } as ExecuterEntity;
     default:
       throw new Error(`Unknown agent type: ${(agent as any).type}`);
   }

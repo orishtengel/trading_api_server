@@ -17,30 +17,106 @@ import { CreateBotInput, UpdateBotInput, Bot } from '@service/bot/bot.models';
 import { ApiError, ApiResponse } from '@shared/http/api';
 
 // Validation schemas
-const agentSchema = z.object({
+const baseAgentSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
   type: z.enum(['data', 'portfolio', 'agent', 'executer', 'currency']),
   inputs: z.array(z.string()),
-  positions: z.array(z.number())
-}).passthrough(); // Allow additional properties for different agent types
+  positions: z.array(z.number()).optional(), // For backwards compatibility
+  coordinates: z.array(z.number()).optional() // New field for UI positioning
+});
+
+const agentConfigurationSchema = z.object({
+  provider: z.string(),
+  role: z.string(),
+  prompt: z.string(),
+  apiKey: z.string().optional()
+});
+
+const aiAgentSchema = baseAgentSchema.extend({
+  type: z.literal('agent'),
+  configuration: agentConfigurationSchema.optional(),
+  // Flattened configuration fields for backwards compatibility
+  provider: z.string().optional(),
+  role: z.string().optional(),
+  prompt: z.string().optional(),
+  apiKey: z.string().optional()
+}).passthrough();
+
+const dataSourceSchema = baseAgentSchema.extend({
+  type: z.literal('data'),
+  dataSourceType: z.enum(['kucoin', 'news', 'twitter']),
+  // KuCoin specific
+  marketType: z.string().optional(),
+  timeframe: z.string().optional(),
+  // News specific
+  sources: z.array(z.string()).optional(),
+  // Twitter specific
+  accounts: z.array(z.string()).optional()
+}).passthrough();
+
+const executerConfigurationSchema = z.object({
+  executionMode: z.enum(['live', 'backtest']),
+  orderType: z.enum(['market', 'limit', 'stop', 'stop_limit', 'trailing_stop']),
+  timeInForce: z.enum(['GTC', 'IOC', 'FOK', 'DAY', 'GTX'])
+});
+
+const executerSchema = baseAgentSchema.extend({
+  type: z.literal('executer'),
+  exchange: z.string(),
+  apiKeyId: z.string().optional(),
+  configuration: executerConfigurationSchema
+}).passthrough();
+
+const portfolioSchema = baseAgentSchema.extend({
+  type: z.literal('portfolio'),
+  riskLevel: z.enum(['low', 'medium', 'high']),
+  rebalanceFrequency: z.enum(['daily', 'weekly', 'monthly', 'quarterly', 'yearly']),
+  stopLoss: z.number(),
+  takeProfit: z.number(),
+  maxDrawdown: z.number(),
+  targetReturn: z.number()
+}).passthrough();
+
+const currencySchema = baseAgentSchema.extend({
+  type: z.literal('currency'),
+  selectedToken: z.object({
+    symbol: z.string(),
+    name: z.string(),
+    price: z.number().optional(),
+    change24h: z.number().optional()
+  }).optional()
+}).passthrough();
+
+// Union schema for all agent types
+const agentSchema = z.discriminatedUnion('type', [
+  aiAgentSchema,
+  dataSourceSchema,
+  executerSchema,
+  portfolioSchema,
+  currencySchema
+]);
+
+const botConfigurationSchema = z.object({
+  tokens: z.array(z.string()),
+  dataSources: z.array(dataSourceSchema),
+  executer: executerSchema.nullable(),
+  portfolio: portfolioSchema.nullable(),
+  agents: z.array(agentSchema)
+});
 
 const createBotSchema = z.object({
   name: z.string().min(1).max(255),
   userId: z.string().min(1),
-  tokens: z.array(z.string()),
   status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting']).optional(),
-  timeframe: z.string().min(1),
-  agents: z.array(agentSchema)
+  configuration: botConfigurationSchema
 });
 
 const updateBotSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1).max(255).optional(),
-  tokens: z.array(z.string()).optional(),
   status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting']).optional(),
-  timeframe: z.string().min(1).optional(),
-  agents: z.array(agentSchema).optional(),
+  configuration: botConfigurationSchema.optional(),
   userId: z.string().min(1)
 });
 
@@ -61,29 +137,34 @@ export class BotManager implements IBotManager {
 
   async createBot(request: CreateBotRequest): Promise<ApiResponse<CreateBotResponse>> {
     try {
+      console.log("request", request);
       const validatedRequest = createBotSchema.parse(request);
       
       const createInput: CreateBotInput = {
         name: validatedRequest.name,
         userId: validatedRequest.userId,
-        tokens: validatedRequest.tokens,
         status: validatedRequest.status || 'active',
-        timeframe: validatedRequest.timeframe,
-        agents: validatedRequest.agents as any // Type assertion needed due to complex union types
+        configuration: validatedRequest.configuration as any // Type assertion for complex union types
       };
 
+      console.log("createInput", createInput);
+
       const bot = await this.botService.createBot(createInput);
+      
+      // Get timestamps from service layer that still has access to BaseEntity
+      const botWithTimestamps = await this.botService.getBotById(bot.id);
+      if (!botWithTimestamps) {
+        return ApiError('Failed to retrieve created bot', 500);
+      }
       
       return ApiResponse({
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
-        tokens: bot.tokens,
         status: bot.status,
-        timeframe: bot.timeframe,
-        agents: bot.agents,
-        createdAt: bot.createdAt.toISOString(),
-        updatedAt: bot.updatedAt.toISOString()
+        configuration: bot.configuration,
+        createdAt: (botWithTimestamps as any).createdAt?.toISOString() || new Date().toISOString(),
+        updatedAt: (botWithTimestamps as any).updatedAt?.toISOString() || new Date().toISOString()
       }, 201);
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -107,12 +188,10 @@ export class BotManager implements IBotManager {
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
-        tokens: bot.tokens,
         status: bot.status,
-        timeframe: bot.timeframe,
-        agents: bot.agents,
-        createdAt: bot.createdAt.toISOString(),
-        updatedAt: bot.updatedAt.toISOString()
+        configuration: bot.configuration,
+        createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
+        updatedAt: (bot as any).updatedAt?.toISOString() || new Date().toISOString()
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -129,10 +208,8 @@ export class BotManager implements IBotManager {
       const updateInput: UpdateBotInput = {
         id: validatedRequest.id,
         name: validatedRequest.name,
-        tokens: validatedRequest.tokens,
         status: validatedRequest.status,
-        timeframe: validatedRequest.timeframe,
-        agents: validatedRequest.agents as any, // Type assertion needed due to complex union types
+        configuration: validatedRequest.configuration as any, // Type assertion for complex union types
         userId: validatedRequest.userId
       };
 
@@ -148,12 +225,10 @@ export class BotManager implements IBotManager {
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
-        tokens: bot.tokens,
         status: bot.status,
-        timeframe: bot.timeframe,
-        agents: bot.agents,
-        createdAt: bot.createdAt.toISOString(),
-        updatedAt: bot.updatedAt.toISOString()
+        configuration: bot.configuration,
+        createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
+        updatedAt: (bot as any).updatedAt?.toISOString() || new Date().toISOString()
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -195,12 +270,10 @@ export class BotManager implements IBotManager {
           id: bot.id,
           name: bot.name,
           userId: bot.userId,
-          tokens: bot.tokens,
           status: bot.status,
-          timeframe: bot.timeframe,
-          agents: bot.agents,
-          createdAt: bot.createdAt.toISOString(),
-          updatedAt: bot.updatedAt.toISOString(),
+          configuration: bot.configuration,
+          createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
+          updatedAt: (bot as any).updatedAt?.toISOString() || new Date().toISOString(),
         }));
         return ApiResponse({ bots: responseData }, 200);
       }
