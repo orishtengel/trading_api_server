@@ -9,6 +9,7 @@ export class AuthController extends BaseController {
   constructor() {
     super({
       enableLogging: true,
+      enableAuth: false,
       loggingOptions: {
         redactFields: ['idToken'], // Redact sensitive token data
         extractUserId: (req) => req.params.uid || undefined
@@ -30,7 +31,8 @@ export class AuthController extends BaseController {
     };
 
     const response = await this.authManager.verifyToken(request);
-    res.status(response.status).json(response);
+    console.log(response);
+    res.status(response.status).json(response.data);
   }
 
   async getCurrentUser(req: Request, res: Response): Promise<void> {

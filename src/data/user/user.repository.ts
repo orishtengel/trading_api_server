@@ -36,8 +36,8 @@ export class UsersRepository implements IUsersRepository {
         updatedAt: now
       };
 
-      // Use email as the document ID
-      const docRef = this.collection.doc(request.email);
+      // Use UUID as the document ID
+      const docRef = this.collection.doc(request.id);
       await docRef.set(entityData);
       const docSnap = await docRef.get();
       
@@ -61,7 +61,7 @@ export class UsersRepository implements IUsersRepository {
         updatedAt: new Date().toISOString()
       };
 
-      // Note: email cannot be updated since it's used as the document ID
+      // Note: ID cannot be updated since it's the document ID
       if (request.firstName !== undefined) updateData.firstName = request.firstName;
       if (request.lastName !== undefined) updateData.lastName = request.lastName;
       if (request.role !== undefined) updateData.role = request.role;

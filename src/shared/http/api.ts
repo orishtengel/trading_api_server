@@ -4,16 +4,25 @@ export interface ApiResponse<T = any> {
   error?: string;
 }
 
-export function ApiSuccess<T>(data: T, status: number = 200): ApiResponse<T> {
+
+export function ApiResponse<T>(data: T, status: number = 200, error?: string): ApiResponse<T> {
   return {
     status,
-    data
+    data,
+    error
   };
-}
+} 
 
 export function ApiError(error: string, status: number = 400): ApiResponse {
   return {
     status,
     error
+  };
+} 
+
+export function ApiSuccess<T>(data: T, status: number = 200): ApiResponse<T> {
+  return {
+    status,
+    data
   };
 } 

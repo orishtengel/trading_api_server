@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { createLoggingMiddleware } from '@shared/middleware/logging.middleware';
+import { AuthMiddleware } from '@shared/middleware';
 
 interface ControllerConfig {
   enableLogging?: boolean;
@@ -9,6 +10,7 @@ interface ControllerConfig {
     extractUserId?: (req: Request) => string | undefined;
   };
   customMiddleware?: Array<(req: Request, res: Response, next: NextFunction) => void>;
+  enableAuth?: boolean;
 }
 
 export abstract class BaseController {
@@ -19,6 +21,7 @@ export abstract class BaseController {
     this.router = Router();
     this.config = {
       enableLogging: true,
+      enableAuth: true,
       loggingOptions: {},
       customMiddleware: [],
       ...config
@@ -33,6 +36,11 @@ export abstract class BaseController {
       this.config.customMiddleware.forEach(middleware => {
         this.router.use(middleware);
       });
+    }
+
+    // Apply auth middleware if enabled
+    if (this.config.enableAuth) {
+      this.router.use(new AuthMiddleware().authenticate);
     }
 
     // Apply logging middleware if enabled

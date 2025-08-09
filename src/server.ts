@@ -6,6 +6,7 @@ import { UsersService } from '@service/user/user.service';
 import { UsersManager } from '@manager/user/user.manager';
 import { UserController } from '@controller/user/user.controller';
 import authRoutes from './api/routes/auth.routes';
+import botRoutes from './api/routes/bot.routes';
 
 const app = express();
 
@@ -23,6 +24,10 @@ app.use(express.json());
 
 // Auth routes
 app.use(authRoutes);
+
+// Bot routes
+app.use(botRoutes);
+
 
 const usersRepository = new UsersRepository();
 const usersService = new UsersService(usersRepository);

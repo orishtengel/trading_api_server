@@ -42,6 +42,7 @@ export class AuthManager implements IAuthManager {
         }
       });
     } catch (error: any) {
+      console.log(error);
       if (error instanceof z.ZodError) {
         return ApiError('Invalid input: ' + error.errors.map(e => e.message).join(', '), 400);
       }

@@ -20,6 +20,7 @@ export function mapUserEntityToModel(entity: UserEntity): User {
 
 export function mapCreateUserInputToDataRequest(input: CreateUserInput): DataCreateUserRequest {
   return new DataCreateUserRequest(
+    input.id,
     input.email,
     input.firstName, // service firstName -> data first_name
     input.lastName,  // service lastName -> data last_name

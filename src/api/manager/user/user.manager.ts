@@ -10,6 +10,7 @@ import {
 } from '@service/user/contract/requestResponse';
 
 const createUserSchema = z.object({
+  id: z.string(),
   email: z.string().email(),
   firstName: z.string().min(1),
   lastName: z.string().min(1),
@@ -18,7 +19,7 @@ const createUserSchema = z.object({
 });
 
 const updateUserSchema = z.object({
-  id: z.string().email(), // ID is now email format
+  id: z.string(), // ID is now UUID format
   firstName: z.string().min(1).optional(),
   lastName: z.string().min(1).optional(),
   role: z.string().min(1).optional(),
@@ -29,10 +30,10 @@ export class UsersManager implements IUsersManager {
   constructor(private readonly usersService: IUsersService) {}
 
   async getById(req: GetUserByIdRequest): Promise<GetUserByIdResponse> {
-    // Validate email format since ID is now email
-    const emailValidation = z.string().email().safeParse(req.id);
-    if (!emailValidation.success) {
-      return new GetUserByIdResponse(400, undefined, 'Invalid email format for id');
+    // Validate UUID format since ID is now UUID
+    const uuidValidation = z.string().safeParse(req.id);
+    if (!uuidValidation.success) {
+      return new GetUserByIdResponse(400, undefined, 'Invalid UUID format for id');
     }
     const serviceRequest = new ServiceGetUserByIdRequest(req.id);
     const serviceResponse = await this.usersService.getById(serviceRequest);
@@ -48,6 +49,7 @@ export class UsersManager implements IUsersManager {
       return new CreateUserResponse(400, undefined, parsed.error.flatten().formErrors.join('; '));
     }
     const serviceRequest = new ServiceCreateUserRequest(
+      parsed.data.id,
       parsed.data.email,
       parsed.data.firstName,
       parsed.data.lastName,
@@ -78,10 +80,10 @@ export class UsersManager implements IUsersManager {
   }
 
   async delete(req: DeleteUserRequest): Promise<DeleteUserResponse> {
-    // Validate email format since ID is now email
-    const emailValidation = z.string().email().safeParse(req.id);
-    if (!emailValidation.success) {
-      return new DeleteUserResponse(400, undefined, 'Invalid email format for id');
+    // Validate UUID format since ID is now UUID
+    const uuidValidation = z.string().uuid().safeParse(req.id);
+    if (!uuidValidation.success) {
+      return new DeleteUserResponse(400, undefined, 'Invalid UUID format for id');
     }
     const serviceRequest = new ServiceDeleteUserRequest(req.id);
     const serviceResponse = await this.usersService.delete(serviceRequest);
