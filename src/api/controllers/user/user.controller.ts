@@ -36,8 +36,8 @@ export class UserController extends BaseController {
 
   async update(req: Request, res: Response) {
     const id = req.params.id || '';
-    const { email, firstName, lastName, role, permissions } = req.body;
-    const result = await this.usersManager.update(new UpdateUserRequest(id, email, firstName, lastName, role, permissions));
+    const { firstName, lastName, role, permissions } = req.body;
+    const result = await this.usersManager.update(new UpdateUserRequest(id, firstName, lastName, role, permissions));
     res.status(result.status).json(result.data ?? { error: result.error });
   }
 

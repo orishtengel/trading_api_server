@@ -31,7 +31,6 @@ export function mapCreateUserInputToDataRequest(input: CreateUserInput): DataCre
 export function mapUpdateUserInputToDataRequest(id: string, input: UpdateUserInput): DataUpdateUserRequest {
   return new DataUpdateUserRequest(
     id,
-    input.email,
     input.firstName, // service firstName -> data first_name
     input.lastName,  // service lastName -> data last_name
     input.role,

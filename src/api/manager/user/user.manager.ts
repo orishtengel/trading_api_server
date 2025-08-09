@@ -18,8 +18,7 @@ const createUserSchema = z.object({
 });
 
 const updateUserSchema = z.object({
-  id: z.string().min(1),
-  email: z.string().email().optional(),
+  id: z.string().email(), // ID is now email format
   firstName: z.string().min(1).optional(),
   lastName: z.string().min(1).optional(),
   role: z.string().min(1).optional(),
@@ -30,8 +29,10 @@ export class UsersManager implements IUsersManager {
   constructor(private readonly usersService: IUsersService) {}
 
   async getById(req: GetUserByIdRequest): Promise<GetUserByIdResponse> {
-    if (!req.id || req.id.trim().length === 0) {
-      return new GetUserByIdResponse(400, undefined, 'Invalid id');
+    // Validate email format since ID is now email
+    const emailValidation = z.string().email().safeParse(req.id);
+    if (!emailValidation.success) {
+      return new GetUserByIdResponse(400, undefined, 'Invalid email format for id');
     }
     const serviceRequest = new ServiceGetUserByIdRequest(req.id);
     const serviceResponse = await this.usersService.getById(serviceRequest);
@@ -64,7 +65,6 @@ export class UsersManager implements IUsersManager {
     }
     const serviceRequest = new ServiceUpdateUserRequest(
       parsed.data.id,
-      parsed.data.email,
       parsed.data.firstName,
       parsed.data.lastName,
       parsed.data.role,
@@ -78,8 +78,10 @@ export class UsersManager implements IUsersManager {
   }
 
   async delete(req: DeleteUserRequest): Promise<DeleteUserResponse> {
-    if (!req.id || req.id.trim().length === 0) {
-      return new DeleteUserResponse(400, undefined, 'Invalid id');
+    // Validate email format since ID is now email
+    const emailValidation = z.string().email().safeParse(req.id);
+    if (!emailValidation.success) {
+      return new DeleteUserResponse(400, undefined, 'Invalid email format for id');
     }
     const serviceRequest = new ServiceDeleteUserRequest(req.id);
     const serviceResponse = await this.usersService.delete(serviceRequest);

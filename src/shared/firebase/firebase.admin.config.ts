@@ -1,14 +1,20 @@
-var admin = require("firebase-admin");
+import * as admin from 'firebase-admin';
+import { getFirestore } from 'firebase-admin/firestore';
 
-var serviceAccount = require("../../../serviceAccountKey.json");
+const serviceAccount = require("../../../serviceAccountKey.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: `https://${serviceAccount.project_id}-default-rtdb.firebaseio.com/`,
+  });
+}
+const app = admin.app();
 
 // Get Admin Auth instance
 export const adminAuth = admin.auth();
 
-export const db = admin.firestore();
+// Get Firestore instance (uses default database)
+export const db = getFirestore(app, "tradingdb") //  admin.firestore(app);
 
 export default admin; 

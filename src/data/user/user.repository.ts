@@ -36,7 +36,9 @@ export class UsersRepository implements IUsersRepository {
         updatedAt: now
       };
 
-      const docRef = await this.collection.add(entityData);
+      // Use email as the document ID
+      const docRef = this.collection.doc(request.email);
+      await docRef.set(entityData);
       const docSnap = await docRef.get();
       
       return firestoreDocToEntity<UserEntity>(docSnap)!;
@@ -59,7 +61,7 @@ export class UsersRepository implements IUsersRepository {
         updatedAt: new Date().toISOString()
       };
 
-      if (request.email !== undefined) updateData.email = request.email;
+      // Note: email cannot be updated since it's used as the document ID
       if (request.firstName !== undefined) updateData.firstName = request.firstName;
       if (request.lastName !== undefined) updateData.lastName = request.lastName;
       if (request.role !== undefined) updateData.role = request.role;
