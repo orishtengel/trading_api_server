@@ -1,12 +1,15 @@
-import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot } from 'firebase/firestore';
+import { 
+  DocumentSnapshot as AdminDocumentSnapshot,
+  QueryDocumentSnapshot as AdminQueryDocumentSnapshot 
+} from 'firebase-admin/firestore';
 
 /**
  * Converts Firestore document data to a typed entity with id
  */
 export function firestoreDocToEntity<T extends { id: string }>(
-  doc: DocumentSnapshot | QueryDocumentSnapshot
+  doc: AdminDocumentSnapshot | AdminQueryDocumentSnapshot
 ): T | null {
-  if (!doc.exists()) {
+  if (!doc.exists) {
     return null;
   }
   
@@ -20,7 +23,7 @@ export function firestoreDocToEntity<T extends { id: string }>(
  * Converts Firestore documents array to typed entities array
  */
 export function firestoreDocsToEntities<T extends { id: string }>(
-  docs: QueryDocumentSnapshot[]
+  docs: AdminQueryDocumentSnapshot[]
 ): T[] {
   return docs.map(doc => firestoreDocToEntity<T>(doc)!);
 }

@@ -4,28 +4,18 @@ import {
   FindUserByIdRequest, 
   CreateUserRequest, 
   UpdateUserRequest, 
-  DeleteUserRequest 
+  DeleteUserRequest   
 } from './contracts/requestResponse';
-import { db } from '@shared/firebase/firebase.config';
-import { firestoreDocToEntity, stripIdForFirestore } from '@shared/firebase/firestore.utils';
-import { 
-  collection, 
-  doc, 
-  getDoc, 
-  addDoc, 
-  updateDoc, 
-  deleteDoc,
-  CollectionReference,
-  DocumentReference
-} from 'firebase/firestore';
+import { db } from '@shared/firebase/firebase.admin.config';
+import { firestoreDocToEntity } from '@shared/firebase/firestore.utils';
 
 export class UsersRepository implements IUsersRepository {
-  private readonly collectionRef = collection(db, 'users');
+  private readonly collection = db.collection('users');
 
   async findById(request: FindUserByIdRequest): Promise<UserEntity | null> {
     try {
-      const docRef = doc(this.collectionRef, request.id);
-      const docSnap = await getDoc(docRef);
+      const docRef = this.collection.doc(request.id);
+      const docSnap = await docRef.get();
       return firestoreDocToEntity<UserEntity>(docSnap);
     } catch (error) {
       console.error('Error finding user by id:', error);
@@ -42,12 +32,12 @@ export class UsersRepository implements IUsersRepository {
         lastName: request.lastName,
         role: request.role,
         permissions: request.permissions,
-        created_at: now,
-        updated_at: now
+        createdAt: now,
+        updatedAt: now
       };
 
-      const docRef = await addDoc(this.collectionRef, entityData);
-      const docSnap = await getDoc(docRef);
+      const docRef = await this.collection.add(entityData);
+      const docSnap = await docRef.get();
       
       return firestoreDocToEntity<UserEntity>(docSnap)!;
     } catch (error) {
@@ -58,15 +48,15 @@ export class UsersRepository implements IUsersRepository {
 
   async update(request: UpdateUserRequest): Promise<UserEntity | null> {
     try {
-      const docRef = doc(this.collectionRef, request.id);
-      const docSnap = await getDoc(docRef);
+      const docRef = this.collection.doc(request.id);
+      const docSnap = await docRef.get();
       
-      if (!docSnap.exists()) {
+      if (!docSnap.exists) {
         return null;
       }
 
-      const updateData: Partial<Omit<UserEntity, 'id' | 'created_at'>> = {
-        updated_at: new Date().toISOString()
+      const updateData: Partial<Omit<UserEntity, 'id' | 'createdAt'>> = {
+        updatedAt: new Date().toISOString()
       };
 
       if (request.email !== undefined) updateData.email = request.email;
@@ -75,9 +65,9 @@ export class UsersRepository implements IUsersRepository {
       if (request.role !== undefined) updateData.role = request.role;
       if (request.permissions !== undefined) updateData.permissions = request.permissions;
 
-      await updateDoc(docRef, updateData);
+      await docRef.update(updateData);
       
-      const updatedDocSnap = await getDoc(docRef);
+      const updatedDocSnap = await docRef.get();
       return firestoreDocToEntity<UserEntity>(updatedDocSnap);
     } catch (error) {
       console.error('Error updating user:', error);
@@ -87,14 +77,14 @@ export class UsersRepository implements IUsersRepository {
 
   async delete(request: DeleteUserRequest): Promise<boolean> {
     try {
-      const docRef = doc(this.collectionRef, request.id);
-      const docSnap = await getDoc(docRef);
+      const docRef = this.collection.doc(request.id);
+      const docSnap = await docRef.get();
       
-      if (!docSnap.exists()) {
+      if (!docSnap.exists) {
         return false;
       }
 
-      await deleteDoc(docRef);
+      await docRef.delete();
       return true;
     } catch (error) {
       console.error('Error deleting user:', error);
