@@ -2,7 +2,9 @@ import 'dotenv/config';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 import { buildCorsOptions } from '@shared/http/cors';
+import { swaggerSpec } from '@shared/swagger';
 import { UsersRepository } from '@data/user/user.repository';
 import { UsersService } from '@service/user/user.service';
 import { UsersManager } from '@manager/user/user.manager';
@@ -19,6 +21,28 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
+
+// Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'Trading API Documentation',
+  swaggerOptions: {
+    persistAuthorization: true,
+    displayRequestDuration: true,
+  },
+}));
+
+// Swagger JSON endpoint
+app.get('/api-docs.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
+// Root endpoint redirects to API documentation
+app.get('/', (req, res) => {
+  res.redirect('/api-docs');
+});
 
 // Auth routes
 app.use(authRoutes);
