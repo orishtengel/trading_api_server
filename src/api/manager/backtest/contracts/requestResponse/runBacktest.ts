@@ -4,6 +4,7 @@ export interface RunBacktestRequest {
   botId: string;
   startDate: string; // ISO string
   endDate: string;   // ISO string
+  userId: string;
 }
 
 export interface SSEEvent {

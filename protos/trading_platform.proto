@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package tradingplatform.v1;
+
+// Service for inter-service communication via gRPC
+service TradingPlatformService {
+  // Run backtest and stream events as they occur
+  rpc RunBacktest (RunBacktestRequest) returns (stream BacktestEvent);
+}
+
+message RunBacktestRequest {
+  string id = 1; // reference to previously saved config. If empty, default config is used
+  // Optional ISO-8601 timestamps. If empty, defaults to last 30 days
+  string config_yaml = 2;
+  string start_iso = 3;
+  string end_iso = 4;
+}
+
+message BacktestEvent {
+  string type = 1;
+  // Raw JSON payload for flexibility; clients can parse based on `type`
+  string payload_json = 2;
+}

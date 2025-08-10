@@ -2,52 +2,71 @@ import { z } from 'zod';
 import { ApiError, ApiResponse } from '@shared/http/api';
 import { IBacktestManager } from '@manager/backtest/backtest.manager.interface';
 import { RunBacktestRequest, RunBacktestResponse } from '@manager/backtest/backtest.contracts';
+import { IBotService } from '@service/bot/bot.service.interface';
+import { mapBotToYaml } from '@manager/backtest/mapper/mapConfigToYaml';
+import { TradingPlatformGrpcClient } from '@shared/grpc';
 
 // Validation schema for backtest run
 const runBacktestSchema = z.object({
   botId: z.string().min(1),
   startDate: z.string().min(1), // Expect ISO strings across manager boundary
-  endDate: z.string().min(1)
+  endDate: z.string().min(1),
+  userId: z.string().min(1)
 });
 
 export class BacktestManager implements IBacktestManager {
+  constructor(private readonly botService: IBotService, private readonly grpcClient: TradingPlatformGrpcClient) {}
+
+  private async simulatePreparingBacktest(eventCallback?: (event: { data: string; type: string; lastEventId?: string }) => void): Promise<void> {
+    const steps = [
+      { step: 1, progress: 50, stepText: 'Initializing backtest...' },
+      { step: 2, progress: 100, stepText: 'Loading historical data...' },
+    ];
+
+    for (let i = 0; i < steps.length; i++) {
+      const step = steps[i];
+      
+      if (eventCallback) {
+        eventCallback({
+          data: JSON.stringify({
+            type: "progressPrepare",
+            data: step
+          }),
+          type: 'progressPrepare'
+        });
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+  }
+
   async runBacktest(request: RunBacktestRequest, eventCallback?: (event: { data: string; type: string; lastEventId?: string }) => void): Promise<ApiResponse<RunBacktestResponse>> {
     try {
       const validated = runBacktestSchema.parse(request);
 
-      // Simulate a real backtest process with multiple progress events
-      const steps = [
-        { step: 1, progress: 10, stepText: 'Initializing backtest...' },
-        { step: 2, progress: 25, stepText: 'Loading historical data...' },
-        { step: 3, progress: 50, stepText: 'Processing trading signals...' },
-        { step: 4, progress: 75, stepText: 'Calculating performance metrics...' },
-        { step: 5, progress: 90, stepText: 'Generating results...' },
-        { step: 6, progress: 100, stepText: 'Backtest completed successfully' }
-      ];
-
-      for (let i = 0; i < steps.length; i++) {
-        const step = steps[i];
-        
-        // Send progress event if callback is provided
-        if (eventCallback) {
-          eventCallback({
-            data: JSON.stringify(step),
-            type: 'progressPrepare'
-          });
-        }
-
-        // Simulate processing time
-        await new Promise(resolve => setTimeout(resolve, 1000));
+      // Retrieve bot from Firebase to ensure it exists and get its configuration
+      const bot = await this.botService.getBotById(validated.botId);
+      
+      if (!bot) {
+        return ApiError('Bot not found', 404);
       }
 
+      if (bot.userId !== validated.userId) {
+        return ApiError('Unauthorized to access this bot', 403);
+      }
 
-      // Return a success response (not really used in SSE context, but required by interface)
-      const finalEvent = {
-        data: JSON.stringify({ step: 6, progress: 100, stepText: 'Backtest completed successfully' }),
-        type: 'progressPrepare' as const,
-      };
+      await this.simulatePreparingBacktest(eventCallback);
 
-      return ApiResponse({ event: finalEvent }, 200);
+      const yamlConfig = mapBotToYaml(bot);
+      await this.grpcClient.runBacktest({
+        configYaml: JSON.stringify(yamlConfig),
+        startIso: validated.startDate,
+        endIso: validated.endDate
+      }, {
+        onEvent: (payload) => eventCallback?.({ data: JSON.stringify(payload), type: 'progressPrepare' })
+      });
+
+      return ApiResponse({ event: { data: 'Backtest completed successfully', type: 'backtest-end' } }, 200);
     } catch (error) {
       if (error instanceof z.ZodError) {
         return ApiError('Validation failed: ' + error.errors.map(e => e.message).join(', '), 400);

@@ -1,95 +1,66 @@
-import { Router, Request, Response } from "express";
+import { Request, Response } from "express";
 import { applySseHeaders } from '@shared/http/cors';
+import { IBacktestManager } from '@manager/backtest/backtest.manager.interface';
+import { RunBacktestRequest } from '@manager/backtest/backtest.contracts';
 
-const router = Router();
+export class BacktestController {
+  constructor(private readonly backtestManager: IBacktestManager) {}
 
-// Temporary in-memory store for backtest configs
-const backtestStore = new Map<string, any>();
+  async runBacktest(req: Request, res: Response): Promise<void> {
+    const { botId, userId } = req.params;
+    const { startDate, endDate } = req.query as { startDate?: string; endDate?: string };
 
-// POST /api/user/:userId/backtest/save/:botId
-router.post("/:userId/backtest/save/:botId", (req: Request, res: Response) => {
-  const config = req.body;
-  const { botId } = req.params;
+    // Validate required parameters
+    if (!botId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: botId" });
+      return;
+    }
 
-  if (!config) {
-    return res
-      .status(400)
-      .json({ ok: false, error: "Missing required fields: configuration" });
+    if (!userId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: userId" });
+      return;
+    }
+
+    if (!startDate || !endDate) {
+      res.status(400).json({ ok: false, error: "Missing required parameters: startDate and endDate" });
+      return;
+    }
+
+    // Set SSE headers with proper CORS
+    applySseHeaders(res);
+    res.flushHeaders();
+
+    // Prepare request for manager
+    const request: RunBacktestRequest = {
+      botId,
+      startDate,
+      endDate,
+      userId: userId
+    };
+
+    // Define event callback for SSE streaming
+    const eventCallback = (event: { data: string; type: string; lastEventId?: string }) => {
+      const sseData = event.lastEventId 
+        ? `id: ${event.lastEventId}\ndata: ${event.data}\n\n`
+        : `data: ${event.data}\n\n`;
+      
+      res.write(sseData);
+    };
+
+    try {
+      // Call manager with event callback for SSE streaming
+     await this.backtestManager.runBacktest(request, eventCallback);
+
+      // Send final completion event
+      res.write(`data: ${JSON.stringify({ type: "backtest-end" })}\n\n`);
+      
+      res.end();
+    } catch (error) {
+      // Send error event and close connection
+      res.write(`data: ${JSON.stringify({ type: "error", error: "Backtest failed" })}\n\n`);
+      res.end();
+    }
   }
-
-  if (!botId) {
-    return res
-      .status(400)
-      .json({ ok: false, error: "Missing required fields: botId" });
-  }
-
-  backtestStore.set(botId, config);
-  res.status(200).json({ ok: true, id: botId });
-});
-
-// GET /api/user/:userId/backtest/:botId (SSE)
-router.get("/:userId/backtest/:botId", async (req: Request, res: Response) => {
-  const { botId, userId } = req.params;
-  const { startDate, endDate } = req.query as { startDate?: string; endDate?: string };
-
-  if (!botId) {
-    return res
-      .status(400)
-      .json({ ok: false, error: "Missing required parameter: botId" });
-  }
-
-  // You can use botId as the key for config lookup, or use a combination of userId and botId
-  const config = backtestStore.get(botId);
-
-  // Set SSE headers with proper CORS
-  applySseHeaders(res);
-
-  res.flushHeaders();
-
-  // Simulate initial delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  // Send progress events
-  res.write(
-    `data: ${JSON.stringify({
-      type: "progressPrepare",
-      data: { step: 1, progress: 50, stepText: "Starting backtest..." },
-    })}\n\n`
-  );
-  
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  
-  res.write(
-    `data: ${JSON.stringify({
-      type: "progressPrepare", 
-      data: { step: 2, progress: 100, stepText: "Loading historical data..." },
-    })}\n\n`
-  );
-
-  // Simulate some trading events
-  for (let i = 0; i < 5; i++) {
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    res.write(
-      `data: ${JSON.stringify({
-        type: "events",
-        data: { 
-          event: "trade_executed",
-          price: 50000 + Math.random() * 1000,
-          quantity: 0.1,
-          timestamp: new Date().toISOString()
-        }
-      })}\n\n`
-    );
-  }
-
-  // Send completion event
-  res.write(
-    `data: ${JSON.stringify({ type: "backtest-end" })}\n\n`
-  );
-  
-  res.end();
-});
-
-export default router;
+}
 
 
