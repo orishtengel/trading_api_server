@@ -1,5 +1,5 @@
 import { BotEntity, BotConfigurationEntity, AgentEntity, AIAgentEntity, PortfolioEntity, CurrencyEntity, DataSourceEntity, ExecuterEntity } from '@data/bot/bot.entities';
-import { Bot, BotConfiguration, Agent, Portfolio, Currency, DataSource, Executer, CreateBotInput, UpdateBotInput } from './bot.models';
+import { Bot, BotConfiguration, Agent, Portfolio, Currency, DataSource, Executer, CreateBotInput, UpdateBotInput } from 'src/service/bot/bot.models';
 import { CreateBotRequest, UpdateBotRequest } from '@data/bot/contracts/requestResponse';
 
 // Map BotEntity to Bot domain model

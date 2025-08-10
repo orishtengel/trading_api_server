@@ -5,8 +5,8 @@ import { UsersRepository } from '@data/user/user.repository';
 import { UsersService } from '@service/user/user.service';
 import { UsersManager } from '@manager/user/user.manager';
 import { UserController } from '@controller/user/user.controller';
-import authRoutes from './api/routes/auth.routes';
-import botRoutes from './api/routes/bot.routes';
+import authRoutes from 'src/api/routes/auth.routes';
+import botRoutes from 'src/api/routes/bot.routes';
 
 const app = express();
 

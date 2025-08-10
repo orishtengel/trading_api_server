@@ -1,6 +1,6 @@
-import { IBotRepository } from './bot.repository.interface';
-import { BotEntity } from './bot.entities';
-import { CreateBotRequest, UpdateBotRequest, FindByIdRequest, DeleteBotRequest } from './contracts/requestResponse';
+import { IBotRepository } from 'src/data/bot/bot.repository.interface';
+import { BotEntity } from 'src/data/bot/bot.entities';
+import { CreateBotRequest, UpdateBotRequest, FindByIdRequest, DeleteBotRequest } from 'src/data/bot/contracts/requestResponse';
 import { db } from '@shared/firebase/firebase.admin.config';
 import { firestoreDocToEntity, removeUndefinedValues } from '@shared/firebase/firestore.utils';
 

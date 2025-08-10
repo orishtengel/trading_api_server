@@ -1,1 +1,1 @@
-export * from './contracts/requestResponse'; 
+export * from 'src/api/manager/bot/contracts/requestResponse'; 

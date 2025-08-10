@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { IBotManager } from './bot.manager.interface';
+import { IBotManager } from 'src/api/manager/bot/bot.manager.interface';
 import { IBotService } from '@service/bot/bot.service.interface';
 import {
   CreateBotRequest,
@@ -12,7 +12,7 @@ import {
   DeleteBotResponse,
   GetAllBotsRequest,
   GetAllBotsResponse
-} from './bot.contracts';
+} from 'src/api/manager/bot/bot.contracts';
 import { CreateBotInput, UpdateBotInput, Bot } from '@service/bot/bot.models';
 import { ApiError, ApiResponse } from '@shared/http/api';
 
