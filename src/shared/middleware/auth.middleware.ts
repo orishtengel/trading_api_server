@@ -23,18 +23,19 @@ export class AuthMiddleware {
   authenticate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       const authHeader = req.headers.authorization;
-      
-      if (!authHeader) {
-        res.status(401).json({ error: 'Authorization header is required' });
-        return;
-      }
+      const cookieToken = (req as any).cookies?.idToken || (req as any).cookies?.token;
+      // Support token via query param for transports that cannot set headers (e.g., EventSource)
+      const queryTokenRaw = (req.query?.idToken ?? req.query?.token) as unknown as string | string[] | undefined;
+      const queryToken = Array.isArray(queryTokenRaw) ? queryTokenRaw[0] : queryTokenRaw;
 
-      if (!authHeader.startsWith('Bearer ')) {
-        res.status(401).json({ error: 'Invalid authorization header format. Use: Bearer <token>' });
-        return;
+      let idToken: string | undefined;
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        idToken = authHeader.substring(7);
+      } else if (cookieToken) {
+        idToken = cookieToken;
+      } else if (queryToken) {
+        idToken = queryToken;
       }
-
-      const idToken = authHeader.substring(7); // Remove 'Bearer ' prefix
 
       if (!idToken) {
         res.status(401).json({ error: 'ID token is required' });
@@ -82,15 +83,25 @@ export class AuthMiddleware {
 
   // Optional middleware that sets user if token is present but doesn't require it
   optionalAuthenticate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
+    // Allow CORS preflight requests to pass through
+    if (req.method === 'OPTIONS') {
+      next();
+      return;
+    }
     try {
       const authHeader = req.headers.authorization;
-      
-      if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        next();
-        return;
-      }
+      const cookieToken = (req as any).cookies?.idToken || (req as any).cookies?.token;
+      const queryTokenRaw = (req.query?.idToken ?? req.query?.token) as unknown as string | string[] | undefined;
+      const queryToken = Array.isArray(queryTokenRaw) ? queryTokenRaw[0] : queryTokenRaw;
 
-      const idToken = authHeader.substring(7);
+      let idToken: string | undefined;
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        idToken = authHeader.substring(7);
+      } else if (cookieToken) {
+        idToken = cookieToken;
+      } else if (queryToken) {
+        idToken = queryToken;
+      }
 
       if (!idToken) {
         next();
