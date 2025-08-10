@@ -136,6 +136,11 @@ export interface GrpcClientConfig {
   port: number;
   credentials?: 'insecure' | 'secure';
   timeout?: number;
+  keepaliveTimeMs?: number;
+  keepaliveTimeoutMs?: number;
+  keepalivePermitWithoutCalls?: boolean;
+  maxReceiveMessageLength?: number;
+  maxSendMessageLength?: number;
 }
 
 // Stream event handlers aligned with existing API types

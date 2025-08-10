@@ -64,6 +64,8 @@ export class BacktestManager implements IBacktestManager {
         endIso: validated.endDate
       }, {
         onEvent: (payload) => eventCallback?.({ data: JSON.stringify(payload), type: 'progressPrepare' })
+      }, {
+        deadlineMs: 1800000 // 30 minutes deadline for backtest operations
       });
 
       return ApiResponse({ event: { data: 'Backtest completed successfully', type: 'backtest-end' } }, 200);

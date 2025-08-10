@@ -40,16 +40,37 @@ export class TradingPlatformGrpcClient {
       host: config.host ?? 'localhost',
       port: config.port ?? 50051,
       credentials: config.credentials ?? 'insecure',
-      timeout: config.timeout ?? 30000
+      timeout: config.timeout ?? 300000, // 5 minutes default for long-running operations
+      keepaliveTimeMs: config.keepaliveTimeMs ?? 30000, // Send keepalive ping every 30 seconds
+      keepaliveTimeoutMs: config.keepaliveTimeoutMs ?? 5000, // Wait 5 seconds for keepalive response
+      keepalivePermitWithoutCalls: config.keepalivePermitWithoutCalls ?? true, // Allow keepalive without active calls
+      maxReceiveMessageLength: config.maxReceiveMessageLength ?? 1024 * 1024 * 4, // 4MB
+      maxSendMessageLength: config.maxSendMessageLength ?? 1024 * 1024 * 4 // 4MB
     };
 
     const creds = this.config.credentials === 'secure' 
       ? credentials.createSsl()
       : credentials.createInsecure();
 
+    // Configure channel options for long-running connections
+    const channelOptions = {
+      'grpc.keepalive_time_ms': this.config.keepaliveTimeMs,
+      'grpc.keepalive_timeout_ms': this.config.keepaliveTimeoutMs,
+      'grpc.keepalive_permit_without_calls': this.config.keepalivePermitWithoutCalls,
+      'grpc.http2.max_pings_without_data': 0,
+      'grpc.http2.min_time_between_pings_ms': 10000,
+      'grpc.http2.min_ping_interval_without_data_ms': 300000,
+      'grpc.max_receive_message_length': this.config.maxReceiveMessageLength,
+      'grpc.max_send_message_length': this.config.maxSendMessageLength,
+      'grpc.max_connection_idle_ms': 600000, // 10 minutes
+      'grpc.max_connection_age_ms': 1800000, // 30 minutes
+      'grpc.max_connection_age_grace_ms': 30000 // 30 seconds grace period
+    };
+
     this.client = new svc.TradingPlatformService(
       `${this.config.host}:${this.config.port}`,
-      creds
+      creds,
+      channelOptions
     );
   }
 
@@ -57,11 +78,13 @@ export class TradingPlatformGrpcClient {
    * Run backtest and stream events
    * @param request - Backtest configuration
    * @param handlers - Event handlers for different event types
+   * @param options - Optional call-specific options like deadline
    * @returns Promise that resolves when stream ends
    */
   async runBacktest(
     request: RunBacktestRequest,
-    handlers: BacktestStreamHandlers = {}
+    handlers: BacktestStreamHandlers = {},
+    options?: { deadlineMs?: number }
   ): Promise<void> {
     return new Promise((resolve, reject) => {
       // Convert camelCase to snake_case for gRPC
@@ -72,13 +95,21 @@ export class TradingPlatformGrpcClient {
         end_iso: request.endIso || ""
       };
 
-      const stream: ClientReadableStream<BacktestEvent> = this.client.RunBacktest(grpcRequest);
+      // Set call-specific deadline (overrides global timeout if provided)
+      const callTimeout = options?.deadlineMs || this.config.timeout || 300000; // Default 5 minutes
+      const deadline = new Date(Date.now() + callTimeout);
+      
+      const callOptions = {
+        deadline: deadline
+      };
 
-      // Set timeout
+      const stream: ClientReadableStream<BacktestEvent> = this.client.RunBacktest(grpcRequest, callOptions);
+
+      // Set timeout (as backup to gRPC deadline)
       const timeout = setTimeout(() => {
         stream.cancel();
-        reject(new Error(`gRPC call timeout after ${this.config.timeout}ms`));
-      }, this.config.timeout);
+        reject(new Error(`gRPC call timeout after ${callTimeout}ms`));
+      }, callTimeout);
 
       stream.on('data', (event: BacktestEvent) => {
         try {
