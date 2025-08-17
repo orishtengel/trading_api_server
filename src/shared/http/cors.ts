@@ -10,7 +10,7 @@ export function getCorsOrigin(): string {
 
 export const commonCorsHeaders: Record<string, string> = {
   'Access-Control-Allow-Credentials': 'true',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Cache-Control, Authorization',
   'Access-Control-Expose-Headers': 'Content-Type, Cache-Control'
 };
@@ -38,7 +38,7 @@ export function buildCorsOptions() {
   return {
     origin: getCorsOrigin(),
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Cache-Control', 'Authorization'],
     exposedHeaders: ['Content-Type', 'Cache-Control'],
     preflightContinue: false,

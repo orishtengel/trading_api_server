@@ -1,3 +1,4 @@
-export * from './runBacktest';
-
+export * from './startBacktest';
+export * from './stopBacktest';
+export * from './getBacktestHistory';
 

@@ -1,14 +1,15 @@
 import { Request, Response } from "express";
 import { applySseHeaders } from '@shared/http/cors';
 import { IBacktestManager } from '@manager/backtest/backtest.manager.interface';
-import { RunBacktestRequest } from '@manager/backtest/backtest.contracts';
+import { StartBacktestRequest, GetBacktestHistoryRequest } from '@manager/backtest/contracts/requestResponse';
+import { StopBacktestRequest } from "@manager/backtest/contracts/requestResponse/stopBacktest";
 
 export class BacktestController {
   constructor(private readonly backtestManager: IBacktestManager) {}
 
-  async runBacktest(req: Request, res: Response): Promise<void> {
+  async startBacktest(req: Request, res: Response): Promise<void> {
     const { botId, userId } = req.params;
-    const { startDate, endDate } = req.query as { startDate?: string; endDate?: string };
+    const { startDate, endDate, name } = req.body as { startDate?: string; endDate?: string; name?: string };
 
     // Validate required parameters
     if (!botId) {
@@ -26,40 +27,52 @@ export class BacktestController {
       return;
     }
 
-    // Set SSE headers with proper CORS
-    applySseHeaders(res);
-    res.flushHeaders();
-
     // Prepare request for manager
-    const request: RunBacktestRequest = {
+    const request: StartBacktestRequest = {
       botId,
       startDate,
       endDate,
-      userId: userId
-    };
-
-    // Define event callback for SSE streaming
-    const eventCallback = (event: { data: string; type: string; lastEventId?: string }) => {
-      const sseData = event.lastEventId 
-        ? `id: ${event.lastEventId}\ndata: ${event.data}\n\n`
-        : `data: ${event.data}\n\n`;
-      
-      res.write(sseData);
+      userId: userId,
+      name: name || "Backtest"
     };
 
     try {
       // Call manager with event callback for SSE streaming
-     await this.backtestManager.runBacktest(request, eventCallback);
+     const response = await this.backtestManager.startBacktest(request);
+     res.status(response.status).json({ ...response.data });
 
-      // Send final completion event
-      res.write(`data: ${JSON.stringify({ type: "backtest-end" })}\n\n`);
-      
-      res.end();
     } catch (error) {
-      // Send error event and close connection
-      res.write(`data: ${JSON.stringify({ type: "error", error: "Backtest failed" })}\n\n`);
-      res.end();
+      res.status(500).json({ ok: false, error: "Failed to start backtest" });
     }
+  }
+
+  async stopBacktest(req: Request, res: Response): Promise<void> {
+    const { backtestId } = req.body;
+    if (!backtestId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: backtestId" });
+      return;
+    }
+    const request: StopBacktestRequest = { backtestId };
+    const response = await this.backtestManager.stopBacktest(request);
+    res.status(response.status).json({ ...response.data });
+  }
+
+  async getBacktestHistory(req: Request, res: Response): Promise<void> {
+    const { userId, botId } = req.params;
+    
+    if (!userId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: userId" });
+      return;
+    }
+    
+    if (!botId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: botId" });
+      return;
+    }
+    
+    const request: GetBacktestHistoryRequest = { userId, botId };
+    const response = await this.backtestManager.getBacktestHistory(request);
+    res.status(response.status).json({ ...response.data });
   }
 }
 
