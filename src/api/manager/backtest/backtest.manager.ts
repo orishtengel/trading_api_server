@@ -18,7 +18,9 @@ const runBacktestSchema = z.object({
 });
 
 const stopBacktestSchema = z.object({
-  backtestId: z.string().min(1)
+  botId: z.string().min(1),
+  userId: z.string().min(1),
+  backtestId: z.string().min(1) 
 });
 
 const getBacktestHistorySchema = z.object({

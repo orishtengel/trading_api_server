@@ -1,4 +1,6 @@
 export interface StopBacktestRequest {
+  botId: string;
+  userId: string;
   backtestId: string;
 }
 

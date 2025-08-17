@@ -47,12 +47,21 @@ export class BacktestController {
   }
 
   async stopBacktest(req: Request, res: Response): Promise<void> {
+    const { botId, userId } = req.params;
     const { backtestId } = req.body;
     if (!backtestId) {
       res.status(400).json({ ok: false, error: "Missing required parameter: backtestId" });
       return;
     }
-    const request: StopBacktestRequest = { backtestId };
+    if (!botId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: botId" });
+      return;
+    }
+    if (!userId) {
+      res.status(400).json({ ok: false, error: "Missing required parameter: userId" });
+      return;
+    }
+    const request: StopBacktestRequest = { botId, userId, backtestId };
     const response = await this.backtestManager.stopBacktest(request);
     res.status(response.status).json({ ...response.data });
   }
