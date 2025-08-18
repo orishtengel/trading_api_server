@@ -57,7 +57,9 @@ export class BacktestManager implements IBacktestManager {
         config: "",
         botId: validated.botId,
         userId: validated.userId,
-        name: validated.name
+        name: validated.name,
+        startDate: validated.startDate,
+        endDate: validated.endDate
       };
 
       const aiServerResponse = await AIServerApiService.post<{ backtestId: string }>(
