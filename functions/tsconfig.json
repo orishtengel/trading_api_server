@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2018",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controller/*": ["../src/api/controllers/*"],
+      "@manager/*": ["../src/api/manager/*"],
+      "@service/*": ["../src/service/*"],
+      "@data/*": ["../src/data/*"],
+      "@shared/*": ["../src/shared/*"]
+    }
+  },
+  "compileOnSave": true,
+  "include": [
+    "src",
+    "../src"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
+  ]
+}

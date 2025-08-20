@@ -1,5 +1,5 @@
-import { BotEntity } from 'src/data/bot/bot.entities';
-import { CreateBotRequest, UpdateBotRequest, FindByIdRequest, DeleteBotRequest } from 'src/data/bot/contracts/requestResponse';
+import { BotEntity } from './bot.entities';
+import { CreateBotRequest, UpdateBotRequest, FindByIdRequest, DeleteBotRequest } from './contracts/requestResponse';
 
 export interface IBotRepository {
   create(request: CreateBotRequest): Promise<BotEntity>;

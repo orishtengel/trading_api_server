@@ -9,7 +9,7 @@ import {
   DeleteBotResponse,
   GetAllBotsRequest,
   GetAllBotsResponse
-} from 'src/api/manager/bot/bot.contracts';
+} from './bot.contracts';
 import { ApiResponse } from '@shared/http/api';
 
 export interface IBotManager {

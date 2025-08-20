@@ -1,4 +1,4 @@
-import { BotConfigurationEntity } from 'src/data/bot/bot.entities';
+import { BotConfigurationEntity } from '../../bot.entities';
 
 export interface UpdateBotRequest {
   id: string;

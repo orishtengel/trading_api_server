@@ -9,7 +9,12 @@
     "build": "tsc -p tsconfig.json",
     "start": "node -r tsconfig-paths/register dist/server.js",
     "lint": "eslint \"src/**/*.ts\"",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "functions:install": "cd functions && npm install",
+    "functions:build": "cd functions && npm run build",
+    "functions:serve": "cd functions && npm run serve",
+    "functions:deploy": "cd functions && npm run deploy",
+    "firebase:deploy": "npm run build && npm run functions:build && firebase deploy"
   },
   "engines": {
     "node": ">=18.17.0"
@@ -42,6 +47,8 @@
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
+    "firebase-functions": "^6.4.0",
+    "firebase-tools": "^14.12.1",
     "prettier": "^3.3.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.4"
