@@ -19,12 +19,19 @@ const backtestManager = new BacktestManager(botService, backtestService);
 const backtestController = new BacktestController(backtestManager);
 
 // POST /api/user/:userId/bot/:botId/backtest
-router.post("/:userId/bots/:botId/backtest/start", backtestController.startBacktest.bind(backtestController));
+router.post(
+  '/:userId/bots/:botId/backtest/start',
+  backtestController.startBacktest.bind(backtestController),
+);
 // POST /api/user/:userId/bot/:botId/backtest/:backtestId/stop
-router.post("/:userId/bots/:botId/backtest/stop", backtestController.stopBacktest.bind(backtestController));
+router.post(
+  '/:userId/bots/:botId/backtest/stop',
+  backtestController.stopBacktest.bind(backtestController),
+);
 // GET /api/user/:userId/bot/:botId/backtest/history
-router.get("/:userId/bots/:botId/backtest/history", backtestController.getBacktestHistory.bind(backtestController));
+router.get(
+  '/:userId/bots/:botId/backtest/history',
+  backtestController.getBacktestHistory.bind(backtestController),
+);
 
 export default router;
-
-
