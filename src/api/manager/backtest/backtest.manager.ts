@@ -11,8 +11,8 @@ import { StopBacktestRequest, StopBacktestResponse } from './contracts/requestRe
 // Validation schema for backtest run
 const runBacktestSchema = z.object({
   botId: z.string().min(1),
-  startDate: z.string().min(1), // Expect ISO strings across manager boundary
-  endDate: z.string().min(1),
+  startDate: z.coerce.date(),
+  endDate: z.coerce.date(),
   userId: z.string  ().min(1),
   name: z.string().min(1)
 });
@@ -54,7 +54,7 @@ export class BacktestManager implements IBacktestManager {
 
       // Send backtest request to AI_SERVER
       const backtestPayload = {
-        config: "",
+        config: yamlConfig,
         botId: validated.botId,
         userId: validated.userId,
         name: validated.name,

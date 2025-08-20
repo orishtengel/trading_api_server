@@ -98,7 +98,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
       inputChannels: agent.inputs,
       prompt: agent.prompt || 'Analyze the current kline data',
       systemPrompt: generateSystemPrompt(agent.role),
-      model: agent.provider || DEFAULT_MODEL,
+      model: DEFAULT_MODEL, // agent.provider || DEFAULT_MODEL, TODO: restore
       config: {
         ollamaUrl: OLLAMA_URL
       }

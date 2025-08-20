@@ -16,8 +16,8 @@ export class BacktestRepository implements IBacktestRepository {
         id: doc.id,
         name: doc.data()?.name || "",
         status: doc.data()?.status || "",
-        startDate: doc.data()?.startDate?.toDate() || "",
-        endDate: doc.data()?.endDate?.toDate() || "",
+        startDate: doc.data()?.startDate || "",
+        endDate: doc.data()?.endDate || "",
       } as BacktestEntity));
     } catch (error) {
       console.error('Error finding backtests by userId and botId:', error);
