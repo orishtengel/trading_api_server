@@ -26,7 +26,14 @@ export class ApiService {
       headers: {
         'Content-Type': 'application/json',
         ...config.headers
-      }
+      },
+      auth: {
+        username: process.env.AI_SERVER_USERNAME || 'admin',
+        password: process.env.AI_SERVER_PASSWORD || 'admin'
+      },
+      httpsAgent: new (require('https').Agent)({
+        rejectUnauthorized: false // ⚠️ ignore self-signed cert
+      })
     });
 
     // Request interceptor for logging
