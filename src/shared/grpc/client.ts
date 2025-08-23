@@ -1,6 +1,6 @@
-import path from "node:path";
-import { loadPackageDefinition, credentials, ClientReadableStream } from "@grpc/grpc-js";
-import { loadSync } from "@grpc/proto-loader";
+import path from 'node:path';
+import { loadPackageDefinition, credentials, ClientReadableStream } from '@grpc/grpc-js';
+import { loadSync } from '@grpc/proto-loader';
 import {
   RunBacktestRequest,
   BacktestEvent,
@@ -8,11 +8,11 @@ import {
   BacktestStreamHandlers,
   GrpcClientConfig,
   BacktestEventType,
-  EventPayload
-} from "./types";
+  EventPayload,
+} from './types';
 
 // Resolve proto from project root
-const PROTO_PATH = path.resolve(process.cwd(), "protos/trading_platform.proto");
+const PROTO_PATH = path.resolve(process.cwd(), 'protos/trading_platform.proto');
 
 const packageDefinition = loadSync(PROTO_PATH, {
   keepCase: true,
@@ -45,12 +45,11 @@ export class TradingPlatformGrpcClient {
       keepaliveTimeoutMs: config.keepaliveTimeoutMs ?? 5000, // Wait 5 seconds for keepalive response
       keepalivePermitWithoutCalls: config.keepalivePermitWithoutCalls ?? true, // Allow keepalive without active calls
       maxReceiveMessageLength: config.maxReceiveMessageLength ?? 1024 * 1024 * 4, // 4MB
-      maxSendMessageLength: config.maxSendMessageLength ?? 1024 * 1024 * 4 // 4MB
+      maxSendMessageLength: config.maxSendMessageLength ?? 1024 * 1024 * 4, // 4MB
     };
 
-    const creds = this.config.credentials === 'secure' 
-      ? credentials.createSsl()
-      : credentials.createInsecure();
+    const creds =
+      this.config.credentials === 'secure' ? credentials.createSsl() : credentials.createInsecure();
 
     // Configure channel options for long-running connections
     const channelOptions = {
@@ -64,13 +63,13 @@ export class TradingPlatformGrpcClient {
       'grpc.max_send_message_length': this.config.maxSendMessageLength,
       'grpc.max_connection_idle_ms': 600000, // 10 minutes
       'grpc.max_connection_age_ms': 1800000, // 30 minutes
-      'grpc.max_connection_age_grace_ms': 30000 // 30 seconds grace period
+      'grpc.max_connection_age_grace_ms': 30000, // 30 seconds grace period
     };
 
     this.client = new svc.TradingPlatformService(
       `${this.config.host}:${this.config.port}`,
       creds,
-      channelOptions
+      channelOptions,
     );
   }
 
@@ -84,26 +83,29 @@ export class TradingPlatformGrpcClient {
   async runBacktest(
     request: RunBacktestRequest,
     handlers: BacktestStreamHandlers = {},
-    options?: { deadlineMs?: number }
+    options?: { deadlineMs?: number },
   ): Promise<void> {
     return new Promise((resolve, reject) => {
       // Convert camelCase to snake_case for gRPC
       const grpcRequest = {
-        id: request.id || "",
-        config_yaml: request.configYaml || "",
-        start_iso: request.startIso || "",
-        end_iso: request.endIso || ""
+        id: request.id || '',
+        config_yaml: request.configYaml || '',
+        start_iso: request.startIso || '',
+        end_iso: request.endIso || '',
       };
 
       // Set call-specific deadline (overrides global timeout if provided)
       const callTimeout = options?.deadlineMs || this.config.timeout || 300000; // Default 5 minutes
       const deadline = new Date(Date.now() + callTimeout);
-      
+
       const callOptions = {
-        deadline: deadline
+        deadline: deadline,
       };
 
-      const stream: ClientReadableStream<BacktestEvent> = this.client.RunBacktest(grpcRequest, callOptions);
+      const stream: ClientReadableStream<BacktestEvent> = this.client.RunBacktest(
+        grpcRequest,
+        callOptions,
+      );
 
       // Set timeout (as backup to gRPC deadline)
       const timeout = setTimeout(() => {
@@ -115,11 +117,8 @@ export class TradingPlatformGrpcClient {
         try {
           const typedEvent = this.parseEvent(event);
 
-          console.log('typedEvent', typedEvent);
-          
           // Call generic event handler
           handlers.onEvent?.(typedEvent);
-          
         } catch (error) {
           handlers.onStreamError?.(error as Error);
         }
@@ -143,9 +142,8 @@ export class TradingPlatformGrpcClient {
    * Parse raw gRPC event to typed event
    */
   private parseEvent(event: BacktestEvent): TypedBacktestEvent {
-    console.log('event', event);
     let payload: EventPayload;
-    
+
     try {
       payload = JSON.parse(event.payload_json);
     } catch (error) {
@@ -155,7 +153,7 @@ export class TradingPlatformGrpcClient {
 
     return {
       type: event.type as BacktestEventType,
-      data:payload,
+      data: payload,
     };
   }
 
@@ -166,20 +164,22 @@ export class TradingPlatformGrpcClient {
     return new Promise((resolve) => {
       // Try to get service info to test connection
       this.client.getChannel().getConnectivityState(true);
-      
+
       // Simple timeout test
       const timeout = setTimeout(() => resolve(false), 5000);
-      
+
       // If we can create a channel, consider it connected
       try {
-        this.client.getChannel().watchConnectivityState(
-          this.client.getChannel().getConnectivityState(false),
-          Date.now() + 5000,
-          () => {
-            clearTimeout(timeout);
-            resolve(true);
-          }
-        );
+        this.client
+          .getChannel()
+          .watchConnectivityState(
+            this.client.getChannel().getConnectivityState(false),
+            Date.now() + 5000,
+            () => {
+              clearTimeout(timeout);
+              resolve(true);
+            },
+          );
       } catch {
         clearTimeout(timeout);
         resolve(false);
@@ -200,6 +200,8 @@ export class TradingPlatformGrpcClient {
 /**
  * Create a default gRPC client instance
  */
-export function createTradingPlatformClient(config?: Partial<GrpcClientConfig>): TradingPlatformGrpcClient {
+export function createTradingPlatformClient(
+  config?: Partial<GrpcClientConfig>,
+): TradingPlatformGrpcClient {
   return new TradingPlatformGrpcClient(config);
 }

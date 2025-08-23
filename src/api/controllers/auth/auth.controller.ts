@@ -12,10 +12,10 @@ export class AuthController extends BaseController {
       enableAuth: false,
       loggingOptions: {
         redactFields: ['idToken'], // Redact sensitive token data
-        extractUserId: (req) => req.params.uid || undefined
-      }
+        extractUserId: (req) => req.params.uid || undefined,
+      },
     });
-    
+
     this.authManager = new AuthManager();
     this.setupRoutes();
   }
@@ -27,20 +27,19 @@ export class AuthController extends BaseController {
 
   async verifyToken(req: Request, res: Response): Promise<void> {
     const request: VerifyTokenRequest = {
-      idToken: req.body.idToken
+      idToken: req.body.idToken,
     };
 
     const response = await this.authManager.verifyToken(request);
-    console.log(response);
     res.status(response.status).json(response.data);
   }
 
   async getCurrentUser(req: Request, res: Response): Promise<void> {
     const request: GetCurrentUserRequest = {
-      uid: req.params.uid || ''
+      uid: req.params.uid || '',
     };
 
     const response = await this.authManager.getCurrentUser(request);
     res.status(response.status).json(response);
   }
-} 
+}
