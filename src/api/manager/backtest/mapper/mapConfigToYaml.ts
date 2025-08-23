@@ -1,9 +1,15 @@
 import { Bot } from '@service/bot/bot.models';
 
 // Constants
+import dotenv from 'dotenv';
+dotenv.config();
+
 const QUOTE_ASSET = 'USDT' as const;
 const RABBITMQ_URL = 'amqp://localhost' as const;
-const OLLAMA_URL = 'http://127.0.0.1:11434' as const;
+const OLLAMA_URL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://127.0.0.1:11434'
+    : ('http://ollama:11434' as const);
 const DEFAULT_MODEL = 'qwen3:0.6b' as const;
 
 interface YamlDataSource {
