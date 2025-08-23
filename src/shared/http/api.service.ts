@@ -1,35 +1,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { ApiResponse, ApiError, ApiSuccess } from './api';
-import * as functions from 'firebase-functions';
 import dotenv from 'dotenv';
+dotenv.config();
 
-// Load dotenv for local development
-if (process.env.NODE_ENV !== 'production' && !process.env.FUNCTIONS_EMULATOR) {
-  dotenv.config();
-}
-
-/**
- * Get configuration value from Firebase Functions config or environment variables
- */
-function getConfig(path: string, fallback?: string): string | undefined {
-  try {
-    // In Firebase Functions environment, use functions.config()
-    if (process.env.FUNCTIONS_EMULATOR || process.env.NODE_ENV === 'production') {
-      const config = functions.config();
-      const keys = path.split('.');
-      let value: any = config;
-      for (const key of keys) {
-        value = value?.[key];
-      }
-      return typeof value === 'string' ? value : fallback;
-    }
-    // In local development, use process.env
-    return process.env[path.toUpperCase().replace('.', '_')] || fallback;
-  } catch (error) {
-    console.warn(`Failed to get config for ${path}:`, error);
-    return fallback;
-  }
-}
 
 export interface ApiServiceConfig {
   baseURL: string;
@@ -47,6 +20,8 @@ export class ApiService {
   private client: AxiosInstance;
 
   constructor(config: ApiServiceConfig) {
+    console.log('process.env.AI_SERVER_URL', process.env.AI_SERVER_URL);  
+    console.log('process.env.AI_SERVER_USERNAME', process.env.AI_SERVER_USERNAME);
     this.client = axios.create({
       baseURL: config.baseURL,
       timeout: config.timeout || 30000, // 30 seconds default
@@ -55,8 +30,8 @@ export class ApiService {
         ...config.headers
       },
       auth: {
-        username: getConfig('ai.server_username') || 'admin',
-        password: getConfig('ai.server_password') || 'admin'
+        username: process.env.AI_SERVER_USERNAME || 'admin',
+        password: process.env.AI_SERVER_PASSWORD || 'admin'
       },
       httpsAgent: new (require('https').Agent)({
         rejectUnauthorized: false // ⚠️ ignore self-signed cert
@@ -146,8 +121,12 @@ export class ApiService {
         timeout: config?.timeout,
         params: config?.params
       };
+      console.log('axiosConfig', axiosConfig);
+      console.log('data', data);
+      console.log('url', url);
 
       const response = await this.client.post<T>(url, data, axiosConfig);
+      console.log('response', response);
       return this.handleSuccess(response);
     } catch (error) {
       return this.handleError(error as AxiosError);
@@ -243,7 +222,7 @@ export class ApiService {
 
 // Create a default instance for AI_SERVER
 export const AIServerApiService = new ApiService({
-  baseURL: getConfig('ai.server_url') || 'http://localhost:8000/api',
+  baseURL: process.env.AI_SERVER_URL || 'http://localhost:8000/api',
   timeout: 60000, // 60 seconds for AI operations
   headers: {
     'Accept': 'application/json'

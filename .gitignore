@@ -2,3 +2,5 @@ node_modules
 dist
 .env
 serviceAccountKey.json
+functions/.env.*
+firebase-debug.log

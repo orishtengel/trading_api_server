@@ -58,50 +58,57 @@ interface YamlConfig {
 
 export function mapBotToYaml(bot: Bot): YamlConfig {
   const { configuration } = bot;
-  
-  // Map data sources to YAML format
-  const dataSources: YamlDataSource[] = configuration.dataSources.flatMap(ds => {
-    if(ds.dataSourceType === 'kucoin') {
-        return configuration.tokens.map((token, index) => {
-            return {
-              name: 'Binance KLines',
-              id: index.toString(),
-              type: 'binance-klines',
-              config: {
-                baseAsset: token,
-                quoteAsset: QUOTE_ASSET,
-                interval: ds.timeframe || '12h'
-              }
-            };
-        })
-    } else {
-        return {
-            name: ds.name,
-            id: ds.id,
-            type: 'binance-klines',
-            config: {
-                baseAsset: "ETH",
-                quoteAsset: QUOTE_ASSET,
-                interval: ds.timeframe || '12h'
-            }
-        }
-    }
-  })
 
-  // Map agents to YAML format
+  // Create a mapping from original data source IDs to new data source IDs
+  const dataSourceIdMapping = new Map<string, string[]>();
+
+  // Map data sources to YAML format
+  const dataSources: YamlDataSource[] = configuration.dataSources.flatMap((ds) => {
+    if (ds.dataSourceType === 'kucoin') {
+      const tokenSpecificIds = configuration.tokens.map((token) => ds.id + '-' + token);
+      dataSourceIdMapping.set(ds.id, tokenSpecificIds);
+
+      return configuration.tokens.map((token, index) => {
+        return {
+          name: 'Binance KLines',
+          id: ds.id + '-' + token,
+          type: 'binance-klines',
+          config: {
+            baseAsset: token,
+            quoteAsset: QUOTE_ASSET,
+            interval: ds.timeframe || '12h',
+          },
+        };
+      });
+    } else {
+      dataSourceIdMapping.set(ds.id, [ds.id]);
+      return {
+        name: ds.name,
+        id: ds.id,
+        type: 'binance-klines',
+        config: {
+          baseAsset: 'ETH',
+          quoteAsset: QUOTE_ASSET,
+          interval: ds.timeframe || '12h',
+        },
+      };
+    }
+  });
+
+  // Map agents to YAML format with updated input channels
   const agents: YamlAgent[] = configuration.agents
-    .filter(agent => agent.type === 'agent')
-    .map(agent => ({
+    .filter((agent) => agent.type === 'agent')
+    .map((agent) => ({
       name: agent.name,
       id: agent.id,
       type: 'ollama',
-      inputChannels: agent.inputs,
+      inputChannels: mapAgentInputChannels(agent.inputs, dataSourceIdMapping),
       prompt: agent.prompt || 'Analyze the current kline data',
       systemPrompt: generateSystemPrompt(agent.role),
       model: DEFAULT_MODEL, // agent.provider || DEFAULT_MODEL, TODO: restore
       config: {
-        ollamaUrl: OLLAMA_URL
-      }
+        ollamaUrl: OLLAMA_URL,
+      },
     }));
 
   // Build portfolio configuration
@@ -109,19 +116,19 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
     riskManagementAgent: {
       policy: {
         maxVolatility: configuration.portfolio?.maxDrawdown || 0.05,
-        maxExposurePerAsset: buildExposurePolicy(configuration.tokens)
+        maxExposurePerAsset: buildExposurePolicy(configuration.tokens),
       },
       model: DEFAULT_MODEL,
       type: 'ollama',
       config: {
-        ollamaUrl: OLLAMA_URL
-      }
-    }
+        ollamaUrl: OLLAMA_URL,
+      },
+    },
   };
 
   // Build cortex configuration - use agent IDs as input channels
   const cortex: YamlCortex = {
-    inputChannels: agents.map(agent => agent.id)
+    inputChannels: agents.map((agent) => agent.id),
   };
 
   return {
@@ -129,40 +136,62 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
     dataSources,
     agents,
     portfolio,
-    cortex
+    cortex,
   };
 }
 
-
 function generateSystemPrompt(role: string): string {
-  const basePrompt = "Your are a crypto kline analyzer expert, predict what will happen next make sure to specify the time of the data, make sure to always include the asset you are predicting";
-  
+  const basePrompt =
+    'Your are a crypto kline analyzer expert, predict what will happen next make sure to specify the time of the data, make sure to always include the asset you are predicting';
+
   if (role) {
     return `You are a ${role}. ${basePrompt}`;
   }
-  
+
   return basePrompt;
+}
+
+function mapAgentInputChannels(
+  originalInputs: string[],
+  dataSourceIdMapping: Map<string, string[]>,
+): string[] {
+  const mappedInputs: string[] = [];
+
+  originalInputs.forEach((inputId) => {
+    if (dataSourceIdMapping.has(inputId)) {
+      // If this input references a data source that was expanded,
+      // include all the token-specific data source IDs
+      const mappedIds = dataSourceIdMapping.get(inputId)!;
+      mappedInputs.push(...mappedIds);
+    } else {
+      // If this input doesn't reference a data source that was expanded,
+      // keep the original ID (could be referencing other agents, etc.)
+      mappedInputs.push(inputId);
+    }
+  });
+
+  return mappedInputs;
 }
 
 function buildExposurePolicy(tokens: string[]): Record<string, number> {
   const policy: Record<string, number> = {};
-  
+
   // Always include USDT
   policy[QUOTE_ASSET] = 0.6;
-  
+
   // Distribute remaining exposure among other tokens
-  const otherTokens = tokens.filter(token => token !== QUOTE_ASSET);
+  const otherTokens = tokens.filter((token) => token !== QUOTE_ASSET);
   const remainingExposure = 0.4;
   const exposurePerToken = otherTokens.length > 0 ? remainingExposure / otherTokens.length : 0;
-  
-  otherTokens.forEach(token => {
+
+  otherTokens.forEach((token) => {
     policy[token] = exposurePerToken;
   });
-  
+
   // If no other tokens, give all exposure to a default asset
   if (otherTokens.length === 0) {
     policy['ETH'] = 0.4;
   }
-  
+
   return policy;
 }

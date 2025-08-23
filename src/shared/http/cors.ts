@@ -1,33 +1,12 @@
 import { Response } from 'express';
-import * as functions from 'firebase-functions';
-
-/**
- * Get configuration value from Firebase Functions config or environment variables
- */
-function getConfig(path: string, fallback?: string): string | undefined {
-  try {
-    // In Firebase Functions environment, use functions.config()
-    if (process.env.FUNCTIONS_EMULATOR || process.env.NODE_ENV === 'production') {
-      const config = functions.config();
-      const keys = path.split('.');
-      let value: any = config;
-      for (const key of keys) {
-        value = value?.[key];
-      }
-      return typeof value === 'string' ? value : fallback;
-    }
-    // In local development, use process.env
-    return process.env[path.toUpperCase().replace('.', '_')] || fallback;
-  } catch (error) {
-    console.warn(`Failed to get config for ${path}:`, error);
-    return fallback;
-  }
-}
 
 export function getCorsOrigin(): string {
+  console.log('process.env.CORS_ORIGIN', process.env.CORS_ORIGIN);
+  console.log('process.env.ALLOWED_ORIGINS', process.env.ALLOWED_ORIGINS);
+  console.log('process.env.NODE_ENV', process.env.NODE_ENV);
   return (
-    getConfig('cors.origin') ||
-    (getConfig('cors.allowed_origins')?.split(',')[0]) ||
+    process.env.CORS_ORIGIN ||
+    (process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',')[0] : undefined) ||
     (process.env.NODE_ENV === 'development' ? 'http://localhost:5173' : 'https://trading-platform-d1b16.web.app')
   );
 }
