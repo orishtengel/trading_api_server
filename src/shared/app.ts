@@ -12,6 +12,7 @@ import { UserController } from '@controller/user/user.controller';
 import authRoutes from '../api/routes/auth.routes';
 import botRoutes from '../api/routes/bot.routes';
 import backtestRoutes from '../api/routes/backtest.routes';
+import livePreviewRoutes from '../api/routes/livePreview.routes';
 
 export function createApp() {
   const app = express();
@@ -24,15 +25,19 @@ export function createApp() {
   app.use(cookieParser());
 
   // Swagger documentation
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
-    explorer: true,
-    customCss: '.swagger-ui .topbar { display: none }',
-    customSiteTitle: 'Trading API Documentation',
-    swaggerOptions: {
-      persistAuthorization: true,
-      displayRequestDuration: true,
-    },
-  }));
+  app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec, {
+      explorer: true,
+      customCss: '.swagger-ui .topbar { display: none }',
+      customSiteTitle: 'Trading API Documentation',
+      swaggerOptions: {
+        persistAuthorization: true,
+        displayRequestDuration: true,
+      },
+    }),
+  );
 
   // Swagger JSON endpoint
   app.get('/api-docs.json', (req, res) => {
@@ -50,6 +55,8 @@ export function createApp() {
 
   // Bot routes (now mounted under /api/user)
   app.use(botRoutes);
+
+  app.use(livePreviewRoutes);
 
   // Backtest routes (SSE endpoint)
   app.use('/api/user', backtestRoutes);
