@@ -8,8 +8,8 @@ export interface GetBacktestHistoryResponse {
 }
 
 export interface Backtest {
-    name: string;
-    startDate: string;
-    endDate: string;
-    status: string;
+  name: string;
+  startDate: number;
+  endDate: number;
+  status: string;
 }

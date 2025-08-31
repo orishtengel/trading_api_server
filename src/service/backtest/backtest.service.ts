@@ -8,6 +8,7 @@ export class BacktestService implements IBacktestService {
 
   async getBacktestHistory(userId: string, botId: string): Promise<Backtest[]> {
     const backtestEntities = await this.backtestRepository.findByUserIdAndBotId(userId, botId);
+    console.log('backtestEntities', backtestEntities);
     return backtestEntities.map(mapBacktestEntityToBacktest);
   }
 }

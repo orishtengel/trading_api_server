@@ -9,16 +9,18 @@ export class BacktestRepository implements IBacktestRepository {
 
   async findByUserIdAndBotId(userId: string, botId: string): Promise<BacktestEntity[]> {
     try {
-      const snapshot = await this.getBacktestCollection(userId, botId)
-        .get();
+      const snapshot = await this.getBacktestCollection(userId, botId).get();
 
-      return snapshot.docs.map((doc) => ({
-        id: doc.id,
-        name: doc.data()?.name || "",
-        status: doc.data()?.status || "",
-        startDate: doc.data()?.startDate || "",
-        endDate: doc.data()?.endDate || "",
-      } as BacktestEntity));
+      return snapshot.docs.map(
+        (doc) =>
+          ({
+            id: doc.id,
+            name: doc.data()?.name || '',
+            status: doc.data()?.status || '',
+            startDate: doc.data()?.executionStartDate || '',
+            endDate: doc.data()?.executionEndDate || '',
+          }) as BacktestEntity,
+      );
     } catch (error) {
       console.error('Error finding backtests by userId and botId:', error);
       throw error;

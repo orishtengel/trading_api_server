@@ -5,8 +5,8 @@ export interface BacktestEntity extends BaseEntity {
   userId: string;
   botId: string;
   status: string;
-  startDate: string;
-  endDate: string;
+  startDate: number;
+  endDate: number;
   createdAt: string;
   updatedAt: string;
 }

@@ -2,7 +2,7 @@
 export interface Backtest {
   id: string;
   name: string;
-  startDate: string;
-  endDate: string;
+  startDate: number;
+  endDate: number;
   status: string;
 }
