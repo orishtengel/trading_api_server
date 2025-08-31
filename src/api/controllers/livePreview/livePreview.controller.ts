@@ -50,6 +50,10 @@ export class LivePreviewController extends BaseController {
     try {
       // Call manager with event callback for SSE streaming
       const response = await this.livePreviewManager.startLivePreview(request);
+      if (response.error === 'Already Runnning') {
+        res.status(200).json({ ok: true });
+        return;
+      }
       res.status(response.status).json({ ...response.data });
     } catch (error) {
       res.status(500).json({ ok: false, error: 'Failed to start live preview' });

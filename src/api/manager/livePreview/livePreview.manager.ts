@@ -55,7 +55,7 @@ export class LivePreviewManager implements ILivePreviewManager {
       );
 
       if (aiServerResponse.error) {
-        return ApiError(`AI Server error: ${aiServerResponse.error}`, aiServerResponse.status);
+        return ApiResponse({ success: false }, aiServerResponse.status, aiServerResponse.error);
       }
 
       return ApiResponse({ success: aiServerResponse.data!.success }, 200);
