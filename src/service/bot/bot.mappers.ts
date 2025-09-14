@@ -1,5 +1,24 @@
-import { BotEntity, BotConfigurationEntity, AgentEntity, AIAgentEntity, PortfolioEntity, CurrencyEntity, DataSourceEntity, ExecuterEntity } from '@data/bot/bot.entities';
-import { Bot, BotConfiguration, Agent, Portfolio, Currency, DataSource, Executer, CreateBotInput, UpdateBotInput } from './bot.models';
+import {
+  BotEntity,
+  BotConfigurationEntity,
+  AgentEntity,
+  AIAgentEntity,
+  PortfolioEntity,
+  CurrencyEntity,
+  DataSourceEntity,
+  ExecuterEntity,
+} from '@data/bot/bot.entities';
+import {
+  Bot,
+  BotConfiguration,
+  Agent,
+  Portfolio,
+  Currency,
+  DataSource,
+  Executer,
+  CreateBotInput,
+  UpdateBotInput,
+} from './bot.models';
 import { CreateBotRequest, UpdateBotRequest } from '@data/bot/contracts/requestResponse';
 
 // Map BotEntity to Bot domain model
@@ -9,18 +28,21 @@ export function mapBotEntityToBot(entity: BotEntity): Bot {
     name: entity.name,
     userId: entity.userId,
     status: entity.status,
-    configuration: mapBotConfigurationEntityToBotConfiguration(entity.configuration)
+    configuration: mapBotConfigurationEntityToBotConfiguration(entity.configuration),
   };
 }
 
 // Map BotConfigurationEntity to BotConfiguration domain model
-export function mapBotConfigurationEntityToBotConfiguration(entity: BotConfigurationEntity): BotConfiguration {
+export function mapBotConfigurationEntityToBotConfiguration(
+  entity: BotConfigurationEntity,
+): BotConfiguration {
   return {
     tokens: entity.tokens,
     dataSources: entity.dataSources.map(mapDataSourceEntityToDataSource),
     executer: entity.executer ? mapExecuterEntityToExecuter(entity.executer) : null,
     portfolio: entity.portfolio ? mapPortfolioEntityToPortfolio(entity.portfolio) : null,
-    agents: entity.agents.map(mapAgentEntityToAgent)
+    agents: entity.agents.map(mapAgentEntityToAgent),
+    tokensCoordinates: entity.tokensCoordinates,
   };
 }
 
@@ -45,7 +67,7 @@ function mapAIAgentEntityToAIAgent(entity: AIAgentEntity): Agent {
     provider: entity.configuration.provider,
     role: entity.configuration.role,
     prompt: entity.configuration.prompt,
-    apiKey: entity.configuration.apiKey
+    apiKey: entity.configuration.apiKey,
   };
 }
 
@@ -61,7 +83,7 @@ function mapPortfolioEntityToPortfolio(entity: PortfolioEntity): Portfolio {
     stopLoss: entity.stopLoss,
     takeProfit: entity.takeProfit,
     maxDrawdown: entity.maxDrawdown,
-    targetReturn: entity.targetReturn
+    targetReturn: entity.targetReturn,
   };
 }
 
@@ -72,7 +94,7 @@ function mapCurrencyEntityToCurrency(entity: CurrencyEntity): Currency {
     type: 'currency',
     inputs: entity.inputs,
     coordinates: entity.coordinates,
-    selectedToken: entity.selectedToken
+    selectedToken: entity.selectedToken,
   };
 }
 
@@ -87,7 +109,7 @@ function mapDataSourceEntityToDataSource(entity: DataSourceEntity): DataSource {
     marketType: entity.marketType,
     timeframe: entity.timeframe,
     sources: entity.sources,
-    accounts: entity.accounts
+    accounts: entity.accounts,
   };
 }
 
@@ -100,7 +122,7 @@ function mapExecuterEntityToExecuter(entity: ExecuterEntity): Executer {
     coordinates: entity.coordinates,
     exchange: entity.exchange,
     apiKeyId: entity.apiKeyId,
-    configuration: entity.configuration
+    configuration: entity.configuration,
   };
 }
 
@@ -110,7 +132,7 @@ export function mapCreateBotInputToCreateBotRequest(input: CreateBotInput): Crea
     name: input.name,
     userId: input.userId,
     status: input.status,
-    configuration: mapBotConfigurationToBotConfigurationEntity(input.configuration)
+    configuration: mapBotConfigurationToBotConfigurationEntity(input.configuration),
   };
 }
 
@@ -119,20 +141,25 @@ export function mapUpdateBotInputToUpdateBotRequest(input: UpdateBotInput): Upda
     id: input.id,
     name: input.name,
     status: input.status,
-    configuration: input.configuration ? mapBotConfigurationToBotConfigurationEntity(input.configuration) : undefined,
-    userId: input.userId
+    configuration: input.configuration
+      ? mapBotConfigurationToBotConfigurationEntity(input.configuration)
+      : undefined,
+    userId: input.userId,
   };
 }
 
 // Map BotConfiguration to BotConfigurationEntity
-export function mapBotConfigurationToBotConfigurationEntity(config: BotConfiguration): BotConfigurationEntity {
+export function mapBotConfigurationToBotConfigurationEntity(
+  config: BotConfiguration,
+): BotConfigurationEntity {
   return {
     tokens: config.tokens,
     dataSources: config.dataSources.map(mapDataSourceToDataSourceEntity),
     executer: config.executer ? mapExecuterToExecuterEntity(config.executer) : null,
     portfolio: config.portfolio ? mapPortfolioToPortfolioEntity(config.portfolio) : null,
-    agents: config.agents.map(mapAgentToAgentEntity)
-  };  
+    agents: config.agents.map(mapAgentToAgentEntity),
+    tokensCoordinates: config.tokensCoordinates,
+  };
 }
 
 // Map DataSource domain model to DataSourceEntity
@@ -147,7 +174,7 @@ function mapDataSourceToDataSourceEntity(dataSource: DataSource): DataSourceEnti
     marketType: dataSource.marketType,
     timeframe: dataSource.timeframe,
     sources: dataSource.sources,
-    accounts: dataSource.accounts
+    accounts: dataSource.accounts,
   };
 }
 
@@ -161,7 +188,7 @@ function mapExecuterToExecuterEntity(executer: Executer): ExecuterEntity {
     coordinates: executer.coordinates,
     exchange: executer.exchange,
     apiKeyId: executer.apiKeyId,
-    configuration: executer.configuration
+    configuration: executer.configuration,
   };
 }
 
@@ -178,7 +205,7 @@ function mapPortfolioToPortfolioEntity(portfolio: Portfolio): PortfolioEntity {
     stopLoss: portfolio.stopLoss,
     takeProfit: portfolio.takeProfit,
     maxDrawdown: portfolio.maxDrawdown,
-    targetReturn: portfolio.targetReturn
+    targetReturn: portfolio.targetReturn,
   };
 }
 
@@ -196,10 +223,10 @@ function mapAgentToAgentEntity(agent: Agent): AgentEntity {
           provider: agent.provider,
           role: agent.role,
           prompt: agent.prompt,
-          apiKey: agent.apiKey
-        }
+          apiKey: agent.apiKey,
+        },
       } as AIAgentEntity;
     default:
       throw new Error(`Unknown agent type: ${(agent as any).type}`);
   }
-} 
+}

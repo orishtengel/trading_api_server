@@ -8,11 +8,12 @@ export interface BotEntity extends BaseEntity {
 }
 
 export interface BotConfigurationEntity {
+  tokensCoordinates: number[];
   tokens: string[];
   dataSources: DataSourceEntity[];
   executer: ExecuterEntity | null;
   portfolio: PortfolioEntity | null;
-  agents: (AgentEntity)[];
+  agents: AgentEntity[];
 }
 
 // Base interface for all agent types
@@ -89,9 +90,9 @@ export interface ExecuterConfigurationEntity {
 }
 
 // Union type for all agent entities
-export type AgentEntity = 
-  | AIAgentEntity 
-  | PortfolioEntity 
-  | CurrencyEntity 
-  | DataSourceEntity 
-  | ExecuterEntity; 
+export type AgentEntity =
+  | AIAgentEntity
+  | PortfolioEntity
+  | CurrencyEntity
+  | DataSourceEntity
+  | ExecuterEntity;

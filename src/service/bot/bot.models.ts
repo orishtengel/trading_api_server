@@ -13,6 +13,7 @@ export interface BotConfiguration {
   executer: Executer | null;
   portfolio: Portfolio | null;
   agents: Agent[];
+  tokensCoordinates: number[];
 }
 
 // Base interface for all agent types
@@ -23,7 +24,6 @@ export interface BaseAgent {
   inputs: string[];
   coordinates?: number[]; // New field for UI positioning
 }
-
 
 // Portfolio Model
 export interface Portfolio extends BaseAgent {
@@ -76,7 +76,7 @@ export interface ExecuterConfiguration {
   timeInForce: 'GTC' | 'IOC' | 'FOK' | 'DAY' | 'GTX';
 }
 
-export interface Agent extends BaseAgent {  
+export interface Agent extends BaseAgent {
   type: 'agent';
   provider: string;
   role: string;
@@ -98,4 +98,4 @@ export interface UpdateBotInput {
   status?: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
   configuration?: BotConfiguration;
   userId: string;
-} 
+}
