@@ -13,6 +13,7 @@ import authRoutes from '../api/routes/auth.routes';
 import botRoutes from '../api/routes/bot.routes';
 import backtestRoutes from '../api/routes/backtest.routes';
 import livePreviewRoutes from '../api/routes/livePreview.routes';
+import dataRoutes from '../api/routes/data.routes';
 
 export function createApp() {
   const app = express();
@@ -60,6 +61,9 @@ export function createApp() {
 
   // Backtest routes (SSE endpoint)
   app.use('/api/user', backtestRoutes);
+
+  // Data routes
+  app.use(dataRoutes);
 
   // User routes (for user-specific operations)
   const usersRepository = new UsersRepository();
