@@ -11,6 +11,7 @@ import {
   StopLivePreviewRequest,
   StopLivePreviewResponse,
 } from './contracts/requestResponse/stopLivePreview';
+import { mapBotToYaml } from '@manager/backtest/mapper/mapConfigToYaml';
 
 // Validation schema for backtest run
 const startLivePreviewSchema = z.object({
@@ -34,6 +35,7 @@ export class LivePreviewManager implements ILivePreviewManager {
 
       // Retrieve bot from Firebase to ensure it exists and get its configuration
       const bot = await this.botService.getBotById(validated.botId);
+      console.log('bot', bot);
 
       if (!bot) {
         return ApiError('Bot not found', 404);
@@ -42,18 +44,19 @@ export class LivePreviewManager implements ILivePreviewManager {
       if (bot.userId !== validated.userId) {
         return ApiError('Unauthorized to access this bot', 403);
       }
+      const yamlConfig = mapBotToYaml(bot);
 
       // Send backtest request to AI_SERVER
       const backtestPayload = {
         botId: validated.botId,
         userId: validated.userId,
+        config: yamlConfig,
       };
 
       const aiServerResponse = await AIServerApiService.post<{ success: boolean }>(
         '/livePreview/start',
         backtestPayload,
       );
-
       if (aiServerResponse.error) {
         return ApiResponse({ success: false }, aiServerResponse.status, aiServerResponse.error);
       }
