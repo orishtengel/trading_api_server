@@ -3,7 +3,6 @@ import { ApiResponse, ApiError, ApiSuccess } from './api';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
 export interface ApiServiceConfig {
   baseURL: string;
   timeout?: number;
@@ -20,22 +19,22 @@ export class ApiService {
   private client: AxiosInstance;
 
   constructor(config: ApiServiceConfig) {
-    console.log('process.env.AI_SERVER_URL', process.env.AI_SERVER_URL);  
+    console.log('process.env.AI_SERVER_URL', process.env.AI_SERVER_URL);
     console.log('process.env.AI_SERVER_USERNAME', process.env.AI_SERVER_USERNAME);
     this.client = axios.create({
       baseURL: config.baseURL,
       timeout: config.timeout || 30000, // 30 seconds default
       headers: {
         'Content-Type': 'application/json',
-        ...config.headers
+        ...config.headers,
       },
       auth: {
         username: process.env.AI_SERVER_USERNAME || 'admin',
-        password: process.env.AI_SERVER_PASSWORD || 'admin'
+        password: process.env.AI_SERVER_PASSWORD || 'admin',
       },
       httpsAgent: new (require('https').Agent)({
-        rejectUnauthorized: false // ⚠️ ignore self-signed cert
-      })
+        rejectUnauthorized: false, // ⚠️ ignore self-signed cert
+      }),
     });
 
     // Request interceptor for logging
@@ -47,7 +46,7 @@ export class ApiService {
       (error) => {
         console.error('[API] Request error:', error);
         return Promise.reject(error);
-      }
+      },
     );
 
     // Response interceptor for logging
@@ -58,12 +57,15 @@ export class ApiService {
       },
       (error) => {
         if (error.response) {
-          console.error(`[API] ${error.response.status} ${error.config?.url}:`, error.response.data);
+          console.error(
+            `[API] ${error.response.status} ${error.config?.url}:`,
+            error.response.data,
+          );
         } else {
           console.error('[API] Network error:', error.message);
         }
         return Promise.reject(error);
-      }
+      },
     );
   }
 
@@ -101,7 +103,7 @@ export class ApiService {
       const axiosConfig: AxiosRequestConfig = {
         headers: config?.headers,
         timeout: config?.timeout,
-        params: config?.params
+        params: config?.params,
       };
 
       const response = await this.client.get<T>(url, axiosConfig);
@@ -119,7 +121,7 @@ export class ApiService {
       const axiosConfig: AxiosRequestConfig = {
         headers: config?.headers,
         timeout: config?.timeout,
-        params: config?.params
+        params: config?.params,
       };
       console.log('axiosConfig', axiosConfig);
       console.log('data', data);
@@ -141,7 +143,7 @@ export class ApiService {
       const axiosConfig: AxiosRequestConfig = {
         headers: config?.headers,
         timeout: config?.timeout,
-        params: config?.params
+        params: config?.params,
       };
 
       const response = await this.client.put<T>(url, data, axiosConfig);
@@ -159,7 +161,7 @@ export class ApiService {
       const axiosConfig: AxiosRequestConfig = {
         headers: config?.headers,
         timeout: config?.timeout,
-        params: config?.params
+        params: config?.params,
       };
 
       const response = await this.client.patch<T>(url, data, axiosConfig);
@@ -177,7 +179,7 @@ export class ApiService {
       const axiosConfig: AxiosRequestConfig = {
         headers: config?.headers,
         timeout: config?.timeout,
-        params: config?.params
+        params: config?.params,
       };
 
       const response = await this.client.delete<T>(url, axiosConfig);
@@ -200,7 +202,7 @@ export class ApiService {
     if (config.headers) {
       this.client.defaults.headers = {
         ...this.client.defaults.headers,
-        ...config.headers
+        ...config.headers,
       };
     }
   }
@@ -225,9 +227,16 @@ export const AIServerApiService = new ApiService({
   baseURL: process.env.AI_SERVER_URL || 'http://localhost:8000/api',
   timeout: 60000, // 60 seconds for AI operations
   headers: {
-    'Accept': 'application/json'
-  }
+    Accept: 'application/json',
+  },
 });
 
+export const KucoinApiService = new ApiService({
+  baseURL: 'https://api.kucoin.com/api/v1',
+  timeout: 60000, // 60 seconds for AI operations
+  headers: {
+    Accept: 'application/json',
+  },
+});
 // Export the class for creating custom instances
 export default ApiService;

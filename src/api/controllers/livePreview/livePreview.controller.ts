@@ -3,11 +3,12 @@ import { StartLivePreviewRequest } from '@manager/livePreview/contracts/requestR
 import { StopLivePreviewRequest } from '@manager/livePreview/contracts/requestResponse/stopLivePreview';
 import { Request, Response } from 'express';
 import { BaseController } from '@shared/controllers';
+import { GetPnlRequest } from '@manager/livePreview/livePreview.contracts';
 
 export class LivePreviewController extends BaseController {
   constructor(private readonly livePreviewManager: ILivePreviewManager) {
     super({
-      enableLogging: true,
+      enableLogging: false,
       loggingOptions: {
         extractUserId: (req) => req.params.userId || undefined,
       },
@@ -20,6 +21,7 @@ export class LivePreviewController extends BaseController {
   private setupRoutes(): void {
     this.addRoute('post', '/:userId/bots/:botId/livePreview/start', this.startLivePreview);
     this.addRoute('post', '/:userId/bots/:botId/livePreview/stop', this.stopLivePreview);
+    this.addRoute('post', '/:userId/bots/:botId/livePreview/pnl', this.getPnl);
   }
 
   public override getRouter() {
@@ -72,6 +74,30 @@ export class LivePreviewController extends BaseController {
     }
     const request: StopLivePreviewRequest = { botId, userId };
     const response = await this.livePreviewManager.stopLivePreview(request);
+    res.status(response.status).json({ ...response.data });
+  }
+
+  async getPnl(req: Request, res: Response): Promise<void> {
+    const { botId, userId } = req.params;
+    const { positions, ledger } = req.body;
+    if (!botId) {
+      res.status(400).json({ ok: false, error: 'Missing required parameter: botId' });
+      return;
+    }
+    if (!userId) {
+      res.status(400).json({ ok: false, error: 'Missing required parameter: userId' });
+      return;
+    }
+    if (!positions) {
+      res.status(400).json({ ok: false, error: 'Missing required parameter: protfolio' });
+      return;
+    }
+    if (!ledger) {
+      res.status(400).json({ ok: false, error: 'Missing required parameter: ledger' });
+      return;
+    }
+    const request: GetPnlRequest = { botId, userId, positions, ledger };
+    const response = await this.livePreviewManager.getPnl(request);
     res.status(response.status).json({ ...response.data });
   }
 }

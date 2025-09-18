@@ -6,7 +6,7 @@ import { BaseController } from '@shared/controllers';
 export class DataController extends BaseController {
   constructor(private readonly dataManager: IDataManager) {
     super({
-      enableLogging: true,
+      enableLogging: false,
       loggingOptions: {
         extractUserId: (req) => req.params.userId || undefined,
       },

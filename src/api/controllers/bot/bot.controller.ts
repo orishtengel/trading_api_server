@@ -6,19 +6,19 @@ import {
   GetBotByIdRequest,
   UpdateBotRequest,
   DeleteBotRequest,
-  GetAllBotsRequest
+  GetAllBotsRequest,
 } from '@manager/bot/bot.contracts';
 import { BaseController } from '@shared/controllers';
 
 export class BotController extends BaseController {
   constructor(private readonly botManager: IBotManager) {
     super({
-      enableLogging: true,
+      enableLogging: false,
       loggingOptions: {
-        extractUserId: (req) => (req as AuthenticatedRequest).user?.uid || undefined
-      }
+        extractUserId: (req) => (req as AuthenticatedRequest).user?.uid || undefined,
+      },
     });
-    
+
     this.setupRoutes();
   }
 
@@ -42,7 +42,7 @@ export class BotController extends BaseController {
       name: req.body.name,
       userId: userId, // Use the authenticated user's UID
       status: req.body.status,
-      configuration: req.body.configuration
+      configuration: req.body.configuration,
     };
 
     const response = await this.botManager.createBot(createRequest);
@@ -51,7 +51,7 @@ export class BotController extends BaseController {
 
   async getBotById(req: AuthenticatedRequest, res: Response): Promise<void> {
     const getBotRequest: GetBotByIdRequest = {
-      id: req.params.id!
+      id: req.params.id!,
     };
 
     const response = await this.botManager.getBotById(getBotRequest);
@@ -64,7 +64,7 @@ export class BotController extends BaseController {
       name: req.body.name,
       status: req.body.status,
       configuration: req.body.configuration,
-      userId: req.user?.uid!
+      userId: req.user?.uid!,
     };
 
     const response = await this.botManager.updateBot(updateRequest);
@@ -73,7 +73,7 @@ export class BotController extends BaseController {
 
   async deleteBot(req: AuthenticatedRequest, res: Response): Promise<void> {
     const deleteRequest: DeleteBotRequest = {
-      id: req.params.id!
+      id: req.params.id!,
     };
 
     const response = await this.botManager.deleteBot(deleteRequest);
@@ -83,9 +83,9 @@ export class BotController extends BaseController {
   async getAllBots(req: AuthenticatedRequest, res: Response): Promise<void> {
     // Extract userId from authenticated user to filter bots by user
     const userId = req.user?.uid;
-    
+
     const getAllRequest: GetAllBotsRequest = {
-      userId: userId // Use authenticated user's UID to filter their bots
+      userId: userId, // Use authenticated user's UID to filter their bots
     };
 
     const response = await this.botManager.getAllBots(getAllRequest);
@@ -95,4 +95,4 @@ export class BotController extends BaseController {
   public override getRouter() {
     return this.router;
   }
-} 
+}
