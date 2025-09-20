@@ -108,6 +108,7 @@ export class LivePreviewManager implements ILivePreviewManager {
     try {
       const validated = getPnlSchema.parse(request);
       let totalPrice = 0;
+      const assetsPrices: Record<string, number> = {};
       for (const position of validated.positions) {
         const asset = position.asset;
         const amount = position.amount;
@@ -121,6 +122,7 @@ export class LivePreviewManager implements ILivePreviewManager {
           }
           const price = Number(tikcer.data!.data.price);
           totalPrice = totalPrice + amount * price;
+          assetsPrices[asset] = price;
         } else {
           totalPrice = totalPrice + amount;
         }
@@ -133,7 +135,7 @@ export class LivePreviewManager implements ILivePreviewManager {
       const pnl = totalPrice - initialAmount;
       const pnlPercentage = (pnl / initialAmount) * 100;
 
-      return ApiResponse({ pnl, pnlPercentage, totalPrice, initialAmount });
+      return ApiResponse({ pnl, pnlPercentage, totalPrice, initialAmount, assetsPrices });
     } catch (error) {
       return ApiError('Failed to get pnl', 500);
     }

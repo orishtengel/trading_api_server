@@ -10,6 +10,7 @@ export interface GetPnlResponse {
   pnlPercentage: number;
   totalPrice: number;
   initialAmount: number;
+  assetsPrices: Record<string, number>;
 }
 
 export interface PnlPortfolioPosition {
