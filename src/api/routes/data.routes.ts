@@ -8,7 +8,7 @@ const router = Router();
 const dataManager = new DataManager();
 const dataController = new DataController(dataManager);
 
-// Mount the data controller under /api/data
-router.use('/api/data', dataController.getRouter());
+// Mount the data controller routes directly
+router.use('/', dataController.getRouter());
 
 export default router;

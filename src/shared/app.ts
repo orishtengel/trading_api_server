@@ -63,7 +63,7 @@ export function createApp() {
   app.use('/api/user', backtestRoutes);
 
   // Data routes
-  app.use(dataRoutes);
+  app.use('/api/data', dataRoutes);
 
   // User routes (for user-specific operations)
   const usersRepository = new UsersRepository();
