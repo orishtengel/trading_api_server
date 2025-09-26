@@ -5,3 +5,4 @@ import './paths/auth';
 import './paths/bots';
 import './paths/users';
 import './paths/backtest';
+import './paths/data';

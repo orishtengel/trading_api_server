@@ -134,7 +134,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
 
   // Build cortex configuration - use agent IDs as input channels
   const cortex: YamlCortex = {
-    inputChannels: agents.map((agent) => agent.id),
+    inputChannels: configuration.portfolio?.inputs || [],
   };
 
   return {
