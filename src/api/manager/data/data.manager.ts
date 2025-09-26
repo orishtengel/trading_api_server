@@ -13,6 +13,30 @@ const getKlinesSchema = z.object({
   interval: z.string().min(1, 'Interval is required'),
 });
 
+export const timeKucionFromBinanceMapping = (timeString: string) => {
+  switch (timeString) {
+    case '1h':
+      return '1hour';
+    case '2h':
+      return '2hour';
+    case '4h':
+      return '4hour';
+    case '6h':
+      return '6hour';
+    case '8h':
+      return '8hour';
+    case '12h':
+      return '12hour';
+    case '1d':
+      return '1day';
+    case '1w':
+      return '1week';
+    case '1M':
+      return '1month';
+    default:
+      return '1day';
+  }
+};
 export class DataManager implements IDataManager {
   async getKlines(getKlinesRequest: GetKlinesRequest): Promise<ApiResponse<GetKlinesResponse>> {
     try {
@@ -21,8 +45,7 @@ export class DataManager implements IDataManager {
 
       // For now, return mock data - this will be replaced with actual service calls later
       const candlesticks: Record<string, Candlestick[]> = {};
-      console.log('validatedRequest', validatedRequest);
-      validatedRequest.interval = '1day'; // TODO add mapping;
+      validatedRequest.interval = timeKucionFromBinanceMapping(validatedRequest.interval);
       await Promise.all(
         validatedRequest.baseAssets.map(async (baseAsset) => {
           const startTime = Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 14) / 1000);
