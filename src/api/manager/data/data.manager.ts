@@ -37,6 +37,31 @@ export const timeKucionFromBinanceMapping = (timeString: string) => {
       return '1day';
   }
 };
+
+export const calculateStartTime = (interval: string) => {
+  switch (interval) {
+    case '1hour':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 12) / 1000);
+    case '2hour':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24) / 1000);
+    case '4hour':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 2) / 1000);
+    case '6hour':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 3) / 1000);
+    case '8hour':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 4) / 1000);
+    case '12hour':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 7) / 1000);
+    case '1day':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 14) / 1000);
+    case '1week':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 7 * 12) / 1000);
+    case '1month':
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 7 * 30 * 12) / 1000);
+    default:
+      return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 14) / 1000);
+  }
+};
 export class DataManager implements IDataManager {
   async getKlines(getKlinesRequest: GetKlinesRequest): Promise<ApiResponse<GetKlinesResponse>> {
     try {
@@ -48,7 +73,7 @@ export class DataManager implements IDataManager {
       validatedRequest.interval = timeKucionFromBinanceMapping(validatedRequest.interval);
       await Promise.all(
         validatedRequest.baseAssets.map(async (baseAsset) => {
-          const startTime = Math.floor((new Date().getTime() - 1000 * 60 * 60 * 24 * 14) / 1000);
+          const startTime = calculateStartTime(validatedRequest.interval);
           const endTime = Math.floor(new Date().getTime() / 1000);
           const response = await request(
             `https://api.kucoin.com/api/v1/market/candles?type=${validatedRequest.interval}&symbol=${baseAsset}-USDT&startAt=${startTime}&endAt=${endTime}`,
