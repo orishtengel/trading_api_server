@@ -1,9 +1,11 @@
 import { z } from 'zod';
 import { IDataManager } from './data.manager.interface';
-import { GetKlinesRequest, GetKlinesResponse, Candlestick } from './data.contracts';
+import { GetKlinesRequest, GetKlinesResponse, Candlestick, GetSymbolsDataRequest, GetSymbolsDataResponse, SymbolData } from './data.contracts';
 import { ApiError, ApiResponse } from '@shared/http/api';
 import { request } from 'undici';
 import { parseTimestring } from '@shared/utils/time/time.utils';
+import { loadSupportedSymbols, FilteredSupportedSymbol } from '@shared/utils/supportedSymbols';
+import { fetchBinanceRollingWindowStats, fetchBinanceCurrentPrices } from '@shared/utils/binance.utils';
 
 // Validation schemas
 const getKlinesSchema = z.object({
@@ -11,6 +13,13 @@ const getKlinesSchema = z.object({
     .array(z.string().min(1, 'Base asset cannot be empty'))
     .min(1, 'At least one base asset is required'),
   interval: z.string().min(1, 'Interval is required'),
+});
+
+const getSymbolsDataSchema = z.object({
+  symbols: z
+    .array(z.string().min(1, 'Symbol cannot be empty'))
+    .min(1, 'At least one symbol is required')
+    .max(100, 'Maximum 100 symbols allowed'),
 });
 
 export const timeKucionFromBinanceMapping = (timeString: string) => {
@@ -62,7 +71,76 @@ export const calculateStartTime = (interval: string) => {
       return Math.floor((new Date().getTime() - 1000 * 60 * 60 * 14) / 1000);
   }
 };
+
 export class DataManager implements IDataManager {
+  async getSymbolsData(request: GetSymbolsDataRequest): Promise<ApiResponse<GetSymbolsDataResponse>> {
+    try {
+      console.log('getSymbolsDataRequest', request);
+      const validatedRequest = getSymbolsDataSchema.parse(request);
+
+      // Check if all symbols are supported and get their Binance symbols
+      const supportedSymbols = loadSupportedSymbols();
+      const symbolMappings: Array<{ requestedSymbol: string; binanceSymbol: string }> = [];
+      
+      for (const requestedSymbol of validatedRequest.symbols) {
+        const symbolData = supportedSymbols.find((supportedSymbol: FilteredSupportedSymbol) => 
+          supportedSymbol.binanceSymbol === requestedSymbol
+        );
+
+        if (!symbolData) {
+          return ApiError(`Symbol ${requestedSymbol} is not supported`, 400);
+        }
+
+        symbolMappings.push({
+          requestedSymbol,
+          binanceSymbol: symbolData.binanceSymbol
+        });
+      }
+
+      const binanceSymbols = symbolMappings.map(mapping => mapping.binanceSymbol);
+
+      // Fetch data for different time windows and current prices in parallel
+      const [currentPricesData, twentyFourHourData, sevenDaysData, thirtyDaysData] = await Promise.all([
+        fetchBinanceCurrentPrices(binanceSymbols),
+        fetchBinanceRollingWindowStats(binanceSymbols, '1d'),
+        fetchBinanceRollingWindowStats(binanceSymbols, '7d'),
+        fetchBinanceRollingWindowStats(binanceSymbols, '30d')
+      ]);
+
+      // Create symbol data array
+      const symbolsData: SymbolData[] = symbolMappings.map((mapping) => {
+        const currentPrice = currentPricesData.find((price: any) => price.symbol === mapping.binanceSymbol);
+        const twentyFourHour = twentyFourHourData.find((data: any) => data.symbol === mapping.binanceSymbol);
+        const sevenDays = sevenDaysData.find((data: any) => data.symbol === mapping.binanceSymbol);
+        const thirtyDays = thirtyDaysData.find((data: any) => data.symbol === mapping.binanceSymbol);
+
+        if (!currentPrice || !twentyFourHour || !sevenDays || !thirtyDays) {
+          throw new Error(`Missing data for symbol ${mapping.binanceSymbol}`);
+        }
+
+        return {
+          symbol: mapping.binanceSymbol,
+          statistics: {
+            now: currentPrice,
+            twentyFourHour: twentyFourHour,
+            sevenDays: sevenDays,
+            thirtyDays: thirtyDays
+          }
+        };
+      });
+
+      return ApiResponse({
+        symbols: symbolsData
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return ApiError('Validation failed: ' + error.errors.map((e) => e.message).join(', '), 400);
+      }
+      console.log('error', error);
+      return ApiError('Failed to get symbols data', 500);
+    }
+  }
+
   async getKlines(getKlinesRequest: GetKlinesRequest): Promise<ApiResponse<GetKlinesResponse>> {
     try {
       console.log('getKlinesRequest', getKlinesRequest);

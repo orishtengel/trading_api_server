@@ -1,0 +1,6482 @@
+[
+  {
+    "symbol": "AVA-USDT",
+    "binanceSymbol": "AVAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVA"
+  },
+  {
+    "symbol": "BTC-USDT",
+    "binanceSymbol": "BTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTC"
+  },
+  {
+    "symbol": "MTV-USDT",
+    "binanceSymbol": "MTVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MTV"
+  },
+  {
+    "symbol": "KMD-USDT",
+    "binanceSymbol": "KMDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KMD"
+  },
+  {
+    "symbol": "TEL-USDT",
+    "binanceSymbol": "TELUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TEL"
+  },
+  {
+    "symbol": "TT-USDT",
+    "binanceSymbol": "TTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TT"
+  },
+  {
+    "symbol": "AERGO-USDT",
+    "binanceSymbol": "AERGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AERGO"
+  },
+  {
+    "symbol": "XMR-USDT",
+    "binanceSymbol": "XMRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XMR"
+  },
+  {
+    "symbol": "ATOM-USDT",
+    "binanceSymbol": "ATOMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ATOM"
+  },
+  {
+    "symbol": "ETN-USDT",
+    "binanceSymbol": "ETNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETN"
+  },
+  {
+    "symbol": "WAN-USDT",
+    "binanceSymbol": "WANUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WAN"
+  },
+  {
+    "symbol": "VSYS-USDT",
+    "binanceSymbol": "VSYSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VSYS"
+  },
+  {
+    "symbol": "CHR-USDT",
+    "binanceSymbol": "CHRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHR"
+  },
+  {
+    "symbol": "COTI-USDT",
+    "binanceSymbol": "COTIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "COTI"
+  },
+  {
+    "symbol": "BNB-USDT",
+    "binanceSymbol": "BNBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BNB"
+  },
+  {
+    "symbol": "ALGO-USDT",
+    "binanceSymbol": "ALGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALGO"
+  },
+  {
+    "symbol": "XEM-USDT",
+    "binanceSymbol": "XEMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XEM"
+  },
+  {
+    "symbol": "XTZ-USDT",
+    "binanceSymbol": "XTZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XTZ"
+  },
+  {
+    "symbol": "ZEC-USDT",
+    "binanceSymbol": "ZECUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEC"
+  },
+  {
+    "symbol": "ADA-USDT",
+    "binanceSymbol": "ADAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ADA"
+  },
+  {
+    "symbol": "ARPA-USDT",
+    "binanceSymbol": "ARPAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARPA"
+  },
+  {
+    "symbol": "CHZ-USDT",
+    "binanceSymbol": "CHZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHZ"
+  },
+  {
+    "symbol": "WIN-USDT",
+    "binanceSymbol": "WINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WIN"
+  },
+  {
+    "symbol": "BTT-USDT",
+    "binanceSymbol": "BTTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTT"
+  },
+  {
+    "symbol": "ONE-USDT",
+    "binanceSymbol": "ONEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ONE"
+  },
+  {
+    "symbol": "LUNA-USDT",
+    "binanceSymbol": "LUNAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LUNA"
+  },
+  {
+    "symbol": "SXP-USDT",
+    "binanceSymbol": "SXPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SXP"
+  },
+  {
+    "symbol": "AMPL-USDT",
+    "binanceSymbol": "AMPLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AMPL"
+  },
+  {
+    "symbol": "DAG-USDT",
+    "binanceSymbol": "DAGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DAG"
+  },
+  {
+    "symbol": "KPOL-USDT",
+    "binanceSymbol": "KPOLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KPOL"
+  },
+  {
+    "symbol": "NWC-USDT",
+    "binanceSymbol": "NWCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NWC"
+  },
+  {
+    "symbol": "BEPRO-USDT",
+    "binanceSymbol": "BEPROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BEPRO"
+  },
+  {
+    "symbol": "VRA-USDT",
+    "binanceSymbol": "VRAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VRA"
+  },
+  {
+    "symbol": "KSM-USDT",
+    "binanceSymbol": "KSMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KSM"
+  },
+  {
+    "symbol": "DASH-USDT",
+    "binanceSymbol": "DASHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DASH"
+  },
+  {
+    "symbol": "SENSO-USDT",
+    "binanceSymbol": "SENSOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SENSO"
+  },
+  {
+    "symbol": "XDB-USDT",
+    "binanceSymbol": "XDBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XDB"
+  },
+  {
+    "symbol": "SYLO-USDT",
+    "binanceSymbol": "SYLOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SYLO"
+  },
+  {
+    "symbol": "DGB-USDT",
+    "binanceSymbol": "DGBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DGB"
+  },
+  {
+    "symbol": "STX-USDT",
+    "binanceSymbol": "STXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STX"
+  },
+  {
+    "symbol": "COMP-USDT",
+    "binanceSymbol": "COMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "COMP"
+  },
+  {
+    "symbol": "CRO-USDT",
+    "binanceSymbol": "CROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CRO"
+  },
+  {
+    "symbol": "WAVES-USDT",
+    "binanceSymbol": "WAVESUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WAVES"
+  },
+  {
+    "symbol": "MLK-USDT",
+    "binanceSymbol": "MLKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MLK"
+  },
+  {
+    "symbol": "JST-USDT",
+    "binanceSymbol": "JSTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JST"
+  },
+  {
+    "symbol": "SUKU-USDT",
+    "binanceSymbol": "SUKUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUKU"
+  },
+  {
+    "symbol": "DIA-USDT",
+    "binanceSymbol": "DIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DIA"
+  },
+  {
+    "symbol": "LINK-USDT",
+    "binanceSymbol": "LINKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LINK"
+  },
+  {
+    "symbol": "DOT-USDT",
+    "binanceSymbol": "DOTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOT"
+  },
+  {
+    "symbol": "EWT-USDT",
+    "binanceSymbol": "EWTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EWT"
+  },
+  {
+    "symbol": "CKB-USDT",
+    "binanceSymbol": "CKBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CKB"
+  },
+  {
+    "symbol": "UMA-USDT",
+    "binanceSymbol": "UMAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UMA"
+  },
+  {
+    "symbol": "ALEPH-USDT",
+    "binanceSymbol": "ALEPHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALEPH"
+  },
+  {
+    "symbol": "VELO-USDT",
+    "binanceSymbol": "VELOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VELO"
+  },
+  {
+    "symbol": "SUN-USDT",
+    "binanceSymbol": "SUNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUN"
+  },
+  {
+    "symbol": "YFI-USDT",
+    "binanceSymbol": "YFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "YFI"
+  },
+  {
+    "symbol": "UNI-USDT",
+    "binanceSymbol": "UNIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UNI"
+  },
+  {
+    "symbol": "UOS-USDT",
+    "binanceSymbol": "UOSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UOS"
+  },
+  {
+    "symbol": "NIM-USDT",
+    "binanceSymbol": "NIMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NIM"
+  },
+  {
+    "symbol": "DEGO-USDT",
+    "binanceSymbol": "DEGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DEGO"
+  },
+  {
+    "symbol": "FIL-USDT",
+    "binanceSymbol": "FILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FIL"
+  },
+  {
+    "symbol": "AAVE-USDT",
+    "binanceSymbol": "AAVEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AAVE"
+  },
+  {
+    "symbol": "KCS-USDT",
+    "binanceSymbol": "KCSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KCS"
+  },
+  {
+    "symbol": "LTC-USDT",
+    "binanceSymbol": "LTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LTC"
+  },
+  {
+    "symbol": "BCHSV-USDT",
+    "binanceSymbol": "BCHSVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BCHSV"
+  },
+  {
+    "symbol": "QTUM-USDT",
+    "binanceSymbol": "QTUMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QTUM"
+  },
+  {
+    "symbol": "XLM-USDT",
+    "binanceSymbol": "XLMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XLM"
+  },
+  {
+    "symbol": "ETC-USDT",
+    "binanceSymbol": "ETCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETC"
+  },
+  {
+    "symbol": "ETH-USDT",
+    "binanceSymbol": "ETHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETH"
+  },
+  {
+    "symbol": "SNX-USDT",
+    "binanceSymbol": "SNXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SNX"
+  },
+  {
+    "symbol": "BTC-USDT",
+    "binanceSymbol": "BTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTC"
+  },
+  {
+    "symbol": "XRP-USDT",
+    "binanceSymbol": "XRPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XRP"
+  },
+  {
+    "symbol": "TRX-USDT",
+    "binanceSymbol": "TRXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRX"
+  },
+  {
+    "symbol": "ONT-USDT",
+    "binanceSymbol": "ONTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ONT"
+  },
+  {
+    "symbol": "VET-USDT",
+    "binanceSymbol": "VETUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VET"
+  },
+  {
+    "symbol": "NEO-USDT",
+    "binanceSymbol": "NEOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEO"
+  },
+  {
+    "symbol": "BCH-USDT",
+    "binanceSymbol": "BCHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BCH"
+  },
+  {
+    "symbol": "SHR-USDT",
+    "binanceSymbol": "SHRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHR"
+  },
+  {
+    "symbol": "VIDT-USDT",
+    "binanceSymbol": "VIDTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VIDT"
+  },
+  {
+    "symbol": "ROSE-USDT",
+    "binanceSymbol": "ROSEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ROSE"
+  },
+  {
+    "symbol": "USDC-USDT",
+    "binanceSymbol": "USDCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USDC"
+  },
+  {
+    "symbol": "PLU-USDT",
+    "binanceSymbol": "PLUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PLU"
+  },
+  {
+    "symbol": "GRT-USDT",
+    "binanceSymbol": "GRTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GRT"
+  },
+  {
+    "symbol": "CAS-USDT",
+    "binanceSymbol": "CASUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CAS"
+  },
+  {
+    "symbol": "REVV-USDT",
+    "binanceSymbol": "REVVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REVV"
+  },
+  {
+    "symbol": "1INCH-USDT",
+    "binanceSymbol": "1INCHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "1INCH"
+  },
+  {
+    "symbol": "API3-USDT",
+    "binanceSymbol": "API3USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "API3"
+  },
+  {
+    "symbol": "HTR-USDT",
+    "binanceSymbol": "HTRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HTR"
+  },
+  {
+    "symbol": "HYDRA-USDT",
+    "binanceSymbol": "HYDRAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HYDRA"
+  },
+  {
+    "symbol": "CRV-USDT",
+    "binanceSymbol": "CRVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CRV"
+  },
+  {
+    "symbol": "SUSHI-USDT",
+    "binanceSymbol": "SUSHIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUSHI"
+  },
+  {
+    "symbol": "ZEN-USDT",
+    "binanceSymbol": "ZENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEN"
+  },
+  {
+    "symbol": "REN-USDT",
+    "binanceSymbol": "RENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REN"
+  },
+  {
+    "symbol": "LRC-USDT",
+    "binanceSymbol": "LRCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LRC"
+  },
+  {
+    "symbol": "KLV-USDT",
+    "binanceSymbol": "KLVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KLV"
+  },
+  {
+    "symbol": "THETA-USDT",
+    "binanceSymbol": "THETAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "THETA"
+  },
+  {
+    "symbol": "QNT-USDT",
+    "binanceSymbol": "QNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QNT"
+  },
+  {
+    "symbol": "BAT-USDT",
+    "binanceSymbol": "BATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BAT"
+  },
+  {
+    "symbol": "DOGE-USDT",
+    "binanceSymbol": "DOGEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOGE"
+  },
+  {
+    "symbol": "DAO-USDT",
+    "binanceSymbol": "DAOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DAO"
+  },
+  {
+    "symbol": "CAKE-USDT",
+    "binanceSymbol": "CAKEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CAKE"
+  },
+  {
+    "symbol": "ORAI-USDT",
+    "binanceSymbol": "ORAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORAI"
+  },
+  {
+    "symbol": "MASK-USDT",
+    "binanceSymbol": "MASKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MASK"
+  },
+  {
+    "symbol": "IDEA-USDT",
+    "binanceSymbol": "IDEAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IDEA"
+  },
+  {
+    "symbol": "PHA-USDT",
+    "binanceSymbol": "PHAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PHA"
+  },
+  {
+    "symbol": "GAS-USDT",
+    "binanceSymbol": "GASUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GAS"
+  },
+  {
+    "symbol": "AVAX-USDT",
+    "binanceSymbol": "AVAXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVAX"
+  },
+  {
+    "symbol": "KRL-USDT",
+    "binanceSymbol": "KRLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KRL"
+  },
+  {
+    "symbol": "POLK-USDT",
+    "binanceSymbol": "POLKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POLK"
+  },
+  {
+    "symbol": "ENJ-USDT",
+    "binanceSymbol": "ENJUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ENJ"
+  },
+  {
+    "symbol": "MANA-USDT",
+    "binanceSymbol": "MANAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MANA"
+  },
+  {
+    "symbol": "SKEY-USDT",
+    "binanceSymbol": "SKEYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SKEY"
+  },
+  {
+    "symbol": "LAYER-USDT",
+    "binanceSymbol": "LAYERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LAYER"
+  },
+  {
+    "symbol": "TARA-USDT",
+    "binanceSymbol": "TARAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TARA"
+  },
+  {
+    "symbol": "IOST-USDT",
+    "binanceSymbol": "IOSTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IOST"
+  },
+  {
+    "symbol": "DYP-USDT",
+    "binanceSymbol": "DYPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DYP"
+  },
+  {
+    "symbol": "XYM-USDT",
+    "binanceSymbol": "XYMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XYM"
+  },
+  {
+    "symbol": "ORBS-USDT",
+    "binanceSymbol": "ORBSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORBS"
+  },
+  {
+    "symbol": "BTC3L-USDT",
+    "binanceSymbol": "BTC3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTC3L"
+  },
+  {
+    "symbol": "BTC3S-USDT",
+    "binanceSymbol": "BTC3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTC3S"
+  },
+  {
+    "symbol": "ETH3L-USDT",
+    "binanceSymbol": "ETH3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETH3L"
+  },
+  {
+    "symbol": "ETH3S-USDT",
+    "binanceSymbol": "ETH3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETH3S"
+  },
+  {
+    "symbol": "ANKR-USDT",
+    "binanceSymbol": "ANKRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ANKR"
+  },
+  {
+    "symbol": "SAND-USDT",
+    "binanceSymbol": "SANDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SAND"
+  },
+  {
+    "symbol": "VAI-USDT",
+    "binanceSymbol": "VAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VAI"
+  },
+  {
+    "symbol": "FLUX-USDT",
+    "binanceSymbol": "FLUXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLUX"
+  },
+  {
+    "symbol": "OMG-USDT",
+    "binanceSymbol": "OMGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OMG"
+  },
+  {
+    "symbol": "ZIL-USDT",
+    "binanceSymbol": "ZILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZIL"
+  },
+  {
+    "symbol": "DODO-USDT",
+    "binanceSymbol": "DODOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DODO"
+  },
+  {
+    "symbol": "MAN-USDT",
+    "binanceSymbol": "MANUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAN"
+  },
+  {
+    "symbol": "BAX-USDT",
+    "binanceSymbol": "BAXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BAX"
+  },
+  {
+    "symbol": "BOSON-USDT",
+    "binanceSymbol": "BOSONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BOSON"
+  },
+  {
+    "symbol": "PUNDIX-USDT",
+    "binanceSymbol": "PUNDIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PUNDIX"
+  },
+  {
+    "symbol": "WAX-USDT",
+    "binanceSymbol": "WAXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WAX"
+  },
+  {
+    "symbol": "HAI-USDT",
+    "binanceSymbol": "HAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HAI"
+  },
+  {
+    "symbol": "FORTH-USDT",
+    "binanceSymbol": "FORTHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FORTH"
+  },
+  {
+    "symbol": "GHX-USDT",
+    "binanceSymbol": "GHXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GHX"
+  },
+  {
+    "symbol": "STND-USDT",
+    "binanceSymbol": "STNDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STND"
+  },
+  {
+    "symbol": "TOWER-USDT",
+    "binanceSymbol": "TOWERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TOWER"
+  },
+  {
+    "symbol": "ACE-USDT",
+    "binanceSymbol": "ACEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ACE"
+  },
+  {
+    "symbol": "CWS-USDT",
+    "binanceSymbol": "CWSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CWS"
+  },
+  {
+    "symbol": "XDC-USDT",
+    "binanceSymbol": "XDCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XDC"
+  },
+  {
+    "symbol": "SHIB-USDT",
+    "binanceSymbol": "SHIBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHIB"
+  },
+  {
+    "symbol": "KDA-USDT",
+    "binanceSymbol": "KDAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KDA"
+  },
+  {
+    "symbol": "ICP-USDT",
+    "binanceSymbol": "ICPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ICP"
+  },
+  {
+    "symbol": "CELO-USDT",
+    "binanceSymbol": "CELOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CELO"
+  },
+  {
+    "symbol": "ELA-USDT",
+    "binanceSymbol": "ELAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ELA"
+  },
+  {
+    "symbol": "OGN-USDT",
+    "binanceSymbol": "OGNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OGN"
+  },
+  {
+    "symbol": "TLOS-USDT",
+    "binanceSymbol": "TLOSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TLOS"
+  },
+  {
+    "symbol": "GLQ-USDT",
+    "binanceSymbol": "GLQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GLQ"
+  },
+  {
+    "symbol": "MXC-USDT",
+    "binanceSymbol": "MXCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MXC"
+  },
+  {
+    "symbol": "ADA3L-USDT",
+    "binanceSymbol": "ADA3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ADA3L"
+  },
+  {
+    "symbol": "ADA3S-USDT",
+    "binanceSymbol": "ADA3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ADA3S"
+  },
+  {
+    "symbol": "HYVE-USDT",
+    "binanceSymbol": "HYVEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HYVE"
+  },
+  {
+    "symbol": "MAHA-USDT",
+    "binanceSymbol": "MAHAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAHA"
+  },
+  {
+    "symbol": "FEAR-USDT",
+    "binanceSymbol": "FEARUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FEAR"
+  },
+  {
+    "symbol": "PYR-USDT",
+    "binanceSymbol": "PYRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PYR"
+  },
+  {
+    "symbol": "PROM-USDT",
+    "binanceSymbol": "PROMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PROM"
+  },
+  {
+    "symbol": "UNO-USDT",
+    "binanceSymbol": "UNOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UNO"
+  },
+  {
+    "symbol": "XCAD-USDT",
+    "binanceSymbol": "XCADUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XCAD"
+  },
+  {
+    "symbol": "BCH3L-USDT",
+    "binanceSymbol": "BCH3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BCH3L"
+  },
+  {
+    "symbol": "BCH3S-USDT",
+    "binanceSymbol": "BCH3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BCH3S"
+  },
+  {
+    "symbol": "ELON-USDT",
+    "binanceSymbol": "ELONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ELON"
+  },
+  {
+    "symbol": "POLS-USDT",
+    "binanceSymbol": "POLSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POLS"
+  },
+  {
+    "symbol": "LSS-USDT",
+    "binanceSymbol": "LSSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LSS"
+  },
+  {
+    "symbol": "VET3L-USDT",
+    "binanceSymbol": "VET3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VET3L"
+  },
+  {
+    "symbol": "VET3S-USDT",
+    "binanceSymbol": "VET3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VET3S"
+  },
+  {
+    "symbol": "LTC3L-USDT",
+    "binanceSymbol": "LTC3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LTC3L"
+  },
+  {
+    "symbol": "LTC3S-USDT",
+    "binanceSymbol": "LTC3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LTC3S"
+  },
+  {
+    "symbol": "ZCX-USDT",
+    "binanceSymbol": "ZCXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZCX"
+  },
+  {
+    "symbol": "GMEE-USDT",
+    "binanceSymbol": "GMEEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GMEE"
+  },
+  {
+    "symbol": "SFUND-USDT",
+    "binanceSymbol": "SFUNDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SFUND"
+  },
+  {
+    "symbol": "XAVA-USDT",
+    "binanceSymbol": "XAVAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XAVA"
+  },
+  {
+    "symbol": "NFT-USDT",
+    "binanceSymbol": "NFTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NFT"
+  },
+  {
+    "symbol": "AIOZ-USDT",
+    "binanceSymbol": "AIOZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AIOZ"
+  },
+  {
+    "symbol": "MARSH-USDT",
+    "binanceSymbol": "MARSHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MARSH"
+  },
+  {
+    "symbol": "HAPI-USDT",
+    "binanceSymbol": "HAPIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HAPI"
+  },
+  {
+    "symbol": "LPT-USDT",
+    "binanceSymbol": "LPTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LPT"
+  },
+  {
+    "symbol": "SOUL-USDT",
+    "binanceSymbol": "SOULUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOUL"
+  },
+  {
+    "symbol": "NEAR-USDT",
+    "binanceSymbol": "NEARUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEAR"
+  },
+  {
+    "symbol": "DFYN-USDT",
+    "binanceSymbol": "DFYNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DFYN"
+  },
+  {
+    "symbol": "CFG-USDT",
+    "binanceSymbol": "CFGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CFG"
+  },
+  {
+    "symbol": "AXS-USDT",
+    "binanceSymbol": "AXSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AXS"
+  },
+  {
+    "symbol": "CLV-USDT",
+    "binanceSymbol": "CLVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CLV"
+  },
+  {
+    "symbol": "ROUTE-USDT",
+    "binanceSymbol": "ROUTEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ROUTE"
+  },
+  {
+    "symbol": "ERG-USDT",
+    "binanceSymbol": "ERGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ERG"
+  },
+  {
+    "symbol": "SOL-USDT",
+    "binanceSymbol": "SOLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOL"
+  },
+  {
+    "symbol": "SLP-USDT",
+    "binanceSymbol": "SLPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLP"
+  },
+  {
+    "symbol": "XCH-USDT",
+    "binanceSymbol": "XCHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XCH"
+  },
+  {
+    "symbol": "MTL-USDT",
+    "binanceSymbol": "MTLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MTL"
+  },
+  {
+    "symbol": "IOTX-USDT",
+    "binanceSymbol": "IOTXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IOTX"
+  },
+  {
+    "symbol": "GALAX-USDT",
+    "binanceSymbol": "GALAXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GALAX"
+  },
+  {
+    "symbol": "REQ-USDT",
+    "binanceSymbol": "REQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REQ"
+  },
+  {
+    "symbol": "QI-USDT",
+    "binanceSymbol": "QIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QI"
+  },
+  {
+    "symbol": "XPR-USDT",
+    "binanceSymbol": "XPRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XPR"
+  },
+  {
+    "symbol": "MOVR-USDT",
+    "binanceSymbol": "MOVRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOVR"
+  },
+  {
+    "symbol": "WOO-USDT",
+    "binanceSymbol": "WOOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WOO"
+  },
+  {
+    "symbol": "WILD-USDT",
+    "binanceSymbol": "WILDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WILD"
+  },
+  {
+    "symbol": "OXT-USDT",
+    "binanceSymbol": "OXTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OXT"
+  },
+  {
+    "symbol": "BAL-USDT",
+    "binanceSymbol": "BALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BAL"
+  },
+  {
+    "symbol": "STORJ-USDT",
+    "binanceSymbol": "STORJUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STORJ"
+  },
+  {
+    "symbol": "YGG-USDT",
+    "binanceSymbol": "YGGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "YGG"
+  },
+  {
+    "symbol": "XRP3L-USDT",
+    "binanceSymbol": "XRP3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XRP3L"
+  },
+  {
+    "symbol": "XRP3S-USDT",
+    "binanceSymbol": "XRP3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XRP3S"
+  },
+  {
+    "symbol": "SKL-USDT",
+    "binanceSymbol": "SKLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SKL"
+  },
+  {
+    "symbol": "NMR-USDT",
+    "binanceSymbol": "NMRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NMR"
+  },
+  {
+    "symbol": "TRB-USDT",
+    "binanceSymbol": "TRBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRB"
+  },
+  {
+    "symbol": "DYDX-USDT",
+    "binanceSymbol": "DYDXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DYDX"
+  },
+  {
+    "symbol": "XYO-USDT",
+    "binanceSymbol": "XYOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XYO"
+  },
+  {
+    "symbol": "GTC-USDT",
+    "binanceSymbol": "GTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GTC"
+  },
+  {
+    "symbol": "EQX-USDT",
+    "binanceSymbol": "EQXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EQX"
+  },
+  {
+    "symbol": "RLC-USDT",
+    "binanceSymbol": "RLCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RLC"
+  },
+  {
+    "symbol": "XPRT-USDT",
+    "binanceSymbol": "XPRTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XPRT"
+  },
+  {
+    "symbol": "EGLD-USDT",
+    "binanceSymbol": "EGLDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EGLD"
+  },
+  {
+    "symbol": "HBAR-USDT",
+    "binanceSymbol": "HBARUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HBAR"
+  },
+  {
+    "symbol": "DOGE3L-USDT",
+    "binanceSymbol": "DOGE3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOGE3L"
+  },
+  {
+    "symbol": "DOGE3S-USDT",
+    "binanceSymbol": "DOGE3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOGE3S"
+  },
+  {
+    "symbol": "FLOW-USDT",
+    "binanceSymbol": "FLOWUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLOW"
+  },
+  {
+    "symbol": "NKN-USDT",
+    "binanceSymbol": "NKNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NKN"
+  },
+  {
+    "symbol": "PBX-USDT",
+    "binanceSymbol": "PBXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PBX"
+  },
+  {
+    "symbol": "SOL3L-USDT",
+    "binanceSymbol": "SOL3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOL3L"
+  },
+  {
+    "symbol": "SOL3S-USDT",
+    "binanceSymbol": "SOL3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOL3S"
+  },
+  {
+    "symbol": "DMTR-USDT",
+    "binanceSymbol": "DMTRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DMTR"
+  },
+  {
+    "symbol": "LINK3L-USDT",
+    "binanceSymbol": "LINK3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LINK3L"
+  },
+  {
+    "symbol": "LINK3S-USDT",
+    "binanceSymbol": "LINK3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LINK3S"
+  },
+  {
+    "symbol": "DOT3L-USDT",
+    "binanceSymbol": "DOT3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOT3L"
+  },
+  {
+    "symbol": "DOT3S-USDT",
+    "binanceSymbol": "DOT3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOT3S"
+  },
+  {
+    "symbol": "CTSI-USDT",
+    "binanceSymbol": "CTSIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CTSI"
+  },
+  {
+    "symbol": "ALICE-USDT",
+    "binanceSymbol": "ALICEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALICE"
+  },
+  {
+    "symbol": "OPUL-USDT",
+    "binanceSymbol": "OPULUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OPUL"
+  },
+  {
+    "symbol": "ILV-USDT",
+    "binanceSymbol": "ILVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ILV"
+  },
+  {
+    "symbol": "BAND-USDT",
+    "binanceSymbol": "BANDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BAND"
+  },
+  {
+    "symbol": "FTT-USDT",
+    "binanceSymbol": "FTTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FTT"
+  },
+  {
+    "symbol": "DVPN-USDT",
+    "binanceSymbol": "DVPNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DVPN"
+  },
+  {
+    "symbol": "TLM-USDT",
+    "binanceSymbol": "TLMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TLM"
+  },
+  {
+    "symbol": "DEXE-USDT",
+    "binanceSymbol": "DEXEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DEXE"
+  },
+  {
+    "symbol": "RUNE-USDT",
+    "binanceSymbol": "RUNEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RUNE"
+  },
+  {
+    "symbol": "C98-USDT",
+    "binanceSymbol": "C98USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "C98"
+  },
+  {
+    "symbol": "BLOK-USDT",
+    "binanceSymbol": "BLOKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLOK"
+  },
+  {
+    "symbol": "ATOM3L-USDT",
+    "binanceSymbol": "ATOM3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ATOM3L"
+  },
+  {
+    "symbol": "ATOM3S-USDT",
+    "binanceSymbol": "ATOM3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ATOM3S"
+  },
+  {
+    "symbol": "UNI3L-USDT",
+    "binanceSymbol": "UNI3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UNI3L"
+  },
+  {
+    "symbol": "UNI3S-USDT",
+    "binanceSymbol": "UNI3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UNI3S"
+  },
+  {
+    "symbol": "PUSH-USDT",
+    "binanceSymbol": "PUSHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PUSH"
+  },
+  {
+    "symbol": "FLAME-USDT",
+    "binanceSymbol": "FLAMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLAME"
+  },
+  {
+    "symbol": "AGLD-USDT",
+    "binanceSymbol": "AGLDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AGLD"
+  },
+  {
+    "symbol": "NAKA-USDT",
+    "binanceSymbol": "NAKAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NAKA"
+  },
+  {
+    "symbol": "REEF-USDT",
+    "binanceSymbol": "REEFUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REEF"
+  },
+  {
+    "symbol": "INJ-USDT",
+    "binanceSymbol": "INJUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "INJ"
+  },
+  {
+    "symbol": "BNB3L-USDT",
+    "binanceSymbol": "BNB3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BNB3L"
+  },
+  {
+    "symbol": "BNB3S-USDT",
+    "binanceSymbol": "BNB3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BNB3S"
+  },
+  {
+    "symbol": "ALPHA-USDT",
+    "binanceSymbol": "ALPHAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALPHA"
+  },
+  {
+    "symbol": "AR-USDT",
+    "binanceSymbol": "ARUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AR"
+  },
+  {
+    "symbol": "JASMY-USDT",
+    "binanceSymbol": "JASMYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JASMY"
+  },
+  {
+    "symbol": "PERP-USDT",
+    "binanceSymbol": "PERPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PERP"
+  },
+  {
+    "symbol": "SUPER-USDT",
+    "binanceSymbol": "SUPERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUPER"
+  },
+  {
+    "symbol": "CPOOL-USDT",
+    "binanceSymbol": "CPOOLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CPOOL"
+  },
+  {
+    "symbol": "SWASH-USDT",
+    "binanceSymbol": "SWASHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SWASH"
+  },
+  {
+    "symbol": "LTO-USDT",
+    "binanceSymbol": "LTOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LTO"
+  },
+  {
+    "symbol": "MTRG-USDT",
+    "binanceSymbol": "MTRGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MTRG"
+  },
+  {
+    "symbol": "DREAMS-USDT",
+    "binanceSymbol": "DREAMSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DREAMS"
+  },
+  {
+    "symbol": "QUICK-USDT",
+    "binanceSymbol": "QUICKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QUICK"
+  },
+  {
+    "symbol": "TRU-USDT",
+    "binanceSymbol": "TRUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRU"
+  },
+  {
+    "symbol": "SUSHI3L-USDT",
+    "binanceSymbol": "SUSHI3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUSHI3L"
+  },
+  {
+    "symbol": "SUSHI3S-USDT",
+    "binanceSymbol": "SUSHI3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUSHI3S"
+  },
+  {
+    "symbol": "NEAR3L-USDT",
+    "binanceSymbol": "NEAR3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEAR3L"
+  },
+  {
+    "symbol": "NEAR3S-USDT",
+    "binanceSymbol": "NEAR3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEAR3S"
+  },
+  {
+    "symbol": "DATA-USDT",
+    "binanceSymbol": "DATAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DATA"
+  },
+  {
+    "symbol": "ISP-USDT",
+    "binanceSymbol": "ISPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ISP"
+  },
+  {
+    "symbol": "CERE-USDT",
+    "binanceSymbol": "CEREUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CERE"
+  },
+  {
+    "symbol": "PAXG-USDT",
+    "binanceSymbol": "PAXGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PAXG"
+  },
+  {
+    "symbol": "AUDIO-USDT",
+    "binanceSymbol": "AUDIOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AUDIO"
+  },
+  {
+    "symbol": "ENS-USDT",
+    "binanceSymbol": "ENSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ENS"
+  },
+  {
+    "symbol": "AAVE3L-USDT",
+    "binanceSymbol": "AAVE3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AAVE3L"
+  },
+  {
+    "symbol": "AAVE3S-USDT",
+    "binanceSymbol": "AAVE3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AAVE3S"
+  },
+  {
+    "symbol": "XTM-USDT",
+    "binanceSymbol": "XTMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XTM"
+  },
+  {
+    "symbol": "FXS-USDT",
+    "binanceSymbol": "FXSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FXS"
+  },
+  {
+    "symbol": "ATA-USDT",
+    "binanceSymbol": "ATAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ATA"
+  },
+  {
+    "symbol": "DPR-USDT",
+    "binanceSymbol": "DPRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DPR"
+  },
+  {
+    "symbol": "TWT-USDT",
+    "binanceSymbol": "TWTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TWT"
+  },
+  {
+    "symbol": "OM-USDT",
+    "binanceSymbol": "OMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OM"
+  },
+  {
+    "symbol": "ADX-USDT",
+    "binanceSymbol": "ADXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ADX"
+  },
+  {
+    "symbol": "AVAX3L-USDT",
+    "binanceSymbol": "AVAX3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVAX3L"
+  },
+  {
+    "symbol": "AVAX3S-USDT",
+    "binanceSymbol": "AVAX3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVAX3S"
+  },
+  {
+    "symbol": "GLM-USDT",
+    "binanceSymbol": "GLMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GLM"
+  },
+  {
+    "symbol": "NUM-USDT",
+    "binanceSymbol": "NUMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NUM"
+  },
+  {
+    "symbol": "TRADE-USDT",
+    "binanceSymbol": "TRADEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRADE"
+  },
+  {
+    "symbol": "MONI-USDT",
+    "binanceSymbol": "MONIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MONI"
+  },
+  {
+    "symbol": "LIKE-USDT",
+    "binanceSymbol": "LIKEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LIKE"
+  },
+  {
+    "symbol": "KAVA-USDT",
+    "binanceSymbol": "KAVAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KAVA"
+  },
+  {
+    "symbol": "SFP-USDT",
+    "binanceSymbol": "SFPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SFP"
+  },
+  {
+    "symbol": "CREAM-USDT",
+    "binanceSymbol": "CREAMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CREAM"
+  },
+  {
+    "symbol": "RSR-USDT",
+    "binanceSymbol": "RSRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RSR"
+  },
+  {
+    "symbol": "IMX-USDT",
+    "binanceSymbol": "IMXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IMX"
+  },
+  {
+    "symbol": "GODS-USDT",
+    "binanceSymbol": "GODSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GODS"
+  },
+  {
+    "symbol": "POLC-USDT",
+    "binanceSymbol": "POLCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POLC"
+  },
+  {
+    "symbol": "XTAG-USDT",
+    "binanceSymbol": "XTAGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XTAG"
+  },
+  {
+    "symbol": "NGC-USDT",
+    "binanceSymbol": "NGCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NGC"
+  },
+  {
+    "symbol": "HARD-USDT",
+    "binanceSymbol": "HARDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HARD"
+  },
+  {
+    "symbol": "GALAX3L-USDT",
+    "binanceSymbol": "GALAX3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GALAX3L"
+  },
+  {
+    "symbol": "GALAX3S-USDT",
+    "binanceSymbol": "GALAX3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GALAX3S"
+  },
+  {
+    "symbol": "POND-USDT",
+    "binanceSymbol": "PONDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POND"
+  },
+  {
+    "symbol": "VR-USDT",
+    "binanceSymbol": "VRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VR"
+  },
+  {
+    "symbol": "EPIK-USDT",
+    "binanceSymbol": "EPIKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EPIK"
+  },
+  {
+    "symbol": "NGL-USDT",
+    "binanceSymbol": "NGLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NGL"
+  },
+  {
+    "symbol": "CREDI-USDT",
+    "binanceSymbol": "CREDIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CREDI"
+  },
+  {
+    "symbol": "TRVL-USDT",
+    "binanceSymbol": "TRVLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRVL"
+  },
+  {
+    "symbol": "XEC-USDT",
+    "binanceSymbol": "XECUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XEC"
+  },
+  {
+    "symbol": "HEART-USDT",
+    "binanceSymbol": "HEARTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HEART"
+  },
+  {
+    "symbol": "GAFI-USDT",
+    "binanceSymbol": "GAFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GAFI"
+  },
+  {
+    "symbol": "GEEQ-USDT",
+    "binanceSymbol": "GEEQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GEEQ"
+  },
+  {
+    "symbol": "PEOPLE-USDT",
+    "binanceSymbol": "PEOPLEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEOPLE"
+  },
+  {
+    "symbol": "TIME-USDT",
+    "binanceSymbol": "TIMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TIME"
+  },
+  {
+    "symbol": "CWEB-USDT",
+    "binanceSymbol": "CWEBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CWEB"
+  },
+  {
+    "symbol": "IOTA-USDT",
+    "binanceSymbol": "IOTAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IOTA"
+  },
+  {
+    "symbol": "HNT-USDT",
+    "binanceSymbol": "HNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HNT"
+  },
+  {
+    "symbol": "REVU-USDT",
+    "binanceSymbol": "REVUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REVU"
+  },
+  {
+    "symbol": "GLMR-USDT",
+    "binanceSymbol": "GLMRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GLMR"
+  },
+  {
+    "symbol": "CTC-USDT",
+    "binanceSymbol": "CTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CTC"
+  },
+  {
+    "symbol": "GARI-USDT",
+    "binanceSymbol": "GARIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GARI"
+  },
+  {
+    "symbol": "ASTR-USDT",
+    "binanceSymbol": "ASTRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ASTR"
+  },
+  {
+    "symbol": "ERTHA-USDT",
+    "binanceSymbol": "ERTHAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ERTHA"
+  },
+  {
+    "symbol": "MTS-USDT",
+    "binanceSymbol": "MTSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MTS"
+  },
+  {
+    "symbol": "CVX-USDT",
+    "binanceSymbol": "CVXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CVX"
+  },
+  {
+    "symbol": "AMP-USDT",
+    "binanceSymbol": "AMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AMP"
+  },
+  {
+    "symbol": "MJT-USDT",
+    "binanceSymbol": "MJTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MJT"
+  },
+  {
+    "symbol": "XNO-USDT",
+    "binanceSymbol": "XNOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XNO"
+  },
+  {
+    "symbol": "MARS4-USDT",
+    "binanceSymbol": "MARS4USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MARS4"
+  },
+  {
+    "symbol": "TFUEL-USDT",
+    "binanceSymbol": "TFUELUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TFUEL"
+  },
+  {
+    "symbol": "METIS-USDT",
+    "binanceSymbol": "METISUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "METIS"
+  },
+  {
+    "symbol": "BULL-USDT",
+    "binanceSymbol": "BULLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BULL"
+  },
+  {
+    "symbol": "APE-USDT",
+    "binanceSymbol": "APEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "APE"
+  },
+  {
+    "symbol": "GMT-USDT",
+    "binanceSymbol": "GMTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GMT"
+  },
+  {
+    "symbol": "BICO-USDT",
+    "binanceSymbol": "BICOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BICO"
+  },
+  {
+    "symbol": "STG-USDT",
+    "binanceSymbol": "STGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STG"
+  },
+  {
+    "symbol": "JAM-USDT",
+    "binanceSymbol": "JAMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JAM"
+  },
+  {
+    "symbol": "BNC-USDT",
+    "binanceSymbol": "BNCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BNC"
+  },
+  {
+    "symbol": "CFX-USDT",
+    "binanceSymbol": "CFXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CFX"
+  },
+  {
+    "symbol": "LOOKS-USDT",
+    "binanceSymbol": "LOOKSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LOOKS"
+  },
+  {
+    "symbol": "XCN-USDT",
+    "binanceSymbol": "XCNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XCN"
+  },
+  {
+    "symbol": "UPO-USDT",
+    "binanceSymbol": "UPOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UPO"
+  },
+  {
+    "symbol": "CEEK-USDT",
+    "binanceSymbol": "CEEKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CEEK"
+  },
+  {
+    "symbol": "VEMP-USDT",
+    "binanceSymbol": "VEMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VEMP"
+  },
+  {
+    "symbol": "VISION-USDT",
+    "binanceSymbol": "VISIONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VISION"
+  },
+  {
+    "symbol": "ALPINE-USDT",
+    "binanceSymbol": "ALPINEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALPINE"
+  },
+  {
+    "symbol": "T-USDT",
+    "binanceSymbol": "TUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "T"
+  },
+  {
+    "symbol": "NYM-USDT",
+    "binanceSymbol": "NYMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NYM"
+  },
+  {
+    "symbol": "VOXEL-USDT",
+    "binanceSymbol": "VOXELUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VOXEL"
+  },
+  {
+    "symbol": "PSTAKE-USDT",
+    "binanceSymbol": "PSTAKEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PSTAKE"
+  },
+  {
+    "symbol": "SPA-USDT",
+    "binanceSymbol": "SPAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SPA"
+  },
+  {
+    "symbol": "MV-USDT",
+    "binanceSymbol": "MVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MV"
+  },
+  {
+    "symbol": "RACA-USDT",
+    "binanceSymbol": "RACAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RACA"
+  },
+  {
+    "symbol": "SWFTC-USDT",
+    "binanceSymbol": "SWFTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SWFTC"
+  },
+  {
+    "symbol": "CELR-USDT",
+    "binanceSymbol": "CELRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CELR"
+  },
+  {
+    "symbol": "AURORA-USDT",
+    "binanceSymbol": "AURORAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AURORA"
+  },
+  {
+    "symbol": "KNC-USDT",
+    "binanceSymbol": "KNCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KNC"
+  },
+  {
+    "symbol": "OVR-USDT",
+    "binanceSymbol": "OVRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OVR"
+  },
+  {
+    "symbol": "SYS-USDT",
+    "binanceSymbol": "SYSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SYS"
+  },
+  {
+    "symbol": "BRISE-USDT",
+    "binanceSymbol": "BRISEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BRISE"
+  },
+  {
+    "symbol": "EPX-USDT",
+    "binanceSymbol": "EPXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EPX"
+  },
+  {
+    "symbol": "GST-USDT",
+    "binanceSymbol": "GSTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GST"
+  },
+  {
+    "symbol": "BSW-USDT",
+    "binanceSymbol": "BSWUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BSW"
+  },
+  {
+    "symbol": "FITFI-USDT",
+    "binanceSymbol": "FITFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FITFI"
+  },
+  {
+    "symbol": "AKT-USDT",
+    "binanceSymbol": "AKTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AKT"
+  },
+  {
+    "symbol": "SIN-USDT",
+    "binanceSymbol": "SINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SIN"
+  },
+  {
+    "symbol": "BOBA-USDT",
+    "binanceSymbol": "BOBAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BOBA"
+  },
+  {
+    "symbol": "BFC-USDT",
+    "binanceSymbol": "BFCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BFC"
+  },
+  {
+    "symbol": "BIFI-USDT",
+    "binanceSymbol": "BIFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BIFI"
+  },
+  {
+    "symbol": "MBL-USDT",
+    "binanceSymbol": "MBLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MBL"
+  },
+  {
+    "symbol": "DUSK-USDT",
+    "binanceSymbol": "DUSKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DUSK"
+  },
+  {
+    "symbol": "USDD-USDT",
+    "binanceSymbol": "USDDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USDD"
+  },
+  {
+    "symbol": "ACH-USDT",
+    "binanceSymbol": "ACHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ACH"
+  },
+  {
+    "symbol": "SCRT-USDT",
+    "binanceSymbol": "SCRTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SCRT"
+  },
+  {
+    "symbol": "APE3L-USDT",
+    "binanceSymbol": "APE3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "APE3L"
+  },
+  {
+    "symbol": "APE3S-USDT",
+    "binanceSymbol": "APE3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "APE3S"
+  },
+  {
+    "symbol": "CCD-USDT",
+    "binanceSymbol": "CCDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CCD"
+  },
+  {
+    "symbol": "LUNC-USDT",
+    "binanceSymbol": "LUNCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LUNC"
+  },
+  {
+    "symbol": "USTC-USDT",
+    "binanceSymbol": "USTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USTC"
+  },
+  {
+    "symbol": "OP-USDT",
+    "binanceSymbol": "OPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OP"
+  },
+  {
+    "symbol": "JASMY3L-USDT",
+    "binanceSymbol": "JASMY3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JASMY3L"
+  },
+  {
+    "symbol": "JASMY3S-USDT",
+    "binanceSymbol": "JASMY3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JASMY3S"
+  },
+  {
+    "symbol": "EVER-USDT",
+    "binanceSymbol": "EVERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EVER"
+  },
+  {
+    "symbol": "ICX-USDT",
+    "binanceSymbol": "ICXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ICX"
+  },
+  {
+    "symbol": "WELL-USDT",
+    "binanceSymbol": "WELLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WELL"
+  },
+  {
+    "symbol": "FORT-USDT",
+    "binanceSymbol": "FORTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FORT"
+  },
+  {
+    "symbol": "USDP-USDT",
+    "binanceSymbol": "USDPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USDP"
+  },
+  {
+    "symbol": "CSPR-USDT",
+    "binanceSymbol": "CSPRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CSPR"
+  },
+  {
+    "symbol": "WEMIX-USDT",
+    "binanceSymbol": "WEMIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WEMIX"
+  },
+  {
+    "symbol": "LDO-USDT",
+    "binanceSymbol": "LDOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LDO"
+  },
+  {
+    "symbol": "FIDA-USDT",
+    "binanceSymbol": "FIDAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FIDA"
+  },
+  {
+    "symbol": "DC-USDT",
+    "binanceSymbol": "DCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DC"
+  },
+  {
+    "symbol": "RVN-USDT",
+    "binanceSymbol": "RVNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RVN"
+  },
+  {
+    "symbol": "SWEAT-USDT",
+    "binanceSymbol": "SWEATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SWEAT"
+  },
+  {
+    "symbol": "PIX-USDT",
+    "binanceSymbol": "PIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PIX"
+  },
+  {
+    "symbol": "MPLX-USDT",
+    "binanceSymbol": "MPLXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MPLX"
+  },
+  {
+    "symbol": "ETHW-USDT",
+    "binanceSymbol": "ETHWUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETHW"
+  },
+  {
+    "symbol": "ACQ-USDT",
+    "binanceSymbol": "ACQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ACQ"
+  },
+  {
+    "symbol": "GMX-USDT",
+    "binanceSymbol": "GMXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GMX"
+  },
+  {
+    "symbol": "POKT-USDT",
+    "binanceSymbol": "POKTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POKT"
+  },
+  {
+    "symbol": "APT-USDT",
+    "binanceSymbol": "APTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "APT"
+  },
+  {
+    "symbol": "EUL-USDT",
+    "binanceSymbol": "EULUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EUL"
+  },
+  {
+    "symbol": "TON-USDT",
+    "binanceSymbol": "TONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TON"
+  },
+  {
+    "symbol": "XCV-USDT",
+    "binanceSymbol": "XCVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XCV"
+  },
+  {
+    "symbol": "HFT-USDT",
+    "binanceSymbol": "HFTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HFT"
+  },
+  {
+    "symbol": "AMB-USDT",
+    "binanceSymbol": "AMBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AMB"
+  },
+  {
+    "symbol": "AZERO-USDT",
+    "binanceSymbol": "AZEROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AZERO"
+  },
+  {
+    "symbol": "BEAT-USDT",
+    "binanceSymbol": "BEATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BEAT"
+  },
+  {
+    "symbol": "NAVI-USDT",
+    "binanceSymbol": "NAVIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NAVI"
+  },
+  {
+    "symbol": "OAS-USDT",
+    "binanceSymbol": "OASUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OAS"
+  },
+  {
+    "symbol": "BDX-USDT",
+    "binanceSymbol": "BDXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BDX"
+  },
+  {
+    "symbol": "FLR-USDT",
+    "binanceSymbol": "FLRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLR"
+  },
+  {
+    "symbol": "OSMO-USDT",
+    "binanceSymbol": "OSMOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OSMO"
+  },
+  {
+    "symbol": "MAGIC-USDT",
+    "binanceSymbol": "MAGICUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAGIC"
+  },
+  {
+    "symbol": "RPL-USDT",
+    "binanceSymbol": "RPLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RPL"
+  },
+  {
+    "symbol": "SHIB2L-USDT",
+    "binanceSymbol": "SHIB2LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHIB2L"
+  },
+  {
+    "symbol": "SHIB2S-USDT",
+    "binanceSymbol": "SHIB2SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHIB2S"
+  },
+  {
+    "symbol": "HIGH-USDT",
+    "binanceSymbol": "HIGHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HIGH"
+  },
+  {
+    "symbol": "TRAC-USDT",
+    "binanceSymbol": "TRACUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRAC"
+  },
+  {
+    "symbol": "BLUR-USDT",
+    "binanceSymbol": "BLURUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLUR"
+  },
+  {
+    "symbol": "WAXL-USDT",
+    "binanceSymbol": "WAXLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WAXL"
+  },
+  {
+    "symbol": "FLOKI-USDT",
+    "binanceSymbol": "FLOKIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLOKI"
+  },
+  {
+    "symbol": "SSV-USDT",
+    "binanceSymbol": "SSVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SSV"
+  },
+  {
+    "symbol": "ACS-USDT",
+    "binanceSymbol": "ACSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ACS"
+  },
+  {
+    "symbol": "CSIX-USDT",
+    "binanceSymbol": "CSIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CSIX"
+  },
+  {
+    "symbol": "FET-USDT",
+    "binanceSymbol": "FETUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FET"
+  },
+  {
+    "symbol": "SIDUS-USDT",
+    "binanceSymbol": "SIDUSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SIDUS"
+  },
+  {
+    "symbol": "AIPAD-USDT",
+    "binanceSymbol": "AIPADUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AIPAD"
+  },
+  {
+    "symbol": "RDNT-USDT",
+    "binanceSymbol": "RDNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RDNT"
+  },
+  {
+    "symbol": "SYN-USDT",
+    "binanceSymbol": "SYNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SYN"
+  },
+  {
+    "symbol": "GNS-USDT",
+    "binanceSymbol": "GNSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GNS"
+  },
+  {
+    "symbol": "GRAIL-USDT",
+    "binanceSymbol": "GRAILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GRAIL"
+  },
+  {
+    "symbol": "BLZ-USDT",
+    "binanceSymbol": "BLZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLZ"
+  },
+  {
+    "symbol": "NXRA-USDT",
+    "binanceSymbol": "NXRAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NXRA"
+  },
+  {
+    "symbol": "MINA-USDT",
+    "binanceSymbol": "MINAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MINA"
+  },
+  {
+    "symbol": "XRD-USDT",
+    "binanceSymbol": "XRDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XRD"
+  },
+  {
+    "symbol": "LQTY-USDT",
+    "binanceSymbol": "LQTYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LQTY"
+  },
+  {
+    "symbol": "ID-USDT",
+    "binanceSymbol": "IDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ID"
+  },
+  {
+    "symbol": "ARB-USDT",
+    "binanceSymbol": "ARBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARB"
+  },
+  {
+    "symbol": "ARB3S-USDT",
+    "binanceSymbol": "ARB3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARB3S"
+  },
+  {
+    "symbol": "ARB3L-USDT",
+    "binanceSymbol": "ARB3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARB3L"
+  },
+  {
+    "symbol": "HMND-USDT",
+    "binanceSymbol": "HMNDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HMND"
+  },
+  {
+    "symbol": "BTCUP-USDT",
+    "binanceSymbol": "BTCUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTCUP"
+  },
+  {
+    "symbol": "BTCDOWN-USDT",
+    "binanceSymbol": "BTCDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTCDOWN"
+  },
+  {
+    "symbol": "ETHUP-USDT",
+    "binanceSymbol": "ETHUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETHUP"
+  },
+  {
+    "symbol": "ETHDOWN-USDT",
+    "binanceSymbol": "ETHDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETHDOWN"
+  },
+  {
+    "symbol": "HIFI-USDT",
+    "binanceSymbol": "HIFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HIFI"
+  },
+  {
+    "symbol": "MYRIA-USDT",
+    "binanceSymbol": "MYRIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MYRIA"
+  },
+  {
+    "symbol": "SD-USDT",
+    "binanceSymbol": "SDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SD"
+  },
+  {
+    "symbol": "CGPT-USDT",
+    "binanceSymbol": "CGPTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CGPT"
+  },
+  {
+    "symbol": "STRAX-USDT",
+    "binanceSymbol": "STRAXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STRAX"
+  },
+  {
+    "symbol": "KAGI-USDT",
+    "binanceSymbol": "KAGIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KAGI"
+  },
+  {
+    "symbol": "OTK-USDT",
+    "binanceSymbol": "OTKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OTK"
+  },
+  {
+    "symbol": "BABYDOGE-USDT",
+    "binanceSymbol": "BABYDOGEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BABYDOGE"
+  },
+  {
+    "symbol": "PZP-USDT",
+    "binanceSymbol": "PZPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PZP"
+  },
+  {
+    "symbol": "INJDOWN-USDT",
+    "binanceSymbol": "INJDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "INJDOWN"
+  },
+  {
+    "symbol": "INJUP-USDT",
+    "binanceSymbol": "INJUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "INJUP"
+  },
+  {
+    "symbol": "LOCUS-USDT",
+    "binanceSymbol": "LOCUSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LOCUS"
+  },
+  {
+    "symbol": "ZPAY-USDT",
+    "binanceSymbol": "ZPAYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZPAY"
+  },
+  {
+    "symbol": "IZI-USDT",
+    "binanceSymbol": "IZIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IZI"
+  },
+  {
+    "symbol": "SUI-USDT",
+    "binanceSymbol": "SUIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUI"
+  },
+  {
+    "symbol": "SUI3S-USDT",
+    "binanceSymbol": "SUI3SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUI3S"
+  },
+  {
+    "symbol": "SUI3L-USDT",
+    "binanceSymbol": "SUI3LUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUI3L"
+  },
+  {
+    "symbol": "KAS-USDT",
+    "binanceSymbol": "KASUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KAS"
+  },
+  {
+    "symbol": "PEPE-USDT",
+    "binanceSymbol": "PEPEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEPE"
+  },
+  {
+    "symbol": "PEPEUP-USDT",
+    "binanceSymbol": "PEPEUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEPEUP"
+  },
+  {
+    "symbol": "PEPEDOWN-USDT",
+    "binanceSymbol": "PEPEDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEPEDOWN"
+  },
+  {
+    "symbol": "CETUS-USDT",
+    "binanceSymbol": "CETUSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CETUS"
+  },
+  {
+    "symbol": "SUIP-USDT",
+    "binanceSymbol": "SUIPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUIP"
+  },
+  {
+    "symbol": "WLKN-USDT",
+    "binanceSymbol": "WLKNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WLKN"
+  },
+  {
+    "symbol": "TURBOS-USDT",
+    "binanceSymbol": "TURBOSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TURBOS"
+  },
+  {
+    "symbol": "LUNCUP-USDT",
+    "binanceSymbol": "LUNCUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LUNCUP"
+  },
+  {
+    "symbol": "LUNCDOWN-USDT",
+    "binanceSymbol": "LUNCDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LUNCDOWN"
+  },
+  {
+    "symbol": "LMWR-USDT",
+    "binanceSymbol": "LMWRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LMWR"
+  },
+  {
+    "symbol": "BOBMEME-USDT",
+    "binanceSymbol": "BOBMEMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BOBMEME"
+  },
+  {
+    "symbol": "LADYS-USDT",
+    "binanceSymbol": "LADYSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LADYS"
+  },
+  {
+    "symbol": "OBI-USDT",
+    "binanceSymbol": "OBIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OBI"
+  },
+  {
+    "symbol": "TSUGT-USDT",
+    "binanceSymbol": "TSUGTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TSUGT"
+  },
+  {
+    "symbol": "EDU-USDT",
+    "binanceSymbol": "EDUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EDU"
+  },
+  {
+    "symbol": "ORDI-USDT",
+    "binanceSymbol": "ORDIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORDI"
+  },
+  {
+    "symbol": "VOLT-USDT",
+    "binanceSymbol": "VOLTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VOLT"
+  },
+  {
+    "symbol": "TOMI-USDT",
+    "binanceSymbol": "TOMIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TOMI"
+  },
+  {
+    "symbol": "PIP-USDT",
+    "binanceSymbol": "PIPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PIP"
+  },
+  {
+    "symbol": "MAV-USDT",
+    "binanceSymbol": "MAVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAV"
+  },
+  {
+    "symbol": "XEN-USDT",
+    "binanceSymbol": "XENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XEN"
+  },
+  {
+    "symbol": "LBR-USDT",
+    "binanceSymbol": "LBRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LBR"
+  },
+  {
+    "symbol": "PENDLE-USDT",
+    "binanceSymbol": "PENDLEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PENDLE"
+  },
+  {
+    "symbol": "EGO-USDT",
+    "binanceSymbol": "EGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EGO"
+  },
+  {
+    "symbol": "PEPE2-USDT",
+    "binanceSymbol": "PEPE2USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEPE2"
+  },
+  {
+    "symbol": "DCK-USDT",
+    "binanceSymbol": "DCKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DCK"
+  },
+  {
+    "symbol": "LYX-USDT",
+    "binanceSymbol": "LYXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LYX"
+  },
+  {
+    "symbol": "WLD-USDT",
+    "binanceSymbol": "WLDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WLD"
+  },
+  {
+    "symbol": "WLDUP-USDT",
+    "binanceSymbol": "WLDUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WLDUP"
+  },
+  {
+    "symbol": "WLDDOWN-USDT",
+    "binanceSymbol": "WLDDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WLDDOWN"
+  },
+  {
+    "symbol": "SEI-USDT",
+    "binanceSymbol": "SEIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SEI"
+  },
+  {
+    "symbol": "PYUSD-USDT",
+    "binanceSymbol": "PYUSDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PYUSD"
+  },
+  {
+    "symbol": "ISLM-USDT",
+    "binanceSymbol": "ISLMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ISLM"
+  },
+  {
+    "symbol": "BIGTIME-USDT",
+    "binanceSymbol": "BIGTIMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BIGTIME"
+  },
+  {
+    "symbol": "NTRN-USDT",
+    "binanceSymbol": "NTRNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NTRN"
+  },
+  {
+    "symbol": "ARKM-USDT",
+    "binanceSymbol": "ARKMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARKM"
+  },
+  {
+    "symbol": "OFN-USDT",
+    "binanceSymbol": "OFNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OFN"
+  },
+  {
+    "symbol": "ZELIX-USDT",
+    "binanceSymbol": "ZELIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZELIX"
+  },
+  {
+    "symbol": "TIA-USDT",
+    "binanceSymbol": "TIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TIA"
+  },
+  {
+    "symbol": "CYBER-USDT",
+    "binanceSymbol": "CYBERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CYBER"
+  },
+  {
+    "symbol": "MEME-USDT",
+    "binanceSymbol": "MEMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MEME"
+  },
+  {
+    "symbol": "TOKEN-USDT",
+    "binanceSymbol": "TOKENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TOKEN"
+  },
+  {
+    "symbol": "SHRAP-USDT",
+    "binanceSymbol": "SHRAPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHRAP"
+  },
+  {
+    "symbol": "ORDIUP-USDT",
+    "binanceSymbol": "ORDIUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORDIUP"
+  },
+  {
+    "symbol": "ORDIDOWN-USDT",
+    "binanceSymbol": "ORDIDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORDIDOWN"
+  },
+  {
+    "symbol": "POL-USDT",
+    "binanceSymbol": "POLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POL"
+  },
+  {
+    "symbol": "SATS-USDT",
+    "binanceSymbol": "SATSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SATS"
+  },
+  {
+    "symbol": "RPK-USDT",
+    "binanceSymbol": "RPKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RPK"
+  },
+  {
+    "symbol": "PYTH-USDT",
+    "binanceSymbol": "PYTHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PYTH"
+  },
+  {
+    "symbol": "RATS-USDT",
+    "binanceSymbol": "RATSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RATS"
+  },
+  {
+    "symbol": "VRTX-USDT",
+    "binanceSymbol": "VRTXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VRTX"
+  },
+  {
+    "symbol": "ROOT-USDT",
+    "binanceSymbol": "ROOTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ROOT"
+  },
+  {
+    "symbol": "WBTC-USDT",
+    "binanceSymbol": "WBTCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WBTC"
+  },
+  {
+    "symbol": "ELF-USDT",
+    "binanceSymbol": "ELFUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ELF"
+  },
+  {
+    "symbol": "DCR-USDT",
+    "binanceSymbol": "DCRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DCR"
+  },
+  {
+    "symbol": "ZRX-USDT",
+    "binanceSymbol": "ZRXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZRX"
+  },
+  {
+    "symbol": "KASUP-USDT",
+    "binanceSymbol": "KASUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KASUP"
+  },
+  {
+    "symbol": "KASDOWN-USDT",
+    "binanceSymbol": "KASDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KASDOWN"
+  },
+  {
+    "symbol": "TIAUP-USDT",
+    "binanceSymbol": "TIAUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TIAUP"
+  },
+  {
+    "symbol": "TIADOWN-USDT",
+    "binanceSymbol": "TIADOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TIADOWN"
+  },
+  {
+    "symbol": "PYTHUP-USDT",
+    "binanceSymbol": "PYTHUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PYTHUP"
+  },
+  {
+    "symbol": "PYTHDOWN-USDT",
+    "binanceSymbol": "PYTHDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PYTHDOWN"
+  },
+  {
+    "symbol": "FLIP-USDT",
+    "binanceSymbol": "FLIPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLIP"
+  },
+  {
+    "symbol": "UQC-USDT",
+    "binanceSymbol": "UQCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UQC"
+  },
+  {
+    "symbol": "LSK-USDT",
+    "binanceSymbol": "LSKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LSK"
+  },
+  {
+    "symbol": "DENT-USDT",
+    "binanceSymbol": "DENTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DENT"
+  },
+  {
+    "symbol": "QKC-USDT",
+    "binanceSymbol": "QKCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QKC"
+  },
+  {
+    "symbol": "BONK-USDT",
+    "binanceSymbol": "BONKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BONK"
+  },
+  {
+    "symbol": "MIND-USDT",
+    "binanceSymbol": "MINDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MIND"
+  },
+  {
+    "symbol": "MNT-USDT",
+    "binanceSymbol": "MNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MNT"
+  },
+  {
+    "symbol": "INSP-USDT",
+    "binanceSymbol": "INSPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "INSP"
+  },
+  {
+    "symbol": "AUCTION-USDT",
+    "binanceSymbol": "AUCTIONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AUCTION"
+  },
+  {
+    "symbol": "JTO-USDT",
+    "binanceSymbol": "JTOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JTO"
+  },
+  {
+    "symbol": "UTK-USDT",
+    "binanceSymbol": "UTKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UTK"
+  },
+  {
+    "symbol": "SEAM-USDT",
+    "binanceSymbol": "SEAMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SEAM"
+  },
+  {
+    "symbol": "VANRY-USDT",
+    "binanceSymbol": "VANRYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VANRY"
+  },
+  {
+    "symbol": "MNDE-USDT",
+    "binanceSymbol": "MNDEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MNDE"
+  },
+  {
+    "symbol": "COQ-USDT",
+    "binanceSymbol": "COQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "COQ"
+  },
+  {
+    "symbol": "POLYX-USDT",
+    "binanceSymbol": "POLYXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POLYX"
+  },
+  {
+    "symbol": "SCPT-USDT",
+    "binanceSymbol": "SCPTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SCPT"
+  },
+  {
+    "symbol": "TAO-USDT",
+    "binanceSymbol": "TAOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TAO"
+  },
+  {
+    "symbol": "ARTY-USDT",
+    "binanceSymbol": "ARTYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARTY"
+  },
+  {
+    "symbol": "MUBI-USDT",
+    "binanceSymbol": "MUBIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MUBI"
+  },
+  {
+    "symbol": "SEIUP-USDT",
+    "binanceSymbol": "SEIUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SEIUP"
+  },
+  {
+    "symbol": "SEIDOWN-USDT",
+    "binanceSymbol": "SEIDOWNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SEIDOWN"
+  },
+  {
+    "symbol": "MYRO-USDT",
+    "binanceSymbol": "MYROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MYRO"
+  },
+  {
+    "symbol": "SILLY-USDT",
+    "binanceSymbol": "SILLYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SILLY"
+  },
+  {
+    "symbol": "MOBILE-USDT",
+    "binanceSymbol": "MOBILEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOBILE"
+  },
+  {
+    "symbol": "RAY-USDT",
+    "binanceSymbol": "RAYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RAY"
+  },
+  {
+    "symbol": "ALEX-USDT",
+    "binanceSymbol": "ALEXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALEX"
+  },
+  {
+    "symbol": "XAI-USDT",
+    "binanceSymbol": "XAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XAI"
+  },
+  {
+    "symbol": "NFP-USDT",
+    "binanceSymbol": "NFPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NFP"
+  },
+  {
+    "symbol": "ORCA-USDT",
+    "binanceSymbol": "ORCAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORCA"
+  },
+  {
+    "symbol": "KACE-USDT",
+    "binanceSymbol": "KACEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KACE"
+  },
+  {
+    "symbol": "APP-USDT",
+    "binanceSymbol": "APPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "APP"
+  },
+  {
+    "symbol": "NEON-USDT",
+    "binanceSymbol": "NEONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEON"
+  },
+  {
+    "symbol": "MANTA-USDT",
+    "binanceSymbol": "MANTAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MANTA"
+  },
+  {
+    "symbol": "ONDO-USDT",
+    "binanceSymbol": "ONDOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ONDO"
+  },
+  {
+    "symbol": "WIF-USDT",
+    "binanceSymbol": "WIFUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WIF"
+  },
+  {
+    "symbol": "SAROS-USDT",
+    "binanceSymbol": "SAROSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SAROS"
+  },
+  {
+    "symbol": "GTAI-USDT",
+    "binanceSymbol": "GTAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GTAI"
+  },
+  {
+    "symbol": "KALT-USDT",
+    "binanceSymbol": "KALTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KALT"
+  },
+  {
+    "symbol": "DMAIL-USDT",
+    "binanceSymbol": "DMAILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DMAIL"
+  },
+  {
+    "symbol": "AFG-USDT",
+    "binanceSymbol": "AFGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AFG"
+  },
+  {
+    "symbol": "WEN-USDT",
+    "binanceSymbol": "WENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WEN"
+  },
+  {
+    "symbol": "ZETA-USDT",
+    "binanceSymbol": "ZETAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZETA"
+  },
+  {
+    "symbol": "DEFI-USDT",
+    "binanceSymbol": "DEFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DEFI"
+  },
+  {
+    "symbol": "JUP-USDT",
+    "binanceSymbol": "JUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JUP"
+  },
+  {
+    "symbol": "FIRE-USDT",
+    "binanceSymbol": "FIREUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FIRE"
+  },
+  {
+    "symbol": "BMX-USDT",
+    "binanceSymbol": "BMXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BMX"
+  },
+  {
+    "symbol": "MAVIA-USDT",
+    "binanceSymbol": "MAVIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAVIA"
+  },
+  {
+    "symbol": "DYM-USDT",
+    "binanceSymbol": "DYMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DYM"
+  },
+  {
+    "symbol": "NETVR-USDT",
+    "binanceSymbol": "NETVRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NETVR"
+  },
+  {
+    "symbol": "NAVX-USDT",
+    "binanceSymbol": "NAVXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NAVX"
+  },
+  {
+    "symbol": "PIXEL-USDT",
+    "binanceSymbol": "PIXELUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PIXEL"
+  },
+  {
+    "symbol": "STRK-USDT",
+    "binanceSymbol": "STRKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STRK"
+  },
+  {
+    "symbol": "BCUT-USDT",
+    "binanceSymbol": "BCUTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BCUT"
+  },
+  {
+    "symbol": "TADA-USDT",
+    "binanceSymbol": "TADAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TADA"
+  },
+  {
+    "symbol": "SLN-USDT",
+    "binanceSymbol": "SLNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLN"
+  },
+  {
+    "symbol": "ICE-USDT",
+    "binanceSymbol": "ICEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ICE"
+  },
+  {
+    "symbol": "PORTAL-USDT",
+    "binanceSymbol": "PORTALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PORTAL"
+  },
+  {
+    "symbol": "QORPO-USDT",
+    "binanceSymbol": "QORPOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QORPO"
+  },
+  {
+    "symbol": "AEG-USDT",
+    "binanceSymbol": "AEGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AEG"
+  },
+  {
+    "symbol": "TUSD-USDT",
+    "binanceSymbol": "TUSDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TUSD"
+  },
+  {
+    "symbol": "SCA-USDT",
+    "binanceSymbol": "SCAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SCA"
+  },
+  {
+    "symbol": "NIBI-USDT",
+    "binanceSymbol": "NIBIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NIBI"
+  },
+  {
+    "symbol": "AEVO-USDT",
+    "binanceSymbol": "AEVOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AEVO"
+  },
+  {
+    "symbol": "HTX-USDT",
+    "binanceSymbol": "HTXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HTX"
+  },
+  {
+    "symbol": "AITECH-USDT",
+    "binanceSymbol": "AITECHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AITECH"
+  },
+  {
+    "symbol": "BOME-USDT",
+    "binanceSymbol": "BOMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BOME"
+  },
+  {
+    "symbol": "ETHFI-USDT",
+    "binanceSymbol": "ETHFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ETHFI"
+  },
+  {
+    "symbol": "MPC-USDT",
+    "binanceSymbol": "MPCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MPC"
+  },
+  {
+    "symbol": "ZKJ-USDT",
+    "binanceSymbol": "ZKJUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZKJ"
+  },
+  {
+    "symbol": "BEFI-USDT",
+    "binanceSymbol": "BEFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BEFI"
+  },
+  {
+    "symbol": "GMRX-USDT",
+    "binanceSymbol": "GMRXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GMRX"
+  },
+  {
+    "symbol": "BRAWL-USDT",
+    "binanceSymbol": "BRAWLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BRAWL"
+  },
+  {
+    "symbol": "VENOM-USDT",
+    "binanceSymbol": "VENOMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VENOM"
+  },
+  {
+    "symbol": "ENA-USDT",
+    "binanceSymbol": "ENAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ENA"
+  },
+  {
+    "symbol": "USDE-USDT",
+    "binanceSymbol": "USDEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USDE"
+  },
+  {
+    "symbol": "W-USDT",
+    "binanceSymbol": "WUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "W"
+  },
+  {
+    "symbol": "MEW-USDT",
+    "binanceSymbol": "MEWUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MEW"
+  },
+  {
+    "symbol": "ZEUS-USDT",
+    "binanceSymbol": "ZEUSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEUS"
+  },
+  {
+    "symbol": "AERO-USDT",
+    "binanceSymbol": "AEROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AERO"
+  },
+  {
+    "symbol": "TRUF-USDT",
+    "binanceSymbol": "TRUFUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRUF"
+  },
+  {
+    "symbol": "G3-USDT",
+    "binanceSymbol": "G3USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "G3"
+  },
+  {
+    "symbol": "TNSR-USDT",
+    "binanceSymbol": "TNSRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TNSR"
+  },
+  {
+    "symbol": "ESE-USDT",
+    "binanceSymbol": "ESEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ESE"
+  },
+  {
+    "symbol": "BLOCK-USDT",
+    "binanceSymbol": "BLOCKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLOCK"
+  },
+  {
+    "symbol": "MASA-USDT",
+    "binanceSymbol": "MASAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MASA"
+  },
+  {
+    "symbol": "SQR-USDT",
+    "binanceSymbol": "SQRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SQR"
+  },
+  {
+    "symbol": "FOXY-USDT",
+    "binanceSymbol": "FOXYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FOXY"
+  },
+  {
+    "symbol": "OMNI-USDT",
+    "binanceSymbol": "OMNIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OMNI"
+  },
+  {
+    "symbol": "PRCL-USDT",
+    "binanceSymbol": "PRCLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PRCL"
+  },
+  {
+    "symbol": "MAPO-USDT",
+    "binanceSymbol": "MAPOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAPO"
+  },
+  {
+    "symbol": "MERL-USDT",
+    "binanceSymbol": "MERLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MERL"
+  },
+  {
+    "symbol": "DEGEN-USDT",
+    "binanceSymbol": "DEGENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DEGEN"
+  },
+  {
+    "symbol": "KARRAT-USDT",
+    "binanceSymbol": "KARRATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KARRAT"
+  },
+  {
+    "symbol": "VINU-USDT",
+    "binanceSymbol": "VINUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VINU"
+  },
+  {
+    "symbol": "LL-USDT",
+    "binanceSymbol": "LLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LL"
+  },
+  {
+    "symbol": "PBUX-USDT",
+    "binanceSymbol": "PBUXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PBUX"
+  },
+  {
+    "symbol": "SAFE-USDT",
+    "binanceSymbol": "SAFEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SAFE"
+  },
+  {
+    "symbol": "RIO-USDT",
+    "binanceSymbol": "RIOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RIO"
+  },
+  {
+    "symbol": "REZ-USDT",
+    "binanceSymbol": "REZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REZ"
+  },
+  {
+    "symbol": "KMNO-USDT",
+    "binanceSymbol": "KMNOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KMNO"
+  },
+  {
+    "symbol": "ZBCN-USDT",
+    "binanceSymbol": "ZBCNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZBCN"
+  },
+  {
+    "symbol": "MANEKI-USDT",
+    "binanceSymbol": "MANEKIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MANEKI"
+  },
+  {
+    "symbol": "ZERO-USDT",
+    "binanceSymbol": "ZEROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZERO"
+  },
+  {
+    "symbol": "WSDM-USDT",
+    "binanceSymbol": "WSDMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WSDM"
+  },
+  {
+    "symbol": "BB-USDT",
+    "binanceSymbol": "BBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BB"
+  },
+  {
+    "symbol": "CTA-USDT",
+    "binanceSymbol": "CTAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CTA"
+  },
+  {
+    "symbol": "DRIFT-USDT",
+    "binanceSymbol": "DRIFTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DRIFT"
+  },
+  {
+    "symbol": "FURY-USDT",
+    "binanceSymbol": "FURYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FURY"
+  },
+  {
+    "symbol": "NLK-USDT",
+    "binanceSymbol": "NLKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NLK"
+  },
+  {
+    "symbol": "NOT-USDT",
+    "binanceSymbol": "NOTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NOT"
+  },
+  {
+    "symbol": "SQD-USDT",
+    "binanceSymbol": "SQDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SQD"
+  },
+  {
+    "symbol": "MONPRO-USDT",
+    "binanceSymbol": "MONPROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MONPRO"
+  },
+  {
+    "symbol": "WLTH-USDT",
+    "binanceSymbol": "WLTHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WLTH"
+  },
+  {
+    "symbol": "TAIKO-USDT",
+    "binanceSymbol": "TAIKOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TAIKO"
+  },
+  {
+    "symbol": "ULTI-USDT",
+    "binanceSymbol": "ULTIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ULTI"
+  },
+  {
+    "symbol": "LKI-USDT",
+    "binanceSymbol": "LKIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LKI"
+  },
+  {
+    "symbol": "BRETT-USDT",
+    "binanceSymbol": "BRETTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BRETT"
+  },
+  {
+    "symbol": "IO-USDT",
+    "binanceSymbol": "IOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IO"
+  },
+  {
+    "symbol": "UNA-USDT",
+    "binanceSymbol": "UNAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UNA"
+  },
+  {
+    "symbol": "ATH-USDT",
+    "binanceSymbol": "ATHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ATH"
+  },
+  {
+    "symbol": "BEER-USDT",
+    "binanceSymbol": "BEERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BEER"
+  },
+  {
+    "symbol": "COOKIE-USDT",
+    "binanceSymbol": "COOKIEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "COOKIE"
+  },
+  {
+    "symbol": "ARTFI-USDT",
+    "binanceSymbol": "ARTFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARTFI"
+  },
+  {
+    "symbol": "ZK-USDT",
+    "binanceSymbol": "ZKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZK"
+  },
+  {
+    "symbol": "OORT-USDT",
+    "binanceSymbol": "OORTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OORT"
+  },
+  {
+    "symbol": "ZRO-USDT",
+    "binanceSymbol": "ZROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZRO"
+  },
+  {
+    "symbol": "LISTA-USDT",
+    "binanceSymbol": "LISTAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LISTA"
+  },
+  {
+    "symbol": "NRN-USDT",
+    "binanceSymbol": "NRNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NRN"
+  },
+  {
+    "symbol": "BLAST-USDT",
+    "binanceSymbol": "BLASTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLAST"
+  },
+  {
+    "symbol": "TST-USDT",
+    "binanceSymbol": "TSTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TST"
+  },
+  {
+    "symbol": "ZEX-USDT",
+    "binanceSymbol": "ZEXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEX"
+  },
+  {
+    "symbol": "NATIX-USDT",
+    "binanceSymbol": "NATIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NATIX"
+  },
+  {
+    "symbol": "MOG-USDT",
+    "binanceSymbol": "MOGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOG"
+  },
+  {
+    "symbol": "XR-USDT",
+    "binanceSymbol": "XRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XR"
+  },
+  {
+    "symbol": "MOCA-USDT",
+    "binanceSymbol": "MOCAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOCA"
+  },
+  {
+    "symbol": "ANYONE-USDT",
+    "binanceSymbol": "ANYONEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ANYONE"
+  },
+  {
+    "symbol": "ZKL-USDT",
+    "binanceSymbol": "ZKLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZKL"
+  },
+  {
+    "symbol": "BANANA-USDT",
+    "binanceSymbol": "BANANAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BANANA"
+  },
+  {
+    "symbol": "OPAI-USDT",
+    "binanceSymbol": "OPAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OPAI"
+  },
+  {
+    "symbol": "AVAIL-USDT",
+    "binanceSymbol": "AVAILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVAIL"
+  },
+  {
+    "symbol": "LRDS-USDT",
+    "binanceSymbol": "LRDSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LRDS"
+  },
+  {
+    "symbol": "SYNT-USDT",
+    "binanceSymbol": "SYNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SYNT"
+  },
+  {
+    "symbol": "LSD-USDT",
+    "binanceSymbol": "LSDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LSD"
+  },
+  {
+    "symbol": "L3-USDT",
+    "binanceSymbol": "L3USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "L3"
+  },
+  {
+    "symbol": "CXT-USDT",
+    "binanceSymbol": "CXTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CXT"
+  },
+  {
+    "symbol": "MAX-USDT",
+    "binanceSymbol": "MAXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAX"
+  },
+  {
+    "symbol": "G-USDT",
+    "binanceSymbol": "GUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "G"
+  },
+  {
+    "symbol": "RENDER-USDT",
+    "binanceSymbol": "RENDERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RENDER"
+  },
+  {
+    "symbol": "CAT-USDT",
+    "binanceSymbol": "CATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CAT"
+  },
+  {
+    "symbol": "POPCAT-USDT",
+    "binanceSymbol": "POPCATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POPCAT"
+  },
+  {
+    "symbol": "FX-USDT",
+    "binanceSymbol": "FXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FX"
+  },
+  {
+    "symbol": "DOGS-USDT",
+    "binanceSymbol": "DOGSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOGS"
+  },
+  {
+    "symbol": "ORDER-USDT",
+    "binanceSymbol": "ORDERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ORDER"
+  },
+  {
+    "symbol": "REDO-USDT",
+    "binanceSymbol": "REDOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REDO"
+  },
+  {
+    "symbol": "SUNDOG-USDT",
+    "binanceSymbol": "SUNDOGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUNDOG"
+  },
+  {
+    "symbol": "ROOBEE-USDT",
+    "binanceSymbol": "ROOBEEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ROOBEE"
+  },
+  {
+    "symbol": "MAK-USDT",
+    "binanceSymbol": "MAKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAK"
+  },
+  {
+    "symbol": "SLF-USDT",
+    "binanceSymbol": "SLFUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLF"
+  },
+  {
+    "symbol": "CATI-USDT",
+    "binanceSymbol": "CATIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CATI"
+  },
+  {
+    "symbol": "NOTAI-USDT",
+    "binanceSymbol": "NOTAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NOTAI"
+  },
+  {
+    "symbol": "TURBO-USDT",
+    "binanceSymbol": "TURBOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TURBO"
+  },
+  {
+    "symbol": "NEIRO-USDT",
+    "binanceSymbol": "NEIROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEIRO"
+  },
+  {
+    "symbol": "NEIROCTO-USDT",
+    "binanceSymbol": "NEIROCTOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEIROCTO"
+  },
+  {
+    "symbol": "SKY-USDT",
+    "binanceSymbol": "SKYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SKY"
+  },
+  {
+    "symbol": "LOGX-USDT",
+    "binanceSymbol": "LOGXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LOGX"
+  },
+  {
+    "symbol": "EGP-USDT",
+    "binanceSymbol": "EGPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EGP"
+  },
+  {
+    "symbol": "HMSTR-USDT",
+    "binanceSymbol": "HMSTRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HMSTR"
+  },
+  {
+    "symbol": "LAY3R-USDT",
+    "binanceSymbol": "LAY3RUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LAY3R"
+  },
+  {
+    "symbol": "DAPP-USDT",
+    "binanceSymbol": "DAPPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DAPP"
+  },
+  {
+    "symbol": "MOODENG-USDT",
+    "binanceSymbol": "MOODENGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOODENG"
+  },
+  {
+    "symbol": "EIGEN-USDT",
+    "binanceSymbol": "EIGENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EIGEN"
+  },
+  {
+    "symbol": "BABYBNB-USDT",
+    "binanceSymbol": "BABYBNBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BABYBNB"
+  },
+  {
+    "symbol": "CATS-USDT",
+    "binanceSymbol": "CATSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CATS"
+  },
+  {
+    "symbol": "CHO-USDT",
+    "binanceSymbol": "CHOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHO"
+  },
+  {
+    "symbol": "PONKE-USDT",
+    "binanceSymbol": "PONKEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PONKE"
+  },
+  {
+    "symbol": "CARV-USDT",
+    "binanceSymbol": "CARVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CARV"
+  },
+  {
+    "symbol": "HIPPO-USDT",
+    "binanceSymbol": "HIPPOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HIPPO"
+  },
+  {
+    "symbol": "PUFFER-USDT",
+    "binanceSymbol": "PUFFERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PUFFER"
+  },
+  {
+    "symbol": "WMTX-USDT",
+    "binanceSymbol": "WMTXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WMTX"
+  },
+  {
+    "symbol": "DEEP-USDT",
+    "binanceSymbol": "DEEPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DEEP"
+  },
+  {
+    "symbol": "RMV-USDT",
+    "binanceSymbol": "RMVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RMV"
+  },
+  {
+    "symbol": "OMNIA-USDT",
+    "binanceSymbol": "OMNIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OMNIA"
+  },
+  {
+    "symbol": "DBR-USDT",
+    "binanceSymbol": "DBRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DBR"
+  },
+  {
+    "symbol": "X-USDT",
+    "binanceSymbol": "XUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "X"
+  },
+  {
+    "symbol": "TAP-USDT",
+    "binanceSymbol": "TAPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TAP"
+  },
+  {
+    "symbol": "NAYM-USDT",
+    "binanceSymbol": "NAYMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NAYM"
+  },
+  {
+    "symbol": "SCR-USDT",
+    "binanceSymbol": "SCRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SCR"
+  },
+  {
+    "symbol": "GOAT-USDT",
+    "binanceSymbol": "GOATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GOAT"
+  },
+  {
+    "symbol": "GRASS-USDT",
+    "binanceSymbol": "GRASSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GRASS"
+  },
+  {
+    "symbol": "GODL-USDT",
+    "binanceSymbol": "GODLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GODL"
+  },
+  {
+    "symbol": "PHIL-USDT",
+    "binanceSymbol": "PHILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PHIL"
+  },
+  {
+    "symbol": "KAIA-USDT",
+    "binanceSymbol": "KAIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KAIA"
+  },
+  {
+    "symbol": "ARCA-USDT",
+    "binanceSymbol": "ARCAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARCA"
+  },
+  {
+    "symbol": "ACTSOL-USDT",
+    "binanceSymbol": "ACTSOLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ACTSOL"
+  },
+  {
+    "symbol": "SMILE-USDT",
+    "binanceSymbol": "SMILEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SMILE"
+  },
+  {
+    "symbol": "COW-USDT",
+    "binanceSymbol": "COWUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "COW"
+  },
+  {
+    "symbol": "SWELL-USDT",
+    "binanceSymbol": "SWELLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SWELL"
+  },
+  {
+    "symbol": "CVC-USDT",
+    "binanceSymbol": "CVCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CVC"
+  },
+  {
+    "symbol": "PEAQ-USDT",
+    "binanceSymbol": "PEAQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEAQ"
+  },
+  {
+    "symbol": "LUCE-USDT",
+    "binanceSymbol": "LUCEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LUCE"
+  },
+  {
+    "symbol": "PNUT-USDT",
+    "binanceSymbol": "PNUTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PNUT"
+  },
+  {
+    "symbol": "NS-USDT",
+    "binanceSymbol": "NSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NS"
+  },
+  {
+    "symbol": "HSK-USDT",
+    "binanceSymbol": "HSKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HSK"
+  },
+  {
+    "symbol": "MICHI-USDT",
+    "binanceSymbol": "MICHIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MICHI"
+  },
+  {
+    "symbol": "NPC-USDT",
+    "binanceSymbol": "NPCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NPC"
+  },
+  {
+    "symbol": "BAN-USDT",
+    "binanceSymbol": "BANUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BAN"
+  },
+  {
+    "symbol": "MORPHO-USDT",
+    "binanceSymbol": "MORPHOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MORPHO"
+  },
+  {
+    "symbol": "RIFSOL-USDT",
+    "binanceSymbol": "RIFSOLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RIFSOL"
+  },
+  {
+    "symbol": "PNDR-USDT",
+    "binanceSymbol": "PNDRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PNDR"
+  },
+  {
+    "symbol": "ASI-USDT",
+    "binanceSymbol": "ASIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ASI"
+  },
+  {
+    "symbol": "MEMEFI-USDT",
+    "binanceSymbol": "MEMEFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MEMEFI"
+  },
+  {
+    "symbol": "RWA-USDT",
+    "binanceSymbol": "RWAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RWA"
+  },
+  {
+    "symbol": "SDM-USDT",
+    "binanceSymbol": "SDMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SDM"
+  },
+  {
+    "symbol": "MIGGLES-USDT",
+    "binanceSymbol": "MIGGLESUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MIGGLES"
+  },
+  {
+    "symbol": "SLERF-USDT",
+    "binanceSymbol": "SLERFUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLERF"
+  },
+  {
+    "symbol": "ZRC-USDT",
+    "binanceSymbol": "ZRCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZRC"
+  },
+  {
+    "symbol": "KIMA-USDT",
+    "binanceSymbol": "KIMAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KIMA"
+  },
+  {
+    "symbol": "FRED-USDT",
+    "binanceSymbol": "FREDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FRED"
+  },
+  {
+    "symbol": "HAPPY-USDT",
+    "binanceSymbol": "HAPPYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HAPPY"
+  },
+  {
+    "symbol": "WOD-USDT",
+    "binanceSymbol": "WODUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WOD"
+  },
+  {
+    "symbol": "READY-USDT",
+    "binanceSymbol": "READYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "READY"
+  },
+  {
+    "symbol": "SYRUP-USDT",
+    "binanceSymbol": "SYRUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SYRUP"
+  },
+  {
+    "symbol": "SUPRA-USDT",
+    "binanceSymbol": "SUPRAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUPRA"
+  },
+  {
+    "symbol": "LUMIA-USDT",
+    "binanceSymbol": "LUMIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LUMIA"
+  },
+  {
+    "symbol": "SAMO-USDT",
+    "binanceSymbol": "SAMOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SAMO"
+  },
+  {
+    "symbol": "MAJOR-USDT",
+    "binanceSymbol": "MAJORUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAJOR"
+  },
+  {
+    "symbol": "CHILLGUY-USDT",
+    "binanceSymbol": "CHILLGUYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHILLGUY"
+  },
+  {
+    "symbol": "MGT-USDT",
+    "binanceSymbol": "MGTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MGT"
+  },
+  {
+    "symbol": "VIRTUAL-USDT",
+    "binanceSymbol": "VIRTUALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VIRTUAL"
+  },
+  {
+    "symbol": "GOATS-USDT",
+    "binanceSymbol": "GOATSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GOATS"
+  },
+  {
+    "symbol": "QUILL-USDT",
+    "binanceSymbol": "QUILLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "QUILL"
+  },
+  {
+    "symbol": "TOSHI-USDT",
+    "binanceSymbol": "TOSHIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TOSHI"
+  },
+  {
+    "symbol": "XION-USDT",
+    "binanceSymbol": "XIONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XION"
+  },
+  {
+    "symbol": "E4C-USDT",
+    "binanceSymbol": "E4CUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "E4C"
+  },
+  {
+    "symbol": "SPX-USDT",
+    "binanceSymbol": "SPXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SPX"
+  },
+  {
+    "symbol": "STNK-USDT",
+    "binanceSymbol": "STNKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STNK"
+  },
+  {
+    "symbol": "AVAAI-USDT",
+    "binanceSymbol": "AVAAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVAAI"
+  },
+  {
+    "symbol": "GIGA-USDT",
+    "binanceSymbol": "GIGAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GIGA"
+  },
+  {
+    "symbol": "F-USDT",
+    "binanceSymbol": "FUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "F"
+  },
+  {
+    "symbol": "DOGEGOV-USDT",
+    "binanceSymbol": "DOGEGOVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOGEGOV"
+  },
+  {
+    "symbol": "HYPE-USDT",
+    "binanceSymbol": "HYPEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HYPE"
+  },
+  {
+    "symbol": "MOVE-USDT",
+    "binanceSymbol": "MOVEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOVE"
+  },
+  {
+    "symbol": "KIP-USDT",
+    "binanceSymbol": "KIPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KIP"
+  },
+  {
+    "symbol": "ZEREBRO-USDT",
+    "binanceSymbol": "ZEREBROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEREBRO"
+  },
+  {
+    "symbol": "U2U-USDT",
+    "binanceSymbol": "U2UUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "U2U"
+  },
+  {
+    "symbol": "MOZ-USDT",
+    "binanceSymbol": "MOZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOZ"
+  },
+  {
+    "symbol": "ME-USDT",
+    "binanceSymbol": "MEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ME"
+  },
+  {
+    "symbol": "STAGE-USDT",
+    "binanceSymbol": "STAGEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STAGE"
+  },
+  {
+    "symbol": "BLUE-USDT",
+    "binanceSymbol": "BLUEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLUE"
+  },
+  {
+    "symbol": "CHEQ-USDT",
+    "binanceSymbol": "CHEQUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHEQ"
+  },
+  {
+    "symbol": "AUTOS-USDT",
+    "binanceSymbol": "AUTOSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AUTOS"
+  },
+  {
+    "symbol": "MONKY-USDT",
+    "binanceSymbol": "MONKYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MONKY"
+  },
+  {
+    "symbol": "HOLD-USDT",
+    "binanceSymbol": "HOLDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HOLD"
+  },
+  {
+    "symbol": "LINGO-USDT",
+    "binanceSymbol": "LINGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LINGO"
+  },
+  {
+    "symbol": "HOLDCOIN-USDT",
+    "binanceSymbol": "HOLDCOINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HOLDCOIN"
+  },
+  {
+    "symbol": "PEN-USDT",
+    "binanceSymbol": "PENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PEN"
+  },
+  {
+    "symbol": "KOMA-USDT",
+    "binanceSymbol": "KOMAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KOMA"
+  },
+  {
+    "symbol": "USUAL-USDT",
+    "binanceSymbol": "USUALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USUAL"
+  },
+  {
+    "symbol": "ISLAND-USDT",
+    "binanceSymbol": "ISLANDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ISLAND"
+  },
+  {
+    "symbol": "MNRY-USDT",
+    "binanceSymbol": "MNRYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MNRY"
+  },
+  {
+    "symbol": "AI16Z-USDT",
+    "binanceSymbol": "AI16ZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AI16Z"
+  },
+  {
+    "symbol": "STREAM-USDT",
+    "binanceSymbol": "STREAMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STREAM"
+  },
+  {
+    "symbol": "PENGU-USDT",
+    "binanceSymbol": "PENGUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PENGU"
+  },
+  {
+    "symbol": "FUEL-USDT",
+    "binanceSymbol": "FUELUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FUEL"
+  },
+  {
+    "symbol": "ITHACA-USDT",
+    "binanceSymbol": "ITHACAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ITHACA"
+  },
+  {
+    "symbol": "HPOS10I-USDT",
+    "binanceSymbol": "HPOS10IUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HPOS10I"
+  },
+  {
+    "symbol": "FARTCOIN-USDT",
+    "binanceSymbol": "FARTCOINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FARTCOIN"
+  },
+  {
+    "symbol": "EYWA-USDT",
+    "binanceSymbol": "EYWAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EYWA"
+  },
+  {
+    "symbol": "FOMO-USDT",
+    "binanceSymbol": "FOMOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FOMO"
+  },
+  {
+    "symbol": "PURR-USDT",
+    "binanceSymbol": "PURRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PURR"
+  },
+  {
+    "symbol": "GRIFFAIN-USDT",
+    "binanceSymbol": "GRIFFAINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GRIFFAIN"
+  },
+  {
+    "symbol": "AIXBT-USDT",
+    "binanceSymbol": "AIXBTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AIXBT"
+  },
+  {
+    "symbol": "TEVA-USDT",
+    "binanceSymbol": "TEVAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TEVA"
+  },
+  {
+    "symbol": "FB-USDT",
+    "binanceSymbol": "FBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FB"
+  },
+  {
+    "symbol": "MILADYCULT-USDT",
+    "binanceSymbol": "MILADYCULTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MILADYCULT"
+  },
+  {
+    "symbol": "REKT-USDT",
+    "binanceSymbol": "REKTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REKT"
+  },
+  {
+    "symbol": "BIO-USDT",
+    "binanceSymbol": "BIOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BIO"
+  },
+  {
+    "symbol": "LAVA-USDT",
+    "binanceSymbol": "LAVAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LAVA"
+  },
+  {
+    "symbol": "ARCSOL-USDT",
+    "binanceSymbol": "ARCSOLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARCSOL"
+  },
+  {
+    "symbol": "SWARMS-USDT",
+    "binanceSymbol": "SWARMSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SWARMS"
+  },
+  {
+    "symbol": "SERAPH-USDT",
+    "binanceSymbol": "SERAPHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SERAPH"
+  },
+  {
+    "symbol": "VANA-USDT",
+    "binanceSymbol": "VANAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VANA"
+  },
+  {
+    "symbol": "AIPUMP-USDT",
+    "binanceSymbol": "AIPUMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AIPUMP"
+  },
+  {
+    "symbol": "SONIC-USDT",
+    "binanceSymbol": "SONICUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SONIC"
+  },
+  {
+    "symbol": "GAMEAI-USDT",
+    "binanceSymbol": "GAMEAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GAMEAI"
+  },
+  {
+    "symbol": "XTER-USDT",
+    "binanceSymbol": "XTERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XTER"
+  },
+  {
+    "symbol": "CLAY-USDT",
+    "binanceSymbol": "CLAYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CLAY"
+  },
+  {
+    "symbol": "ACX-USDT",
+    "binanceSymbol": "ACXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ACX"
+  },
+  {
+    "symbol": "CLOUD-USDT",
+    "binanceSymbol": "CLOUDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CLOUD"
+  },
+  {
+    "symbol": "PAAL-USDT",
+    "binanceSymbol": "PAALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PAAL"
+  },
+  {
+    "symbol": "BABYSHARK-USDT",
+    "binanceSymbol": "BABYSHARKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BABYSHARK"
+  },
+  {
+    "symbol": "POWER-USDT",
+    "binanceSymbol": "POWERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POWER"
+  },
+  {
+    "symbol": "LOFI-USDT",
+    "binanceSymbol": "LOFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LOFI"
+  },
+  {
+    "symbol": "XYRO-USDT",
+    "binanceSymbol": "XYROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XYRO"
+  },
+  {
+    "symbol": "TREAT-USDT",
+    "binanceSymbol": "TREATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TREAT"
+  },
+  {
+    "symbol": "TAOCAT-USDT",
+    "binanceSymbol": "TAOCATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TAOCAT"
+  },
+  {
+    "symbol": "LLM-USDT",
+    "binanceSymbol": "LLMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LLM"
+  },
+  {
+    "symbol": "DUCK-USDT",
+    "binanceSymbol": "DUCKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DUCK"
+  },
+  {
+    "symbol": "TRISIG-USDT",
+    "binanceSymbol": "TRISIGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRISIG"
+  },
+  {
+    "symbol": "NC-USDT",
+    "binanceSymbol": "NCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NC"
+  },
+  {
+    "symbol": "GPS-USDT",
+    "binanceSymbol": "GPSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GPS"
+  },
+  {
+    "symbol": "SOLV-USDT",
+    "binanceSymbol": "SOLVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOLV"
+  },
+  {
+    "symbol": "OBT-USDT",
+    "binanceSymbol": "OBTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OBT"
+  },
+  {
+    "symbol": "TRUMP-USDT",
+    "binanceSymbol": "TRUMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRUMP"
+  },
+  {
+    "symbol": "J-USDT",
+    "binanceSymbol": "JUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "J"
+  },
+  {
+    "symbol": "CHIRP-USDT",
+    "binanceSymbol": "CHIRPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHIRP"
+  },
+  {
+    "symbol": "MELANIA-USDT",
+    "binanceSymbol": "MELANIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MELANIA"
+  },
+  {
+    "symbol": "PLUME-USDT",
+    "binanceSymbol": "PLUMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PLUME"
+  },
+  {
+    "symbol": "ALU-USDT",
+    "binanceSymbol": "ALUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALU"
+  },
+  {
+    "symbol": "ANIME-USDT",
+    "binanceSymbol": "ANIMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ANIME"
+  },
+  {
+    "symbol": "ANLOG-USDT",
+    "binanceSymbol": "ANLOGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ANLOG"
+  },
+  {
+    "symbol": "SLC-USDT",
+    "binanceSymbol": "SLCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLC"
+  },
+  {
+    "symbol": "VTHO-USDT",
+    "binanceSymbol": "VTHOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VTHO"
+  },
+  {
+    "symbol": "YULI-USDT",
+    "binanceSymbol": "YULIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "YULI"
+  },
+  {
+    "symbol": "S-USDT",
+    "binanceSymbol": "SUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "S"
+  },
+  {
+    "symbol": "EMYC-USDT",
+    "binanceSymbol": "EMYCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EMYC"
+  },
+  {
+    "symbol": "VINE-USDT",
+    "binanceSymbol": "VINEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VINE"
+  },
+  {
+    "symbol": "D-USDT",
+    "binanceSymbol": "DUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "D"
+  },
+  {
+    "symbol": "VVV-USDT",
+    "binanceSymbol": "VVVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VVV"
+  },
+  {
+    "symbol": "JELLYJELLY-USDT",
+    "binanceSymbol": "JELLYJELLYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "JELLYJELLY"
+  },
+  {
+    "symbol": "BERA-USDT",
+    "binanceSymbol": "BERAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BERA"
+  },
+  {
+    "symbol": "BUZZ-USDT",
+    "binanceSymbol": "BUZZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BUZZ"
+  },
+  {
+    "symbol": "SNAI-USDT",
+    "binanceSymbol": "SNAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SNAI"
+  },
+  {
+    "symbol": "GRIFT-USDT",
+    "binanceSymbol": "GRIFTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GRIFT"
+  },
+  {
+    "symbol": "CHEEMS-USDT",
+    "binanceSymbol": "CHEEMSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CHEEMS"
+  },
+  {
+    "symbol": "TSTBSC-USDT",
+    "binanceSymbol": "TSTBSCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TSTBSC"
+  },
+  {
+    "symbol": "G7-USDT",
+    "binanceSymbol": "G7USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "G7"
+  },
+  {
+    "symbol": "IP-USDT",
+    "binanceSymbol": "IPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IP"
+  },
+  {
+    "symbol": "SOLAYER-USDT",
+    "binanceSymbol": "SOLAYERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOLAYER"
+  },
+  {
+    "symbol": "DIN-USDT",
+    "binanceSymbol": "DINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DIN"
+  },
+  {
+    "symbol": "XOXO-USDT",
+    "binanceSymbol": "XOXOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XOXO"
+  },
+  {
+    "symbol": "RIZ-USDT",
+    "binanceSymbol": "RIZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RIZ"
+  },
+  {
+    "symbol": "RONIN-USDT",
+    "binanceSymbol": "RONINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RONIN"
+  },
+  {
+    "symbol": "KAITO-USDT",
+    "binanceSymbol": "KAITOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KAITO"
+  },
+  {
+    "symbol": "PAIN-USDT",
+    "binanceSymbol": "PAINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PAIN"
+  },
+  {
+    "symbol": "B3-USDT",
+    "binanceSymbol": "B3USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "B3"
+  },
+  {
+    "symbol": "BROCCOLI-USDT",
+    "binanceSymbol": "BROCCOLIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BROCCOLI"
+  },
+  {
+    "symbol": "SFI-USDT",
+    "binanceSymbol": "SFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SFI"
+  },
+  {
+    "symbol": "MEMHASH-USDT",
+    "binanceSymbol": "MEMHASHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MEMHASH"
+  },
+  {
+    "symbol": "NVG8-USDT",
+    "binanceSymbol": "NVG8USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NVG8"
+  },
+  {
+    "symbol": "FORM-USDT",
+    "binanceSymbol": "FORMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FORM"
+  },
+  {
+    "symbol": "SHELL-USDT",
+    "binanceSymbol": "SHELLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHELL"
+  },
+  {
+    "symbol": "FWOG-USDT",
+    "binanceSymbol": "FWOGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FWOG"
+  },
+  {
+    "symbol": "ROAM-USDT",
+    "binanceSymbol": "ROAMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ROAM"
+  },
+  {
+    "symbol": "HEI-USDT",
+    "binanceSymbol": "HEIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HEI"
+  },
+  {
+    "symbol": "GX-USDT",
+    "binanceSymbol": "GXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GX"
+  },
+  {
+    "symbol": "REACT-USDT",
+    "binanceSymbol": "REACTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REACT"
+  },
+  {
+    "symbol": "REDSTONE-USDT",
+    "binanceSymbol": "REDSTONEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "REDSTONE"
+  },
+  {
+    "symbol": "HONEY-USDT",
+    "binanceSymbol": "HONEYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HONEY"
+  },
+  {
+    "symbol": "LVVA-USDT",
+    "binanceSymbol": "LVVAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LVVA"
+  },
+  {
+    "symbol": "PAWS-USDT",
+    "binanceSymbol": "PAWSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PAWS"
+  },
+  {
+    "symbol": "MUBARAK-USDT",
+    "binanceSymbol": "MUBARAKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MUBARAK"
+  },
+  {
+    "symbol": "SLING-USDT",
+    "binanceSymbol": "SLINGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLING"
+  },
+  {
+    "symbol": "BMT-USDT",
+    "binanceSymbol": "BMTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BMT"
+  },
+  {
+    "symbol": "TUT-USDT",
+    "binanceSymbol": "TUTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TUT"
+  },
+  {
+    "symbol": "EPIC-USDT",
+    "binanceSymbol": "EPICUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EPIC"
+  },
+  {
+    "symbol": "BR-USDT",
+    "binanceSymbol": "BRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BR"
+  },
+  {
+    "symbol": "SIREN-USDT",
+    "binanceSymbol": "SIRENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SIREN"
+  },
+  {
+    "symbol": "BUBB-USDT",
+    "binanceSymbol": "BUBBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BUBB"
+  },
+  {
+    "symbol": "NIL-USDT",
+    "binanceSymbol": "NILUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NIL"
+  },
+  {
+    "symbol": "MINT-USDT",
+    "binanceSymbol": "MINTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MINT"
+  },
+  {
+    "symbol": "PARTI-USDT",
+    "binanceSymbol": "PARTIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PARTI"
+  },
+  {
+    "symbol": "IMT-USDT",
+    "binanceSymbol": "IMTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IMT"
+  },
+  {
+    "symbol": "WAL-USDT",
+    "binanceSymbol": "WALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WAL"
+  },
+  {
+    "symbol": "SEED-USDT",
+    "binanceSymbol": "SEEDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SEED"
+  },
+  {
+    "symbol": "KILO-USDT",
+    "binanceSymbol": "KILOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KILO"
+  },
+  {
+    "symbol": "GUN-USDT",
+    "binanceSymbol": "GUNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GUN"
+  },
+  {
+    "symbol": "ZND-USDT",
+    "binanceSymbol": "ZNDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZND"
+  },
+  {
+    "symbol": "STO-USDT",
+    "binanceSymbol": "STOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STO"
+  },
+  {
+    "symbol": "TAI-USDT",
+    "binanceSymbol": "TAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TAI"
+  },
+  {
+    "symbol": "KERNEL-USDT",
+    "binanceSymbol": "KERNELUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KERNEL"
+  },
+  {
+    "symbol": "FREEDOG-USDT",
+    "binanceSymbol": "FREEDOGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FREEDOG"
+  },
+  {
+    "symbol": "RFC-USDT",
+    "binanceSymbol": "RFCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RFC"
+  },
+  {
+    "symbol": "BABY-USDT",
+    "binanceSymbol": "BABYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BABY"
+  },
+  {
+    "symbol": "PROMPT-USDT",
+    "binanceSymbol": "PROMPTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PROMPT"
+  },
+  {
+    "symbol": "WCT-USDT",
+    "binanceSymbol": "WCTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WCT"
+  },
+  {
+    "symbol": "DARK-USDT",
+    "binanceSymbol": "DARKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DARK"
+  },
+  {
+    "symbol": "EPT-USDT",
+    "binanceSymbol": "EPTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EPT"
+  },
+  {
+    "symbol": "H1-USDT",
+    "binanceSymbol": "H1USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "H1"
+  },
+  {
+    "symbol": "HYPER-USDT",
+    "binanceSymbol": "HYPERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HYPER"
+  },
+  {
+    "symbol": "DOLO-USDT",
+    "binanceSymbol": "DOLOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOLO"
+  },
+  {
+    "symbol": "ZORA-USDT",
+    "binanceSymbol": "ZORAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZORA"
+  },
+  {
+    "symbol": "INIT-USDT",
+    "binanceSymbol": "INITUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "INIT"
+  },
+  {
+    "symbol": "CLANKER-USDT",
+    "binanceSymbol": "CLANKERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CLANKER"
+  },
+  {
+    "symbol": "TROLL-USDT",
+    "binanceSymbol": "TROLLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TROLL"
+  },
+  {
+    "symbol": "HAEDAL-USDT",
+    "binanceSymbol": "HAEDALUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HAEDAL"
+  },
+  {
+    "symbol": "SIGN-USDT",
+    "binanceSymbol": "SIGNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SIGN"
+  },
+  {
+    "symbol": "MILK-USDT",
+    "binanceSymbol": "MILKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MILK"
+  },
+  {
+    "symbol": "B2-USDT",
+    "binanceSymbol": "B2USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "B2"
+  },
+  {
+    "symbol": "GORK-USDT",
+    "binanceSymbol": "GORKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GORK"
+  },
+  {
+    "symbol": "SXT-USDT",
+    "binanceSymbol": "SXTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SXT"
+  },
+  {
+    "symbol": "HOUSE-USDT",
+    "binanceSymbol": "HOUSEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HOUSE"
+  },
+  {
+    "symbol": "SHM-USDT",
+    "binanceSymbol": "SHMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SHM"
+  },
+  {
+    "symbol": "DOOD-USDT",
+    "binanceSymbol": "DOODUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DOOD"
+  },
+  {
+    "symbol": "USELESS-USDT",
+    "binanceSymbol": "USELESSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USELESS"
+  },
+  {
+    "symbol": "NXPC-USDT",
+    "binanceSymbol": "NXPCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NXPC"
+  },
+  {
+    "symbol": "PRAI-USDT",
+    "binanceSymbol": "PRAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PRAI"
+  },
+  {
+    "symbol": "SUIRWAPIN-USDT",
+    "binanceSymbol": "SUIRWAPINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUIRWAPIN"
+  },
+  {
+    "symbol": "LAUNCHCOIN-USDT",
+    "binanceSymbol": "LAUNCHCOINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LAUNCHCOIN"
+  },
+  {
+    "symbol": "TGT-USDT",
+    "binanceSymbol": "TGTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TGT"
+  },
+  {
+    "symbol": "GIZA-USDT",
+    "binanceSymbol": "GIZAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GIZA"
+  },
+  {
+    "symbol": "AWE-USDT",
+    "binanceSymbol": "AWEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AWE"
+  },
+  {
+    "symbol": "AGT-USDT",
+    "binanceSymbol": "AGTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AGT"
+  },
+  {
+    "symbol": "USD1-USDT",
+    "binanceSymbol": "USD1USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "USD1"
+  },
+  {
+    "symbol": "SOON-USDT",
+    "binanceSymbol": "SOONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOON"
+  },
+  {
+    "symbol": "HUMA-USDT",
+    "binanceSymbol": "HUMAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HUMA"
+  },
+  {
+    "symbol": "PFVS-USDT",
+    "binanceSymbol": "PFVSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PFVS"
+  },
+  {
+    "symbol": "ELDE-USDT",
+    "binanceSymbol": "ELDEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ELDE"
+  },
+  {
+    "symbol": "SOPH-USDT",
+    "binanceSymbol": "SOPHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOPH"
+  },
+  {
+    "symbol": "BUN-USDT",
+    "binanceSymbol": "BUNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BUN"
+  },
+  {
+    "symbol": "A-USDT",
+    "binanceSymbol": "AUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "A"
+  },
+  {
+    "symbol": "RDO-USDT",
+    "binanceSymbol": "RDOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RDO"
+  },
+  {
+    "symbol": "LAT-USDT",
+    "binanceSymbol": "LATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LAT"
+  },
+  {
+    "symbol": "ASRR-USDT",
+    "binanceSymbol": "ASRRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ASRR"
+  },
+  {
+    "symbol": "EDGEN-USDT",
+    "binanceSymbol": "EDGENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EDGEN"
+  },
+  {
+    "symbol": "PRO-USDT",
+    "binanceSymbol": "PROUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PRO"
+  },
+  {
+    "symbol": "LA-USDT",
+    "binanceSymbol": "LAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LA"
+  },
+  {
+    "symbol": "MIRAI-USDT",
+    "binanceSymbol": "MIRAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MIRAI"
+  },
+  {
+    "symbol": "FLOCK-USDT",
+    "binanceSymbol": "FLOCKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FLOCK"
+  },
+  {
+    "symbol": "SKATE-USDT",
+    "binanceSymbol": "SKATEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SKATE"
+  },
+  {
+    "symbol": "ZEUSETH-USDT",
+    "binanceSymbol": "ZEUSETHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEUSETH"
+  },
+  {
+    "symbol": "HOME-USDT",
+    "binanceSymbol": "HOMEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HOME"
+  },
+  {
+    "symbol": "RESOLV-USDT",
+    "binanceSymbol": "RESOLVUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RESOLV"
+  },
+  {
+    "symbol": "BOMB-USDT",
+    "binanceSymbol": "BOMBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BOMB"
+  },
+  {
+    "symbol": "SGC-USDT",
+    "binanceSymbol": "SGCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SGC"
+  },
+  {
+    "symbol": "GOMINING-USDT",
+    "binanceSymbol": "GOMININGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GOMINING"
+  },
+  {
+    "symbol": "SPK-USDT",
+    "binanceSymbol": "SPKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SPK"
+  },
+  {
+    "symbol": "MAT-USDT",
+    "binanceSymbol": "MATUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAT"
+  },
+  {
+    "symbol": "NAM-USDT",
+    "binanceSymbol": "NAMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NAM"
+  },
+  {
+    "symbol": "STON-USDT",
+    "binanceSymbol": "STONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STON"
+  },
+  {
+    "symbol": "MOOLAH-USDT",
+    "binanceSymbol": "MOOLAHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MOOLAH"
+  },
+  {
+    "symbol": "H-USDT",
+    "binanceSymbol": "HUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "H"
+  },
+  {
+    "symbol": "MGO-USDT",
+    "binanceSymbol": "MGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MGO"
+  },
+  {
+    "symbol": "DMC-USDT",
+    "binanceSymbol": "DMCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DMC"
+  },
+  {
+    "symbol": "NEWT-USDT",
+    "binanceSymbol": "NEWTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NEWT"
+  },
+  {
+    "symbol": "SAHARA-USDT",
+    "binanceSymbol": "SAHARAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SAHARA"
+  },
+  {
+    "symbol": "XAUT-USDT",
+    "binanceSymbol": "XAUTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XAUT"
+  },
+  {
+    "symbol": "LOT-USDT",
+    "binanceSymbol": "LOTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LOT"
+  },
+  {
+    "symbol": "CESS-USDT",
+    "binanceSymbol": "CESSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CESS"
+  },
+  {
+    "symbol": "VAIX-USDT",
+    "binanceSymbol": "VAIXUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VAIX"
+  },
+  {
+    "symbol": "INFOFI-USDT",
+    "binanceSymbol": "INFOFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "INFOFI"
+  },
+  {
+    "symbol": "MORE-USDT",
+    "binanceSymbol": "MOREUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MORE"
+  },
+  {
+    "symbol": "NODE-USDT",
+    "binanceSymbol": "NODEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NODE"
+  },
+  {
+    "symbol": "ECHO-USDT",
+    "binanceSymbol": "ECHOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ECHO"
+  },
+  {
+    "symbol": "ICNT-USDT",
+    "binanceSymbol": "ICNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ICNT"
+  },
+  {
+    "symbol": "CROSS-USDT",
+    "binanceSymbol": "CROSSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CROSS"
+  },
+  {
+    "symbol": "AIN-USDT",
+    "binanceSymbol": "AINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AIN"
+  },
+  {
+    "symbol": "ZEUSCC8-USDT",
+    "binanceSymbol": "ZEUSCC8USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZEUSCC8"
+  },
+  {
+    "symbol": "BULLA-USDT",
+    "binanceSymbol": "BULLAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BULLA"
+  },
+  {
+    "symbol": "BOOM-USDT",
+    "binanceSymbol": "BOOMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BOOM"
+  },
+  {
+    "symbol": "BLUM-USDT",
+    "binanceSymbol": "BLUMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BLUM"
+  },
+  {
+    "symbol": "RCADE-USDT",
+    "binanceSymbol": "RCADEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RCADE"
+  },
+  {
+    "symbol": "TALE-USDT",
+    "binanceSymbol": "TALEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TALE"
+  },
+  {
+    "symbol": "MORI-USDT",
+    "binanceSymbol": "MORIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MORI"
+  },
+  {
+    "symbol": "VELVET-USDT",
+    "binanceSymbol": "VELVETUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VELVET"
+  },
+  {
+    "symbol": "FRAG-USDT",
+    "binanceSymbol": "FRAGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FRAG"
+  },
+  {
+    "symbol": "C-USDT",
+    "binanceSymbol": "CUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "C"
+  },
+  {
+    "symbol": "PUMP-USDT",
+    "binanceSymbol": "PUMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PUMP"
+  },
+  {
+    "symbol": "VSN-USDT",
+    "binanceSymbol": "VSNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VSN"
+  },
+  {
+    "symbol": "HAIO-USDT",
+    "binanceSymbol": "HAIOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HAIO"
+  },
+  {
+    "symbol": "ES-USDT",
+    "binanceSymbol": "ESUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ES"
+  },
+  {
+    "symbol": "RION-USDT",
+    "binanceSymbol": "RIONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RION"
+  },
+  {
+    "symbol": "TRN-USDT",
+    "binanceSymbol": "TRNUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TRN"
+  },
+  {
+    "symbol": "ERA-USDT",
+    "binanceSymbol": "ERAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ERA"
+  },
+  {
+    "symbol": "ANI-USDT",
+    "binanceSymbol": "ANIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ANI"
+  },
+  {
+    "symbol": "MANYU-USDT",
+    "binanceSymbol": "MANYUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MANYU"
+  },
+  {
+    "symbol": "ZKWASM-USDT",
+    "binanceSymbol": "ZKWASMUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZKWASM"
+  },
+  {
+    "symbol": "SNAKES-USDT",
+    "binanceSymbol": "SNAKESUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SNAKES"
+  },
+  {
+    "symbol": "NOC-USDT",
+    "binanceSymbol": "NOCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NOC"
+  },
+  {
+    "symbol": "THINK-USDT",
+    "binanceSymbol": "THINKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "THINK"
+  },
+  {
+    "symbol": "ASP-USDT",
+    "binanceSymbol": "ASPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ASP"
+  },
+  {
+    "symbol": "XNY-USDT",
+    "binanceSymbol": "XNYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XNY"
+  },
+  {
+    "symbol": "XU3O8-USDT",
+    "binanceSymbol": "XU3O8USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XU3O8"
+  },
+  {
+    "symbol": "ELP-USDT",
+    "binanceSymbol": "ELPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ELP"
+  },
+  {
+    "symbol": "A47-USDT",
+    "binanceSymbol": "A47USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "A47"
+  },
+  {
+    "symbol": "URANUS-USDT",
+    "binanceSymbol": "URANUSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "URANUS"
+  },
+  {
+    "symbol": "TREE-USDT",
+    "binanceSymbol": "TREEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TREE"
+  },
+  {
+    "symbol": "IKA-USDT",
+    "binanceSymbol": "IKAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IKA"
+  },
+  {
+    "symbol": "GAIA-USDT",
+    "binanceSymbol": "GAIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "GAIA"
+  },
+  {
+    "symbol": "UNITE-USDT",
+    "binanceSymbol": "UNITEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UNITE"
+  },
+  {
+    "symbol": "NOBODY-USDT",
+    "binanceSymbol": "NOBODYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NOBODY"
+  },
+  {
+    "symbol": "A2Z-USDT",
+    "binanceSymbol": "A2ZUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "A2Z"
+  },
+  {
+    "symbol": "CYC-USDT",
+    "binanceSymbol": "CYCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CYC"
+  },
+  {
+    "symbol": "AIO-USDT",
+    "binanceSymbol": "AIOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AIO"
+  },
+  {
+    "symbol": "TOG-USDT",
+    "binanceSymbol": "TOGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TOG"
+  },
+  {
+    "symbol": "SUP-USDT",
+    "binanceSymbol": "SUPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SUP"
+  },
+  {
+    "symbol": "TOWNS-USDT",
+    "binanceSymbol": "TOWNSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "TOWNS"
+  },
+  {
+    "symbol": "PROVE-USDT",
+    "binanceSymbol": "PROVEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PROVE"
+  },
+  {
+    "symbol": "ANT-USDT",
+    "binanceSymbol": "ANTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ANT"
+  },
+  {
+    "symbol": "IN-USDT",
+    "binanceSymbol": "INUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "IN"
+  },
+  {
+    "symbol": "K-USDT",
+    "binanceSymbol": "KUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "K"
+  },
+  {
+    "symbol": "DSYNC-USDT",
+    "binanceSymbol": "DSYNCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DSYNC"
+  },
+  {
+    "symbol": "SLAY-USDT",
+    "binanceSymbol": "SLAYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SLAY"
+  },
+  {
+    "symbol": "SNEK-USDT",
+    "binanceSymbol": "SNEKUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SNEK"
+  },
+  {
+    "symbol": "WAI-USDT",
+    "binanceSymbol": "WAIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WAI"
+  },
+  {
+    "symbol": "PROPS-USDT",
+    "binanceSymbol": "PROPSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PROPS"
+  },
+  {
+    "symbol": "ODOS-USDT",
+    "binanceSymbol": "ODOSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ODOS"
+  },
+  {
+    "symbol": "PUBLIC-USDT",
+    "binanceSymbol": "PUBLICUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PUBLIC"
+  },
+  {
+    "symbol": "OPAD-USDT",
+    "binanceSymbol": "OPADUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OPAD"
+  },
+  {
+    "symbol": "EGL1-USDT",
+    "binanceSymbol": "EGL1USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "EGL1"
+  },
+  {
+    "symbol": "ALKIMI-USDT",
+    "binanceSymbol": "ALKIMIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ALKIMI"
+  },
+  {
+    "symbol": "DGC-USDT",
+    "binanceSymbol": "DGCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "DGC"
+  },
+  {
+    "symbol": "SAPIEN-USDT",
+    "binanceSymbol": "SAPIENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SAPIEN"
+  },
+  {
+    "symbol": "AKE-USDT",
+    "binanceSymbol": "AKEUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AKE"
+  },
+  {
+    "symbol": "ARIA-USDT",
+    "binanceSymbol": "ARIAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ARIA"
+  },
+  {
+    "symbol": "BAS-USDT",
+    "binanceSymbol": "BASUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BAS"
+  },
+  {
+    "symbol": "YZY-USDT",
+    "binanceSymbol": "YZYUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "YZY"
+  },
+  {
+    "symbol": "XPIN-USDT",
+    "binanceSymbol": "XPINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XPIN"
+  },
+  {
+    "symbol": "BERT-USDT",
+    "binanceSymbol": "BERTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BERT"
+  },
+  {
+    "symbol": "FST-USDT",
+    "binanceSymbol": "FSTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "FST"
+  },
+  {
+    "symbol": "BTR-USDT",
+    "binanceSymbol": "BTRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BTR"
+  },
+  {
+    "symbol": "AI3-USDT",
+    "binanceSymbol": "AI3USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AI3"
+  },
+  {
+    "symbol": "CAMP-USDT",
+    "binanceSymbol": "CAMPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CAMP"
+  },
+  {
+    "symbol": "CELB-USDT",
+    "binanceSymbol": "CELBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "CELB"
+  },
+  {
+    "symbol": "MISSION-USDT",
+    "binanceSymbol": "MISSIONUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MISSION"
+  },
+  {
+    "symbol": "KORI-USDT",
+    "binanceSymbol": "KORIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KORI"
+  },
+  {
+    "symbol": "XLAB-USDT",
+    "binanceSymbol": "XLABUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XLAB"
+  },
+  {
+    "symbol": "WLFI-USDT",
+    "binanceSymbol": "WLFIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "WLFI"
+  },
+  {
+    "symbol": "Q-USDT",
+    "binanceSymbol": "QUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "Q"
+  },
+  {
+    "symbol": "SOMI-USDT",
+    "binanceSymbol": "SOMIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SOMI"
+  },
+  {
+    "symbol": "PTB-USDT",
+    "binanceSymbol": "PTBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PTB"
+  },
+  {
+    "symbol": "U-USDT",
+    "binanceSymbol": "UUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "U"
+  },
+  {
+    "symbol": "RARI-USDT",
+    "binanceSymbol": "RARIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RARI"
+  },
+  {
+    "symbol": "ART-USDT",
+    "binanceSymbol": "ARTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ART"
+  },
+  {
+    "symbol": "OPEN-USDT",
+    "binanceSymbol": "OPENUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "OPEN"
+  },
+  {
+    "symbol": "AVNT-USDT",
+    "binanceSymbol": "AVNTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "AVNT"
+  },
+  {
+    "symbol": "SWTCH-USDT",
+    "binanceSymbol": "SWTCHUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SWTCH"
+  },
+  {
+    "symbol": "LINEA-USDT",
+    "binanceSymbol": "LINEAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LINEA"
+  },
+  {
+    "symbol": "KONG-USDT",
+    "binanceSymbol": "KONGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "KONG"
+  },
+  {
+    "symbol": "POP-USDT",
+    "binanceSymbol": "POPUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "POP"
+  },
+  {
+    "symbol": "PINGPONG-USDT",
+    "binanceSymbol": "PINGPONGUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PINGPONG"
+  },
+  {
+    "symbol": "YAMA-USDT",
+    "binanceSymbol": "YAMAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "YAMA"
+  },
+  {
+    "symbol": "HOLO-USDT",
+    "binanceSymbol": "HOLOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HOLO"
+  },
+  {
+    "symbol": "UB-USDT",
+    "binanceSymbol": "UBUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "UB"
+  },
+  {
+    "symbol": "ZKC-USDT",
+    "binanceSymbol": "ZKCUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ZKC"
+  },
+  {
+    "symbol": "COLS-USDT",
+    "binanceSymbol": "COLSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "COLS"
+  },
+  {
+    "symbol": "XL1-USDT",
+    "binanceSymbol": "XL1USDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XL1"
+  },
+  {
+    "symbol": "VLR-USDT",
+    "binanceSymbol": "VLRUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "VLR"
+  },
+  {
+    "symbol": "PORTALS-USDT",
+    "binanceSymbol": "PORTALSUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PORTALS"
+  },
+  {
+    "symbol": "MAIGA-USDT",
+    "binanceSymbol": "MAIGAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MAIGA"
+  },
+  {
+    "symbol": "RUNWAGO-USDT",
+    "binanceSymbol": "RUNWAGOUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "RUNWAGO"
+  },
+  {
+    "symbol": "BARD-USDT",
+    "binanceSymbol": "BARDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BARD"
+  },
+  {
+    "symbol": "NUMI-USDT",
+    "binanceSymbol": "NUMIUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "NUMI"
+  },
+  {
+    "symbol": "SYND-USDT",
+    "binanceSymbol": "SYNDUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "SYND"
+  },
+  {
+    "symbol": "0G-USDT",
+    "binanceSymbol": "0GUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "0G"
+  },
+  {
+    "symbol": "ASTER-USDT",
+    "binanceSymbol": "ASTERUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "ASTER"
+  },
+  {
+    "symbol": "PIN-USDT",
+    "binanceSymbol": "PINUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "PIN"
+  },
+  {
+    "symbol": "XPL-USDT",
+    "binanceSymbol": "XPLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "XPL"
+  },
+  {
+    "symbol": "STBL-USDT",
+    "binanceSymbol": "STBLUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "STBL"
+  },
+  {
+    "symbol": "BSU-USDT",
+    "binanceSymbol": "BSUUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "BSU"
+  },
+  {
+    "symbol": "HANA-USDT",
+    "binanceSymbol": "HANAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "HANA"
+  },
+  {
+    "symbol": "MIRA-USDT",
+    "binanceSymbol": "MIRAUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "MIRA"
+  },
+  {
+    "symbol": "LIGHT-USDT",
+    "binanceSymbol": "LIGHTUSDT",
+    "quoteCurrency": "USDT",
+    "baseCurrency": "LIGHT"
+  }
+]

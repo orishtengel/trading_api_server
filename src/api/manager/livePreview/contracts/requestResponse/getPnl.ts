@@ -11,11 +11,13 @@ export interface GetPnlResponse {
   totalPrice: number;
   initialAmount: number;
   assetsPrices: Record<string, number>;
+  assetsPnl: Record<string, number>;
 }
 
 export interface PnlPortfolioPosition {
   asset: string;
   amount: number;
+  avgPrice: number;
 }
 
 export interface PnlLedgerItem {

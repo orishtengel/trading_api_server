@@ -30,7 +30,7 @@ const stopLivePreviewSchema = z.object({
 const getPnlSchema = z.object({
   botId: z.string().min(1),
   userId: z.string().min(1),
-  positions: z.array(z.object({ asset: z.string().min(1), amount: z.number() })),
+  positions: z.array(z.object({ asset: z.string().min(1), amount: z.number(), avgPrice: z.number() })),
   ledger: z.array(
     z.object({ asset: z.string().min(1), amount: z.number(), timestamp: z.string().min(1) }),
   ),
@@ -109,6 +109,8 @@ export class LivePreviewManager implements ILivePreviewManager {
       const validated = getPnlSchema.parse(request);
       let totalPrice = 0;
       const assetsPrices: Record<string, number> = {};
+      const assetsPnl: Record<string, number> = {};
+    
       for (const position of validated.positions) {
         const asset = position.asset;
         const amount = position.amount;
@@ -122,6 +124,9 @@ export class LivePreviewManager implements ILivePreviewManager {
           }
           const price = Number(tikcer.data!.data.price);
           totalPrice = totalPrice + amount * price;
+          const currentValue = price * amount;
+          const avgPrice = position.avgPrice * amount;
+          assetsPnl[asset] = (currentValue - avgPrice) / avgPrice * 100;
           assetsPrices[asset] = price;
         } else {
           totalPrice = totalPrice + amount;
@@ -135,7 +140,7 @@ export class LivePreviewManager implements ILivePreviewManager {
       const pnl = totalPrice - initialAmount;
       const pnlPercentage = (pnl / initialAmount) * 100;
 
-      return ApiResponse({ pnl, pnlPercentage, totalPrice, initialAmount, assetsPrices });
+      return ApiResponse({ pnl, pnlPercentage, totalPrice, initialAmount, assetsPrices, assetsPnl });
     } catch (error) {
       return ApiError('Failed to get pnl', 500);
     }

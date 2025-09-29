@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { DataManager } from '@manager/data/data.manager';
+import { DataManager } from '@manager/staticData/data.manager';
 import { DataController } from '@controller/data/data.controller';
 
 const router = Router();

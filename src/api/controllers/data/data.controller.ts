@@ -1,5 +1,5 @@
-import { IDataManager } from '@manager/data/data.manager.interface';
-import { GetKlinesRequest } from '@manager/data/data.contracts';
+import { IDataManager } from '@manager/staticData/data.manager.interface';
+import { GetKlinesRequest, GetSymbolsDataRequest } from '@manager/staticData/data.contracts';
 import { Request, Response } from 'express';
 import { BaseController } from '@shared/controllers';
 
@@ -18,6 +18,7 @@ export class DataController extends BaseController {
 
   private setupRoutes(): void {
     this.addRoute('post', '/klines', this.getKlines);
+    this.addRoute('post', '/symbolsData', this.getSymbolsData);
   }
 
   public override getRouter() {
@@ -60,4 +61,43 @@ export class DataController extends BaseController {
       res.status(500).json({ ok: false, error: 'Failed to get klines data' });
     }
   }
+
+  async getSymbolsData(req: Request, res: Response): Promise<void> {
+    const { symbols } = req.body;
+
+    // Validate required parameters
+    if (!symbols || !Array.isArray(symbols)) {
+      res.status(400).json({
+        ok: false,
+        error: 'Missing or invalid required parameter: symbols (must be an array)',
+      });
+      return;
+    }
+
+    if (symbols.length === 0) {
+      res.status(400).json({
+        ok: false,
+        error: 'At least one symbol is required',
+      });
+      return;
+    }
+
+    // Prepare request for manager
+    const request: GetSymbolsDataRequest = {
+      symbols,
+    };
+
+    try {
+      const response = await this.dataManager.getSymbolsData(request);
+      console.log(response);
+      res
+        .status(response.status)
+        .json(
+          response.error ? { ok: false, error: response.error } : { ok: true, ...response.data },
+        );
+    } catch (error) {
+      res.status(500).json({ ok: false, error: 'Failed to get symbols data' });
+    }
+  }
+
 }
