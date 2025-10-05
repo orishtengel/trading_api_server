@@ -13,5 +13,6 @@ export interface IPlaygroundManager {
   createChatSession(
     request: CreateChatSessionRequest,
   ): Promise<ApiResponse<CreateChatSessionResponse>>;
-  chat(request: ChatRequest): Promise<ApiResponse<ChatResponse>>;
+  chat(request: ChatRequest): Promise<ChatResponse>;
+  chatStream(request: ChatRequest): Promise<ApiResponse<NodeJS.ReadableStream>>;
 }

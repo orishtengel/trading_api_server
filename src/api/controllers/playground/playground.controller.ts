@@ -62,10 +62,41 @@ export class PlaygroundController extends BaseController {
 
     const request: ChatRequest = {
       sessionId,
-      message: req.body.message,
+      id: req.body.id,
+      messages: req.body.messages,
+      trigger: req.body.trigger,
     };
 
-    const response = await this.playgroundManager.chat(request);
-    res.status(response.status).json(response.data || { error: response.error });
+    try {
+      // Get the streaming response from the manager
+      const streamResponse = await this.playgroundManager.chatStream(request);
+      
+      if (streamResponse.error) {
+        res.status(streamResponse.status).json({ error: streamResponse.error });
+        return;
+      }
+
+      // Set appropriate headers for Server-Sent Events
+      res.setHeader('Content-Type', 'text/event-stream');
+      res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Connection', 'keep-alive');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Headers', 'Cache-Control');
+      
+      // Pipe the stream to the response
+      streamResponse.data!.pipe(res);
+      
+      // Handle stream errors
+      streamResponse.data!.on('error', (error) => {
+        console.error('Stream error:', error);
+        if (!res.headersSent) {
+          res.status(500).json({ error: 'Stream error occurred' });
+        }
+      });
+
+    } catch (error) {
+      console.error('Chat streaming error:', error);
+      res.status(500).json({ error: 'Failed to process chat request' });
+    }
   }
 }

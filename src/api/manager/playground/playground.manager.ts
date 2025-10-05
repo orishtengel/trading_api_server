@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiError, ApiResponse } from '@shared/http/api';
+import { ApiError, ApiResponse, ApiSuccess } from '@shared/http/api';
 import { AIServerApiService } from '@shared/http/api.service';
 import { IPlaygroundManager } from './playground.manager.interface';
 import {
@@ -9,10 +9,12 @@ import {
   CreateChatSessionResponse,
   ChatRequest,
   ChatResponse,
-  PromptHistory,
 } from './playground.contracts';
 import { IBotService } from '@service/bot/bot.service.interface';
 import { mapBotToYaml } from '@manager/backtest/mapper/mapConfigToYaml';
+import { v4 as uuidv4 } from 'uuid';
+
+
 
 // Validation schemas
 const playSchema = z.object({
@@ -34,7 +36,16 @@ const createChatSessionSchema = z.object({
 
 const chatSchema = z.object({
   sessionId: z.string().min(1),
-  message: z.string().min(1),
+  id: z.string().min(1),
+  messages: z.array(z.object({
+    role: z.string(),
+    parts: z.array(z.object({
+      type: z.string().optional(),
+      text: z.string().optional(),
+      state: z.string().optional(),
+    })),
+  })),
+  trigger: z.string().min(1),
 });
 
 export class PlaygroundManager implements IPlaygroundManager {
@@ -106,13 +117,13 @@ export class PlaygroundManager implements IPlaygroundManager {
     }
   }
 
-  async chat(request: ChatRequest): Promise<ApiResponse<ChatResponse>> {
+  async chat(request: ChatRequest): Promise<ChatResponse> {
     try {
       const validated = chatSchema.parse(request);
 
       // Send chat request to AI_SERVER
       const chatPayload = {
-        message: validated.message,
+        message: validated.messages.map((message) => message.parts.map((part) => part.text)).join('\n'),
       };
 
       const aiServerResponse = await AIServerApiService.post<{ response: string }>(
@@ -122,18 +133,110 @@ export class PlaygroundManager implements IPlaygroundManager {
 
       if (aiServerResponse.error) {
         if (aiServerResponse.status === 404) {
-          return ApiError('Session not found', 404);
+          return { messages: [] };
         }
-        return ApiError(`AI Server error: ${aiServerResponse.error}`, aiServerResponse.status);
+        return { messages: [] };
       }
+      return { messages: [{ role: 'assistant', parts: [{ type: 'text', text: aiServerResponse.data!.response }], id: validated.id }] };
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return { messages: [] };
+      }
+      console.error('Chat error:', error);
+      return { messages: [] };
+    }
+  }
 
-      return ApiResponse({ response: aiServerResponse.data!.response }, 200);
+  async chatStream(request: ChatRequest): Promise<ApiResponse<NodeJS.ReadableStream>> {
+    try {
+      const validated = chatSchema.parse(request);
+
+      // Send chat request to AI_SERVER (regular POST, not streaming)
+      const chatPayload = {
+        message: validated.messages.map((message) => message.parts.map((part) => part.text)).join('\n'),
+      };
+
+      // Create a readable stream that will simulate streaming
+      const { Readable } = require('stream');
+      
+      const stream = new Readable({
+        read() {}
+      });
+
+      // Make the request to your AI server in the background
+      (async () => {
+        try {
+          // Send start signal
+          stream.push(`data: ${JSON.stringify({ type: "start" })}\n\n`);
+          
+          // Send start-step signal
+          stream.push(`data: ${JSON.stringify({ type: "start-step" })}\n\n`);
+          
+          const aiServerResponse = await AIServerApiService.post<{ response: string }>(
+            `/playground/chat/${validated.sessionId}`,
+            chatPayload,
+          );
+
+          if (aiServerResponse.error) {
+            stream.push(`data: ${JSON.stringify({ error: aiServerResponse.error })}\n\n`);
+            stream.push(null); // End the stream
+            return;
+          }
+
+          const fullResponse = aiServerResponse.data!.response;
+
+          stream.push(`data: ${JSON.stringify({ type: "start" })}\n\n`);
+          stream.push(`data: ${JSON.stringify({ type: "start-step" })}\n\n`);
+          const messageId = uuidv4();
+          
+          // Send text-start with message ID
+          stream.push(`data: ${JSON.stringify({ 
+            type: "text-start", 
+            id: messageId
+          })}\n\n`);
+          
+          // Simulate streaming by sending the response in chunks
+          const chunkSize = 10; // Send 100 characters at a time
+          let index = 0;
+
+          const sendChunk = () => {
+            if (index < fullResponse.length) {
+              const chunk = fullResponse.slice(index, index + chunkSize);
+              stream.push(`data: ${JSON.stringify({ type: "text-delta", id: messageId, delta: chunk })}\n\n`);
+              index += chunkSize;
+              
+              // Send next chunk after a small delay to simulate streaming
+              setTimeout(sendChunk, 50); // 50ms delay between chunks
+            } else {
+              // Send finish-step signal
+              stream.push(`data: ${JSON.stringify({ type: "finish-step" })}\n\n`);
+              
+              // Send finish signal
+              stream.push(`data: ${JSON.stringify({ type: "finish" })}\n\n`);
+              
+              // Send final DONE signal
+              stream.push(`data: [DONE]\n\n`);
+              stream.push(null); // End the stream
+            }
+          };
+
+          // Start sending chunks
+          sendChunk();
+
+        } catch (error) {
+          console.error('Chat stream error:', error);
+          stream.push(`data: ${JSON.stringify({ error: 'Failed to process chat request' })}\n\n`);
+          stream.push(null);
+        }
+      })();
+
+      return ApiSuccess(stream, 200);
     } catch (error) {
       if (error instanceof z.ZodError) {
         return ApiError('Validation failed: ' + error.errors.map((e) => e.message).join(', '), 400);
       }
-      console.error('Chat error:', error);
-      return ApiError('Failed to send chat message', 500);
+      console.error('Chat stream error:', error);
+      return ApiError('Failed to create chat stream', 500);
     }
   }
 }
