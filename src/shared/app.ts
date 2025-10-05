@@ -14,6 +14,7 @@ import botRoutes from '../api/routes/bot.routes';
 import backtestRoutes from '../api/routes/backtest.routes';
 import livePreviewRoutes from '../api/routes/livePreview.routes';
 import dataRoutes from '../api/routes/data.routes';
+import playgroundRoutes from '../api/routes/playground.routes';
 
 export function createApp() {
   const app = express();
@@ -64,6 +65,9 @@ export function createApp() {
 
   // Data routes
   app.use('/api/data', dataRoutes);
+
+  // Playground routes
+  app.use(playgroundRoutes);
 
   // User routes (for user-specific operations)
   const usersRepository = new UsersRepository();

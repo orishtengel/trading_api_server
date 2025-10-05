@@ -15,4 +15,14 @@ export interface VerifyTokenInput {
 export interface AuthError {
   code: string;
   message: string;
-} 
+}
+
+export interface RefreshTokenInput {
+  refreshToken: string;
+}
+
+export interface RefreshTokenResult {
+  idToken: string;
+  refreshToken: string;
+  expiresIn: string;
+}
