@@ -153,7 +153,7 @@ export class PlaygroundManager implements IPlaygroundManager {
 
       // Send chat request to AI_SERVER (regular POST, not streaming)
       const chatPayload = {
-        message: validated.messages.map((message) => message.parts.map((part) => part.text)).join('\n'),
+        message: validated?.messages[validated.messages.length - 1]?.parts.map((part) => part.text).join('\n'),
       };
 
       // Create a readable stream that will simulate streaming
