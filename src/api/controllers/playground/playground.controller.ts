@@ -35,9 +35,9 @@ export class PlaygroundController extends BaseController {
       botId: req.params.botId!,
       userId: req.params.userId!,
       agentId: req.body.agentId,
+      prompt: req.body.prompt,
       testSize: Number(req.body.testSize),
     };
-
     const response = await this.playgroundManager.play(request);
     res.status(response.status).json(response.data || { error: response.error });
   }

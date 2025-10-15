@@ -51,7 +51,6 @@ export class DataController extends BaseController {
 
     try {
       const response = await this.dataManager.getKlines(request);
-      console.log(response);
       res
         .status(response.status)
         .json(
@@ -89,7 +88,6 @@ export class DataController extends BaseController {
 
     try {
       const response = await this.dataManager.getSymbolsData(request);
-      console.log(response);
       res
         .status(response.status)
         .json(

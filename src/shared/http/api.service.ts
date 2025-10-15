@@ -123,12 +123,8 @@ export class ApiService {
         timeout: config?.timeout,
         params: config?.params,
       };
-      console.log('axiosConfig', axiosConfig);
-      console.log('data', data);
-      console.log('url', url);
 
       const response = await this.client.post<T>(url, data, axiosConfig);
-      console.log('response', response);
       return this.handleSuccess(response);
     } catch (error) {
       return this.handleError(error as AxiosError);
@@ -225,7 +221,7 @@ export class ApiService {
 // Create a default instance for AI_SERVER
 export const AIServerApiService = new ApiService({
   baseURL: process.env.AI_SERVER_URL || 'http://localhost:8000/api',
-  timeout: 60000, // 60 seconds for AI operations
+  timeout: 60000 * 5, // 5 minutes seconds for AI operations
   headers: {
     Accept: 'application/json',
   },

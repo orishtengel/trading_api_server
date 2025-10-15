@@ -227,7 +227,6 @@ export class BotManager implements IBotManager {
         configuration: validatedRequest.configuration as any, // Type assertion for complex union types
         userId: validatedRequest.userId,
       };
-      console.log('updateInput', updateInput.configuration?.tokensCoordinates);
       const bot = await this.botService.updateBot(updateInput);
 
       if (!bot) {

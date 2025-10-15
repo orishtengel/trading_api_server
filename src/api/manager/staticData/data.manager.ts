@@ -75,7 +75,6 @@ export const calculateStartTime = (interval: string) => {
 export class DataManager implements IDataManager {
   async getSymbolsData(request: GetSymbolsDataRequest): Promise<ApiResponse<GetSymbolsDataResponse>> {
     try {
-      console.log('getSymbolsDataRequest', request);
       const validatedRequest = getSymbolsDataSchema.parse(request);
 
       // Check if all symbols are supported and get their Binance symbols
@@ -143,7 +142,6 @@ export class DataManager implements IDataManager {
 
   async getKlines(getKlinesRequest: GetKlinesRequest): Promise<ApiResponse<GetKlinesResponse>> {
     try {
-      console.log('getKlinesRequest', getKlinesRequest);
       const validatedRequest = getKlinesSchema.parse(getKlinesRequest);
 
       // For now, return mock data - this will be replaced with actual service calls later
@@ -177,8 +175,6 @@ export class DataManager implements IDataManager {
           }));
         }),
       );
-
-      console.log('candlesticks', candlesticks);
 
       return ApiResponse({
         candlesticks,

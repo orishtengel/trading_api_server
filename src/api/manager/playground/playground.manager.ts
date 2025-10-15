@@ -22,6 +22,7 @@ const playSchema = z.object({
   userId: z.string().min(1),
   agentId: z.string().min(1),
   testSize: z.number().positive(),
+  prompt: z.string().min(1),
 });
 
 const createChatSessionSchema = z.object({
@@ -64,6 +65,7 @@ export class PlaygroundManager implements IPlaygroundManager {
       if (bot.userId !== validated.userId) {
         return ApiError('Unauthorized to access this bot', 403);
       }
+      bot.configuration.agents.find((agent) => agent.id === validated.agentId)!.prompt = validated.prompt;
       const yamlConfig = mapBotToYaml(bot);
 
       const aiServerResponse = await AIServerApiService.post<{ result: any }>('/playground/play', {

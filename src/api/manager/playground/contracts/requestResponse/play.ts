@@ -3,6 +3,7 @@ export interface PlayRequest {
   testSize: number;
   userId: string;
   botId: string;
+  prompt: string;
 }
 
 export interface PlayResponse {
