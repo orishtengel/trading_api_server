@@ -22,6 +22,7 @@ export interface BaseAgentEntity {
   name: string;
   type: 'data' | 'portfolio' | 'agent' | 'executer' | 'currency';
   inputs: string[];
+  tools?: string[];
   coordinates?: number[]; // New field for UI positioning
 }
 

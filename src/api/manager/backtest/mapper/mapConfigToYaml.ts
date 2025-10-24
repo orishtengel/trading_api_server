@@ -24,6 +24,7 @@ interface YamlDataSource {
 }
 
 interface YamlAgent {
+  tools?: string[];
   name: string;
   id: string;
   type: string;
@@ -108,6 +109,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
       name: agent.name,
       id: agent.id,
       type: 'ollama',
+      tools: agent.tools,
       inputChannels: mapAgentInputChannels(agent.inputs, dataSourceIdMapping),
       prompt: agent.prompt || 'Analyze the current kline data',
       systemPrompt: generateSystemPrompt(agent.role),
@@ -147,14 +149,14 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
 }
 
 function generateSystemPrompt(role: string): string {
-  const basePrompt =
-    'Your are a crypto kline analyzer expert, predict what will happen next make sure to specify the time of the data, make sure to always include the asset you are predicting';
+  const basePrompt = 'Your are a crypto kline analyzer expert, predict what will happen next make sure to specify the time of the data, make sure to always include the asset you are predicting'
 
-  if (role) {
-    return `You are a ${role}. ${basePrompt}`;
+  switch (role) {
+    case 'portfolio_optimizer':
+      return `You are a professional cryptocurrency predictor, specializing in predicting based on the provided report. Your output should be in the form of RISE or FALL`;
+    default:
+      return basePrompt;
   }
-
-  return basePrompt;
 }
 
 function mapAgentInputChannels(

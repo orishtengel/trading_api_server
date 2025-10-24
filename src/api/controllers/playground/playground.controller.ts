@@ -10,7 +10,7 @@ import { BaseController } from '@shared/controllers';
 export class PlaygroundController extends BaseController {
   constructor(private readonly playgroundManager: IPlaygroundManager) {
     super({
-      enableLogging: true,
+      enableLogging: false,
       enableAuth: true, // Playground endpoints don't need auth for now
       loggingOptions: {
         extractUserId: (req) => req.params.sessionId || undefined,

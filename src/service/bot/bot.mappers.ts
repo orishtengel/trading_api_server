@@ -68,6 +68,7 @@ function mapAIAgentEntityToAIAgent(entity: AIAgentEntity): Agent {
     role: entity.configuration.role,
     prompt: entity.configuration.prompt,
     apiKey: entity.configuration.apiKey,
+    tools: entity.tools,
   };
 }
 

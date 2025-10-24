@@ -78,6 +78,7 @@ export interface ExecuterConfiguration {
 
 export interface Agent extends BaseAgent {
   type: 'agent';
+  tools?: string[];
   provider: string;
   role: string;
   prompt: string;
