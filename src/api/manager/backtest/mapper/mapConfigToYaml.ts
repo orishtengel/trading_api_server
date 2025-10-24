@@ -12,15 +12,22 @@ const OLLAMA_URL =
     : ('http://ollama:11434' as const);
 const DEFAULT_MODEL = 'qwen3:0.6b' as const;
 
+interface KLineConfig  {
+  baseAsset?: string;
+  quoteAsset?: string;
+  interval?: string;
+};
+
+interface NewsConfig {
+  source: string;
+  refreshInterval: number;
+}
+
 interface YamlDataSource {
   name: string;
   id: string;
   type: string;
-  config: {
-    baseAsset: string;
-    quoteAsset: string;
-    interval: string;
-  };
+  config: KLineConfig | NewsConfig;
 }
 
 interface YamlAgent {
@@ -70,7 +77,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
   const dataSourceIdMapping = new Map<string, string[]>();
 
   // Map data sources to YAML format
-  const dataSources: YamlDataSource[] = configuration.dataSources.flatMap((ds) => {
+  const dataSources: YamlDataSource[] = configuration.dataSources.flatMap((ds): YamlDataSource[] => {
     if (ds.dataSourceType === 'kucoin') {
       const tokenSpecificIds = configuration.tokens.map((token) => ds.id + '-' + token);
       dataSourceIdMapping.set(ds.id, tokenSpecificIds);
@@ -84,12 +91,23 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
             baseAsset: token,
             quoteAsset: QUOTE_ASSET,
             interval: ds.timeframe || '12h',
-          },
+          } as KLineConfig,
         };
       });
-    } else {
+    }  else if (ds.dataSourceType === 'news') {
+      return [{
+        type: 'news',
+        name: 'News',
+        id: ds.id,
+        config: {
+          source: 'CoinTelegraph',
+          refreshInterval: 60 * 90,
+        } as NewsConfig
+      }];
+    }
+    else {
       dataSourceIdMapping.set(ds.id, [ds.id]);
-      return {
+      return [{
         name: ds.name,
         id: ds.id,
         type: 'binance-klines',
@@ -97,8 +115,8 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
           baseAsset: 'ETH',
           quoteAsset: QUOTE_ASSET,
           interval: ds.timeframe || '12h',
-        },
-      };
+        } as KLineConfig,
+      }];
     }
   });
 
