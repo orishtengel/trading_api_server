@@ -3,8 +3,17 @@ export interface Bot {
   id: string;
   name: string;
   userId: string;
-  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
+  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
   configuration: BotConfiguration;
+  livePreview?: LivePreview | undefined;
+}
+
+export interface LivePreview {
+  runtime: Runtime;
+}
+
+export interface Runtime {
+  status: 'running' | 'stopped' | 'idle';
 }
 
 export interface BotConfiguration {
@@ -89,14 +98,14 @@ export interface Agent extends BaseAgent {
 export interface CreateBotInput {
   name: string;
   userId: string;
-  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
+  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
   configuration: BotConfiguration;
 }
 
 export interface UpdateBotInput {
   id: string;
   name?: string;
-  status?: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
+  status?: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
   configuration?: BotConfiguration;
   userId: string;
 }

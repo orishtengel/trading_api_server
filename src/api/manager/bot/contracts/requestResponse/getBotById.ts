@@ -8,7 +8,7 @@ export interface GetBotByIdResponse {
   id: string;
   name: string;
   userId: string;
-  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
+  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
   configuration: BotConfiguration;
   createdAt: string;
   updatedAt: string;

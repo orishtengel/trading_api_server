@@ -3,8 +3,17 @@ import { BaseEntity } from '@data/core/baseEntity';
 export interface BotEntity extends BaseEntity {
   name: string;
   userId: string;
-  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting';
+  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
   configuration: BotConfigurationEntity;
+  livePreview?: LivePreviewEntity | undefined;
+}
+
+export interface LivePreviewEntity {
+  runtime: RuntimeEntity;
+}
+
+export interface RuntimeEntity {
+  status: 'running' | 'stopped' | 'idle';
 }
 
 export interface BotConfigurationEntity {

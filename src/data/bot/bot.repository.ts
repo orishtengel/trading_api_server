@@ -1,5 +1,5 @@
 import { IBotRepository } from './bot.repository.interface';
-import { BotEntity } from './bot.entities';
+import { BotEntity, LivePreviewEntity, RuntimeEntity } from './bot.entities';
 import { CreateBotRequest, UpdateBotRequest, FindByIdRequest, DeleteBotRequest } from './contracts/requestResponse';
 import { db } from '@shared/firebase/firebase.admin.config';
 import { firestoreDocToEntity, removeUndefinedValues } from '@shared/firebase/firestore.utils';
@@ -7,6 +7,10 @@ import { firestoreDocToEntity, removeUndefinedValues } from '@shared/firebase/fi
 export class BotRepository implements IBotRepository {
   private getBotCollection(userId: string) {
     return db.collection('bots').doc(userId).collection('bots');
+  }
+
+  private getLivePreviewCollection(userId: string, botId: string) {
+    return db.collection('bots').doc(userId).collection('bots').doc(botId).collection('livePreview').doc('runtime');
   }
 
   async create(request: CreateBotRequest): Promise<BotEntity> {
@@ -42,11 +46,15 @@ export class BotRepository implements IBotRepository {
       
       for (const userDoc of usersSnapshot.docs) {
         const botCollection = this.getBotCollection(userDoc.id);
-        const docRef = botCollection.doc(request.id);
-        const docSnap = await docRef.get();
-        
+        const docRef = botCollection.doc(request.id); 
+        const docSnap = await docRef.get(); 
+        const livePreviewCollection = this.getLivePreviewCollection(userDoc.id, request.id);
+        const livePreviewRuntimeDocSnap = await livePreviewCollection.get();
         if (docSnap.exists) {
-          return firestoreDocToEntity<BotEntity>(docSnap);
+          if (livePreviewRuntimeDocSnap.exists) {
+            return { ...firestoreDocToEntity<BotEntity>(docSnap)!, livePreview: { runtime: firestoreDocToEntity<RuntimeEntity>(livePreviewRuntimeDocSnap)! } };
+          }
+          return { ...firestoreDocToEntity<BotEntity>(docSnap)! };
         }
       }
       
@@ -61,9 +69,20 @@ export class BotRepository implements IBotRepository {
     try {
       const botCollection = this.getBotCollection(userId);
       const querySnapshot = await botCollection.get();
-      return querySnapshot.docs
+      console.log('querySnapshot', querySnapshot.docs.map((doc: any) => doc.data()));
+      const bots = querySnapshot.docs
         .map((doc: any) => firestoreDocToEntity<BotEntity>(doc))
-        .filter((bot): bot is BotEntity => bot !== null);
+        .filter((bot): bot is BotEntity => bot !== null)
+        .map(async (bot: BotEntity) => {
+          const livePreviewCollection = this.getLivePreviewCollection(userId, bot!.id);
+          const livePreviewRuntimeDocSnap = await livePreviewCollection.get();
+          if (livePreviewRuntimeDocSnap.exists) {
+            return { ...bot!, livePreview: { runtime: firestoreDocToEntity<RuntimeEntity>(livePreviewRuntimeDocSnap)! }! };
+          }
+          return { ...bot! };
+        });
+      
+      return Promise.all(bots);
     } catch (error) {
       console.error('Error finding bots by user id:', error);
       return [];
@@ -131,14 +150,22 @@ export class BotRepository implements IBotRepository {
       const allBots: BotEntity[] = [];
       const usersCollection = db.collection('users');
       const usersSnapshot = await usersCollection.get();
-      
+      console.log("dhasuihdiaso")
       for (const userDoc of usersSnapshot.docs) {
         const botCollection = this.getBotCollection(userDoc.id);
         const querySnapshot = await botCollection.get();
         const userBots = querySnapshot.docs
           .map((doc: any) => firestoreDocToEntity<BotEntity>(doc))
-          .filter((bot): bot is BotEntity => bot !== null);
-        allBots.push(...userBots);
+          .filter((bot): bot is BotEntity => bot !== null)
+          .map(async (bot: BotEntity) => {
+            const livePreviewCollection = this.getLivePreviewCollection(userDoc.id, bot!.id);
+            const livePreviewRuntimeDocSnap = await livePreviewCollection.get();
+            if (livePreviewRuntimeDocSnap.exists) {
+              return { ...bot!, livePreview: { runtime: firestoreDocToEntity<RuntimeEntity>(livePreviewRuntimeDocSnap)! } };
+            }
+            return { ...bot! };
+          });
+        allBots.push(...(await Promise.all(userBots)));
       }
       
       return allBots;

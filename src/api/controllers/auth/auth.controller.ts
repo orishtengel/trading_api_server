@@ -8,7 +8,7 @@ export class AuthController extends BaseController {
 
   constructor() {
     super({
-      enableLogging: true,
+      enableLogging: false,
       enableAuth: false,
       loggingOptions: {
         redactFields: ['idToken'], // Redact sensitive token data

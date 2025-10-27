@@ -7,6 +7,7 @@ import {
   CurrencyEntity,
   DataSourceEntity,
   ExecuterEntity,
+  LivePreviewEntity,
 } from '@data/bot/bot.entities';
 import {
   Bot,
@@ -18,6 +19,7 @@ import {
   Executer,
   CreateBotInput,
   UpdateBotInput,
+  LivePreview,
 } from './bot.models';
 import { CreateBotRequest, UpdateBotRequest } from '@data/bot/contracts/requestResponse';
 
@@ -29,6 +31,13 @@ export function mapBotEntityToBot(entity: BotEntity): Bot {
     userId: entity.userId,
     status: entity.status,
     configuration: mapBotConfigurationEntityToBotConfiguration(entity.configuration),
+    livePreview: entity.livePreview ? mapLivePreviewEntityToLivePreview(entity.livePreview) : undefined,
+  };
+}
+
+export function mapLivePreviewEntityToLivePreview(entity: LivePreviewEntity): LivePreview {
+  return {
+    runtime: entity.runtime,
   };
 }
 

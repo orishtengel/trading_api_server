@@ -121,14 +121,14 @@ const botConfigurationSchema = z.object({
 const createBotSchema = z.object({
   name: z.string().min(1).max(255),
   userId: z.string().min(1),
-  status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting']).optional(),
+  status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview']).optional(),
   configuration: botConfigurationSchema,
 });
 
 const updateBotSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1).max(255).optional(),
-  status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting']).optional(),
+  status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview']).optional(),
   configuration: botConfigurationSchema.optional(),
   userId: z.string().min(1),
 });
@@ -203,7 +203,7 @@ export class BotManager implements IBotManager {
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
-        status: bot.status,
+        status: bot.livePreview?.runtime.status === 'running' ? 'livePreview' : bot.status,
         configuration: bot.configuration,
         createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
         updatedAt: (bot as any).updatedAt?.toISOString() || new Date().toISOString(),
@@ -237,7 +237,7 @@ export class BotManager implements IBotManager {
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
-        status: bot.status,
+        status: bot.livePreview?.runtime.status === 'running' ? 'livePreview' : bot.status,
         configuration: bot.configuration,
         createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
         updatedAt: (bot as any).updatedAt?.toISOString() || new Date().toISOString(),
@@ -277,11 +277,12 @@ export class BotManager implements IBotManager {
 
       if (validatedRequest.userId) {
         bots = await this.botService.getBotsByUserId(validatedRequest.userId);
+        console.log('bots', bots);
         const responseData = bots.map((bot) => ({
           id: bot.id,
           name: bot.name,
           userId: bot.userId,
-          status: bot.status,
+          status: bot.livePreview?.runtime.status === 'running' ? 'livePreview' : bot.status,
           configuration: bot.configuration,
           createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
           updatedAt: (bot as any).updatedAt?.toISOString() || new Date().toISOString(),
