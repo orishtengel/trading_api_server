@@ -17,8 +17,8 @@ export class BacktestRepository implements IBacktestRepository {
             id: doc.id,
             name: doc.data()?.name || '',
             status: doc.data()?.status || '',
-            startDate: doc.data()?.executionStartDate || '',
-            endDate: doc.data()?.executionEndDate || '',
+            startDate: doc.data()?.startDate || '',
+            endDate: doc.data()?.endDate || '',
           }) as BacktestEntity,
       );
     } catch (error) {
