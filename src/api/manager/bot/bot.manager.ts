@@ -53,7 +53,7 @@ const dataSourceSchema = baseAgentSchema
     marketType: z.string().optional(),
     timeframe: z.string().optional(),
     // News specific
-    sources: z.array(z.string()).optional(),
+    sources: z.record(z.string(), z.array(z.string())).optional(),
     // Twitter specific
     accounts: z.array(z.string()).optional(),
   })
@@ -77,12 +77,14 @@ const executerSchema = baseAgentSchema
 const portfolioSchema = baseAgentSchema
   .extend({
     type: z.literal('portfolio'),
-    riskLevel: z.enum(['low', 'medium', 'high']),
-    rebalanceFrequency: z.enum(['daily', 'weekly', 'monthly', 'quarterly', 'yearly']),
+    riskLevel: z.enum(['conservative', 'balanced', 'aggressive']),
     stopLoss: z.number(),
     takeProfit: z.number(),
-    maxDrawdown: z.number(),
-    targetReturn: z.number(),
+    minConfidence: z.number(),
+    maxExposurePerAsset: z.number(),
+    minExposureUSD: z.number(),
+    maxTradeAmount: z.number(),
+    minTradeAmount: z.number(),
   })
   .passthrough();
 

@@ -12,11 +12,11 @@ const OLLAMA_URL =
     : ('http://ollama:11434' as const);
 const DEFAULT_MODEL = 'qwen3:0.6b' as const;
 
-interface KLineConfig  {
+interface KLineConfig {
   baseAsset?: string;
   quoteAsset?: string;
   interval?: string;
-};
+}
 
 interface NewsConfig {
   source: string;
@@ -47,8 +47,11 @@ interface YamlAgent {
 interface YamlPortfolio {
   riskManagementAgent: {
     policy: {
-      maxVolatility: number;
-      maxExposurePerAsset: Record<string, number>;
+      minConfidence: number;
+      minExposureUSD: number;
+      maxTradeAmount: number;
+      minTradeAmount: number;
+      maxExposurePerAsset: number;
     };
     model: string;
     type: string;
@@ -77,48 +80,53 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
   const dataSourceIdMapping = new Map<string, string[]>();
 
   // Map data sources to YAML format
-  const dataSources: YamlDataSource[] = configuration.dataSources.flatMap((ds): YamlDataSource[] => {
-    if (ds.dataSourceType === 'kucoin') {
-      const tokenSpecificIds = configuration.tokens.map((token) => ds.id + '-' + token);
-      dataSourceIdMapping.set(ds.id, tokenSpecificIds);
+  const dataSources: YamlDataSource[] = configuration.dataSources.flatMap(
+    (ds): YamlDataSource[] => {
+      if (ds.dataSourceType === 'kucoin') {
+        const tokenSpecificIds = configuration.tokens.map((token) => ds.id + '-' + token);
+        dataSourceIdMapping.set(ds.id, tokenSpecificIds);
 
-      return configuration.tokens.map((token, index) => {
-        return {
-          name: 'Binance KLines',
-          id: ds.id + '-' + token,
-          type: 'binance-klines',
-          config: {
-            baseAsset: token,
-            quoteAsset: QUOTE_ASSET,
-            interval: ds.timeframe || '12h',
-          } as KLineConfig,
-        };
-      });
-    }  else if (ds.dataSourceType === 'news') {
-      return [{
-        type: 'news',
-        name: 'News',
-        id: ds.id,
-        config: {
-          source: 'CoinTelegraph',
-          refreshInterval: 60 * 90,
-        } as NewsConfig
-      }];
-    }
-    else {
-      dataSourceIdMapping.set(ds.id, [ds.id]);
-      return [{
-        name: ds.name,
-        id: ds.id,
-        type: 'binance-klines',
-        config: {
-          baseAsset: 'ETH',
-          quoteAsset: QUOTE_ASSET,
-          interval: ds.timeframe || '12h',
-        } as KLineConfig,
-      }];
-    }
-  });
+        return configuration.tokens.map((token, index) => {
+          return {
+            name: 'Binance KLines',
+            id: ds.id + '-' + token,
+            type: 'binance-klines',
+            config: {
+              baseAsset: token,
+              quoteAsset: QUOTE_ASSET,
+              interval: ds.timeframe || '12h',
+            } as KLineConfig,
+          };
+        });
+      } else if (ds.dataSourceType === 'news') {
+        return [
+          {
+            type: 'news',
+            name: 'News',
+            id: ds.id,
+            config: {
+              source: 'CoinTelegraph',
+              refreshInterval: 60 * 90,
+            } as NewsConfig,
+          },
+        ];
+      } else {
+        dataSourceIdMapping.set(ds.id, [ds.id]);
+        return [
+          {
+            name: ds.name,
+            id: ds.id,
+            type: 'binance-klines',
+            config: {
+              baseAsset: 'ETH',
+              quoteAsset: QUOTE_ASSET,
+              interval: ds.timeframe || '12h',
+            } as KLineConfig,
+          },
+        ];
+      }
+    },
+  );
 
   // Map agents to YAML format with updated input channels
   const agents: YamlAgent[] = configuration.agents
@@ -141,8 +149,11 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
   const portfolio: YamlPortfolio = {
     riskManagementAgent: {
       policy: {
-        maxVolatility: configuration.portfolio?.maxDrawdown || 0.05,
-        maxExposurePerAsset: buildExposurePolicy(configuration.tokens),
+        minConfidence: configuration.portfolio?.minConfidence || 0.5,
+        minExposureUSD: configuration.portfolio?.minExposureUSD || 0.5,
+        maxTradeAmount: configuration.portfolio?.maxTradeAmount || 0.5,
+        minTradeAmount: configuration.portfolio?.minTradeAmount || 0.5,
+        maxExposurePerAsset: configuration.portfolio?.maxExposurePerAsset || 0.5,
       },
       model: DEFAULT_MODEL,
       type: 'ollama',
@@ -167,7 +178,8 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
 }
 
 function generateSystemPrompt(role: string): string {
-  const basePrompt = 'Your are a crypto kline analyzer expert, predict what will happen next make sure to specify the time of the data, make sure to always include the asset you are predicting'
+  const basePrompt =
+    'Your are a crypto kline analyzer expert, predict what will happen next make sure to specify the time of the data, make sure to always include the asset you are predicting';
 
   switch (role) {
     case 'portfolio_optimizer':

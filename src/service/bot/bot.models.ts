@@ -3,7 +3,15 @@ export interface Bot {
   id: string;
   name: string;
   userId: string;
-  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
+  status:
+    | 'active'
+    | 'inactive'
+    | 'paused'
+    | 'error'
+    | 'backtesting'
+    | 'livePreview'
+    | 'idle'
+    | 'live';
   configuration: BotConfiguration;
   livePreview?: LivePreview | undefined;
 }
@@ -37,12 +45,14 @@ export interface BaseAgent {
 // Portfolio Model
 export interface Portfolio extends BaseAgent {
   type: 'portfolio';
-  riskLevel: 'low' | 'medium' | 'high';
-  rebalanceFrequency: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
+  riskLevel: 'conservative' | 'balanced' | 'aggressive';
+  minConfidence: number;
+  maxExposurePerAsset: number;
+  minExposureUSD: number;
+  maxTradeAmount: number;
+  minTradeAmount: number;
   stopLoss: number;
   takeProfit: number;
-  maxDrawdown: number;
-  targetReturn: number;
 }
 
 // Currency Model
@@ -66,7 +76,7 @@ export interface DataSource extends BaseAgent {
   marketType?: string;
   timeframe?: string;
   // News specific
-  sources?: string[];
+  sources?: Record<string, string[]>;
   // Twitter specific
   accounts?: string[];
 }

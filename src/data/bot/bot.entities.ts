@@ -51,12 +51,14 @@ export interface AgentConfigurationEntity {
 // Portfolio Entity
 export interface PortfolioEntity extends BaseAgentEntity {
   type: 'portfolio';
-  riskLevel: 'low' | 'medium' | 'high';
-  rebalanceFrequency: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
+  riskLevel: 'conservative' | 'balanced' | 'aggressive';
   stopLoss: number;
   takeProfit: number;
-  maxDrawdown: number;
-  targetReturn: number;
+  minConfidence: number;
+  maxExposurePerAsset: number;
+  minExposureUSD: number;
+  maxTradeAmount: number;
+  minTradeAmount: number;
 }
 
 // Currency Entity
@@ -80,7 +82,7 @@ export interface DataSourceEntity extends BaseAgentEntity {
   marketType?: string;
   timeframe?: string;
   // News specific
-  sources?: string[];
+  sources?: Record<string, string[]>;
   // Twitter specific
   accounts?: string[];
 }

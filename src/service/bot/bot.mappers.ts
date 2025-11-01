@@ -31,7 +31,9 @@ export function mapBotEntityToBot(entity: BotEntity): Bot {
     userId: entity.userId,
     status: entity.status,
     configuration: mapBotConfigurationEntityToBotConfiguration(entity.configuration),
-    livePreview: entity.livePreview ? mapLivePreviewEntityToLivePreview(entity.livePreview) : undefined,
+    livePreview: entity.livePreview
+      ? mapLivePreviewEntityToLivePreview(entity.livePreview)
+      : undefined,
   };
 }
 
@@ -89,11 +91,13 @@ function mapPortfolioEntityToPortfolio(entity: PortfolioEntity): Portfolio {
     inputs: entity.inputs,
     coordinates: entity.coordinates,
     riskLevel: entity.riskLevel,
-    rebalanceFrequency: entity.rebalanceFrequency,
     stopLoss: entity.stopLoss,
     takeProfit: entity.takeProfit,
-    maxDrawdown: entity.maxDrawdown,
-    targetReturn: entity.targetReturn,
+    minConfidence: entity.minConfidence,
+    maxExposurePerAsset: entity.maxExposurePerAsset,
+    minExposureUSD: entity.minExposureUSD,
+    maxTradeAmount: entity.maxTradeAmount,
+    minTradeAmount: entity.minTradeAmount,
   };
 }
 
@@ -211,11 +215,13 @@ function mapPortfolioToPortfolioEntity(portfolio: Portfolio): PortfolioEntity {
     inputs: portfolio.inputs,
     coordinates: portfolio.coordinates,
     riskLevel: portfolio.riskLevel,
-    rebalanceFrequency: portfolio.rebalanceFrequency,
     stopLoss: portfolio.stopLoss,
     takeProfit: portfolio.takeProfit,
-    maxDrawdown: portfolio.maxDrawdown,
-    targetReturn: portfolio.targetReturn,
+    minConfidence: portfolio.minConfidence,
+    maxExposurePerAsset: portfolio.maxExposurePerAsset,
+    minExposureUSD: portfolio.minExposureUSD,
+    maxTradeAmount: portfolio.maxTradeAmount,
+    minTradeAmount: portfolio.minTradeAmount,
   };
 }
 
