@@ -98,14 +98,30 @@ export interface Agent extends BaseAgent {
 export interface CreateBotInput {
   name: string;
   userId: string;
-  status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
+  status:
+    | 'active'
+    | 'inactive'
+    | 'paused'
+    | 'error'
+    | 'backtesting'
+    | 'livePreview'
+    | 'idle'
+    | 'live';
   configuration: BotConfiguration;
 }
 
 export interface UpdateBotInput {
   id: string;
   name?: string;
-  status?: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
+  status?:
+    | 'active'
+    | 'inactive'
+    | 'paused'
+    | 'error'
+    | 'backtesting'
+    | 'livePreview'
+    | 'live'
+    | 'idle';
   configuration?: BotConfiguration;
   userId: string;
 }

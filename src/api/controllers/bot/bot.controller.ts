@@ -13,7 +13,7 @@ import { BaseController } from '@shared/controllers';
 export class BotController extends BaseController {
   constructor(private readonly botManager: IBotManager) {
     super({
-      enableLogging: false,
+      enableLogging: true,
       loggingOptions: {
         extractUserId: (req) => (req as AuthenticatedRequest).user?.uid || undefined,
       },

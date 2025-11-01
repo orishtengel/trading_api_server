@@ -121,14 +121,18 @@ const botConfigurationSchema = z.object({
 const createBotSchema = z.object({
   name: z.string().min(1).max(255),
   userId: z.string().min(1),
-  status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview']).optional(),
+  status: z
+    .enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview', 'idle', 'live'])
+    .optional(),
   configuration: botConfigurationSchema,
 });
 
 const updateBotSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1).max(255).optional(),
-  status: z.enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview']).optional(),
+  status: z
+    .enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview', 'idle', 'live'])
+    .optional(),
   configuration: botConfigurationSchema.optional(),
   userId: z.string().min(1),
 });
@@ -155,7 +159,7 @@ export class BotManager implements IBotManager {
       const createInput: CreateBotInput = {
         name: validatedRequest.name,
         userId: validatedRequest.userId,
-        status: validatedRequest.status || 'active',
+        status: validatedRequest.status ?? 'idle',
         configuration: validatedRequest.configuration as any, // Type assertion for complex union types
       };
 
@@ -244,6 +248,7 @@ export class BotManager implements IBotManager {
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
+        console.log('error', error);
         return ApiError('Validation failed: ' + error.errors.map((e) => e.message).join(', '), 400);
       }
       return ApiError('Failed to update bot', 500);
@@ -290,7 +295,7 @@ export class BotManager implements IBotManager {
         return ApiResponse({ bots: responseData }, 200);
       }
 
-      return ApiError('User not found', 404);
+      return ApiResponse({ bots: [] }, 200);
     } catch (error) {
       if (error instanceof z.ZodError) {
         return ApiError('Validation failed: ' + error.errors.map((e) => e.message).join(', '), 400);

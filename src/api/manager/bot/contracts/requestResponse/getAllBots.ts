@@ -9,10 +9,18 @@ export interface GetAllBotsResponse {
     id: string;
     name: string;
     userId: string;
-    status: 'active' | 'inactive' | 'paused' | 'error' | 'backtesting' | 'livePreview';
+    status:
+      | 'active'
+      | 'inactive'
+      | 'paused'
+      | 'error'
+      | 'backtesting'
+      | 'livePreview'
+      | 'idle'
+      | 'live';
     configuration: BotConfiguration;
     livePreview?: LivePreview;
     createdAt: string;
     updatedAt: string;
   }[];
-} 
+}

@@ -20,12 +20,19 @@ export class AuthMiddleware {
     this.authService = new AuthService();
   }
 
-  authenticate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
+  authenticate = async (
+    req: AuthenticatedRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
     try {
       const authHeader = req.headers.authorization;
       const cookieToken = (req as any).cookies?.idToken || (req as any).cookies?.token;
       // Support token via query param for transports that cannot set headers (e.g., EventSource)
-      const queryTokenRaw = (req.query?.idToken ?? req.query?.token) as unknown as string | string[] | undefined;
+      const queryTokenRaw = (req.query?.idToken ?? req.query?.token) as unknown as
+        | string
+        | string[]
+        | undefined;
       const queryToken = Array.isArray(queryTokenRaw) ? queryTokenRaw[0] : queryTokenRaw;
 
       let idToken: string | undefined;
@@ -44,10 +51,10 @@ export class AuthMiddleware {
 
       // Verify the token using AuthService
       const user = await this.authService.verifyIdToken({ idToken });
-      
+
       // Add user info to request object
       req.user = user;
-      
+
       next();
     } catch (error: any) {
       let statusCode = 401;
@@ -56,17 +63,13 @@ export class AuthMiddleware {
       if (error.code) {
         switch (error.code) {
           case 'auth/id-token-expired':
-            message = 'ID token has expired';
+            message = 'ID token has expired. Please refresh the page and try again.';
             break;
           case 'auth/id-token-revoked':
             message = 'ID token has been revoked';
             break;
           case 'auth/invalid-id-token':
             message = 'Invalid ID token';
-            break;
-          case 'auth/user-not-found':
-            statusCode = 404;
-            message = 'User not found';
             break;
           case 'auth/user-disabled':
             statusCode = 403;
@@ -82,7 +85,11 @@ export class AuthMiddleware {
   };
 
   // Optional middleware that sets user if token is present but doesn't require it
-  optionalAuthenticate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
+  optionalAuthenticate = async (
+    req: AuthenticatedRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
     // Allow CORS preflight requests to pass through
     if (req.method === 'OPTIONS') {
       next();
@@ -91,7 +98,10 @@ export class AuthMiddleware {
     try {
       const authHeader = req.headers.authorization;
       const cookieToken = (req as any).cookies?.idToken || (req as any).cookies?.token;
-      const queryTokenRaw = (req.query?.idToken ?? req.query?.token) as unknown as string | string[] | undefined;
+      const queryTokenRaw = (req.query?.idToken ?? req.query?.token) as unknown as
+        | string
+        | string[]
+        | undefined;
       const queryToken = Array.isArray(queryTokenRaw) ? queryTokenRaw[0] : queryTokenRaw;
 
       let idToken: string | undefined;
@@ -111,11 +121,11 @@ export class AuthMiddleware {
       // Try to verify the token
       const user = await this.authService.verifyIdToken({ idToken });
       req.user = user;
-      
+
       next();
     } catch (error) {
       // For optional auth, we don't fail on invalid tokens, just continue without user
       next();
     }
   };
-} 
+}
