@@ -63,7 +63,7 @@ export interface PortfolioEntity extends BaseAgentEntity {
   stopLoss: number;
   takeProfit: number;
   minConfidence: number;
-  maxExposurePerAsset: number;
+  maxExposurePerAsset: Record<string, number>;
   minExposureUSD: number;
   maxTradeAmount: number;
   minTradeAmount: number;

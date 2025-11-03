@@ -81,7 +81,7 @@ const portfolioSchema = baseAgentSchema
     stopLoss: z.number(),
     takeProfit: z.number(),
     minConfidence: z.number(),
-    maxExposurePerAsset: z.number(),
+    maxExposurePerAsset: z.record(z.string(), z.number()),
     minExposureUSD: z.number(),
     maxTradeAmount: z.number(),
     minTradeAmount: z.number(),

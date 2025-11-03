@@ -47,7 +47,7 @@ export interface Portfolio extends BaseAgent {
   type: 'portfolio';
   riskLevel: 'conservative' | 'balanced' | 'aggressive';
   minConfidence: number;
-  maxExposurePerAsset: number;
+  maxExposurePerAsset: Record<string, number>;
   minExposureUSD: number;
   maxTradeAmount: number;
   minTradeAmount: number;

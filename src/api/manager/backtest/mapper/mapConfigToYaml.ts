@@ -1,4 +1,4 @@
-import { Bot } from '@service/bot/bot.models';
+import { Bot, DataSource } from '@service/bot/bot.models';
 
 // Constants
 import dotenv from 'dotenv';
@@ -20,6 +20,7 @@ interface KLineConfig {
 
 interface NewsConfig {
   source: string;
+  tags: string[];
   refreshInterval: number;
 }
 
@@ -51,7 +52,7 @@ interface YamlPortfolio {
       minExposureUSD: number;
       maxTradeAmount: number;
       minTradeAmount: number;
-      maxExposurePerAsset: number;
+      maxExposurePerAsset: Record<string, number>;
     };
     model: string;
     type: string;
@@ -81,7 +82,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
 
   // Map data sources to YAML format
   const dataSources: YamlDataSource[] = configuration.dataSources.flatMap(
-    (ds): YamlDataSource[] => {
+    (ds: DataSource): YamlDataSource[] => {
       if (ds.dataSourceType === 'kucoin') {
         const tokenSpecificIds = configuration.tokens.map((token) => ds.id + '-' + token);
         dataSourceIdMapping.set(ds.id, tokenSpecificIds);
@@ -106,6 +107,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
             id: ds.id,
             config: {
               source: 'CoinTelegraph',
+              tags: ds.sources?.['CoinTelegraph'] || [],
               refreshInterval: 60 * 90,
             } as NewsConfig,
           },
@@ -137,8 +139,8 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
       type: 'ollama',
       tools: agent.tools,
       inputChannels: mapAgentInputChannels(agent.inputs, dataSourceIdMapping),
-      prompt: agent.prompt || 'Analyze the current kline data',
-      systemPrompt: generateSystemPrompt(agent.role),
+      prompt: '',
+      systemPrompt: agent.prompt,
       model: DEFAULT_MODEL, // agent.provider || DEFAULT_MODEL, TODO: restore
       config: {
         ollamaUrl: OLLAMA_URL,
@@ -153,7 +155,8 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
         minExposureUSD: configuration.portfolio?.minExposureUSD || 0.5,
         maxTradeAmount: configuration.portfolio?.maxTradeAmount || 0.5,
         minTradeAmount: configuration.portfolio?.minTradeAmount || 0.5,
-        maxExposurePerAsset: configuration.portfolio?.maxExposurePerAsset || 0.5,
+        maxExposurePerAsset:
+          configuration.portfolio?.maxExposurePerAsset || buildExposurePolicy(configuration.tokens),
       },
       model: DEFAULT_MODEL,
       type: 'ollama',
