@@ -8,8 +8,8 @@ import {
   StopLivePreviewResponse,
 } from '@manager/livePreview/contracts/requestResponse/stopLivePreview';
 import {
-  GetPnlRequest,
-  GetPnlResponse,
+  GetPortfolioRequest,
+  GetPortfolioResponse,
 } from '@manager/livePreview/contracts/requestResponse/getPnl';
 
 export interface ILivePreviewManager {
@@ -17,5 +17,5 @@ export interface ILivePreviewManager {
     request: StartLivePreviewRequest,
   ): Promise<ApiResponse<StartLivePreviewResponse>>;
   stopLivePreview(request: StopLivePreviewRequest): Promise<ApiResponse<StopLivePreviewResponse>>;
-  getPnl(request: GetPnlRequest): Promise<ApiResponse<GetPnlResponse>>;
+  getPortfolio(request: GetPortfolioRequest): Promise<ApiResponse<GetPortfolioResponse>>;
 }

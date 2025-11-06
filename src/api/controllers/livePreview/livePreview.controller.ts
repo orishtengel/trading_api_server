@@ -3,7 +3,7 @@ import { StartLivePreviewRequest } from '@manager/livePreview/contracts/requestR
 import { StopLivePreviewRequest } from '@manager/livePreview/contracts/requestResponse/stopLivePreview';
 import { Request, Response } from 'express';
 import { BaseController } from '@shared/controllers';
-import { GetPnlRequest } from '@manager/livePreview/livePreview.contracts';
+import { GetPortfolioRequest } from '@manager/livePreview/livePreview.contracts';
 
 export class LivePreviewController extends BaseController {
   constructor(private readonly livePreviewManager: ILivePreviewManager) {
@@ -21,7 +21,7 @@ export class LivePreviewController extends BaseController {
   private setupRoutes(): void {
     this.addRoute('post', '/:userId/bots/:botId/livePreview/start', this.startLivePreview);
     this.addRoute('post', '/:userId/bots/:botId/livePreview/stop', this.stopLivePreview);
-    this.addRoute('post', '/:userId/bots/:botId/livePreview/pnl', this.getPnl);
+    this.addRoute('get', '/:userId/bots/:botId/livePreview/portfolio', this.getPortfolio);
   }
 
   public override getRouter() {
@@ -77,9 +77,8 @@ export class LivePreviewController extends BaseController {
     res.status(response.status).json({ ...response.data });
   }
 
-  async getPnl(req: Request, res: Response): Promise<void> {
+  async getPortfolio(req: Request, res: Response): Promise<void> {
     const { botId, userId } = req.params;
-    const { positions, ledger } = req.body;
     if (!botId) {
       res.status(400).json({ ok: false, error: 'Missing required parameter: botId' });
       return;
@@ -88,16 +87,8 @@ export class LivePreviewController extends BaseController {
       res.status(400).json({ ok: false, error: 'Missing required parameter: userId' });
       return;
     }
-    if (!positions) {
-      res.status(400).json({ ok: false, error: 'Missing required parameter: protfolio' });
-      return;
-    }
-    if (!ledger) {
-      res.status(400).json({ ok: false, error: 'Missing required parameter: ledger' });
-      return;
-    }
-    const request: GetPnlRequest = { botId, userId, positions, ledger };
-    const response = await this.livePreviewManager.getPnl(request);
-    res.status(response.status).json({ ...response.data });
+    const request: GetPortfolioRequest = { botId, userId };
+    const response = await this.livePreviewManager.getPortfolio(request);
+    res.status(response.status).json({ ...response.data, timestamp: new Date().getTime() });
   }
 }

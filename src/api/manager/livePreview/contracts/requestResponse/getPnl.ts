@@ -1,27 +1,31 @@
-export interface GetPnlRequest {
+export interface GetPortfolioRequest {
   botId: string;
   userId: string;
-  positions: PnlPortfolioPosition[];
-  ledger: PnlLedgerItem[];
 }
 
-export interface GetPnlResponse {
-  pnl: number;
-  pnlPercentage: number;
-  totalPrice: number;
-  initialAmount: number;
-  assetsPrices: Record<string, number>;
-  assetsPnl: Record<string, number>;
+export interface GetPortfolioResponse {
+  timestamp: number;
+  totalProfit: number;
+  totalProfitPercentage: number;
+  positions: Position[];
+  totalValue: number;
+  weights: Record<string, number>;
+  pnl: Record<string, PnL>;
 }
 
-export interface PnlPortfolioPosition {
+export interface Position {
   asset: string;
   amount: number;
-  avgPrice: number;
+  value: number;
 }
 
-export interface PnlLedgerItem {
-  asset: string;
-  amount: number;
-  timestamp: string;
+export interface Portfolio {
+  positions: Position[];
+  totalValue: number;
+  weights: Record<string, number>; // symbol -> % of total
+}
+
+export interface PnL {
+  unrealized: number;
+  unrealizedPercentage: number;
 }

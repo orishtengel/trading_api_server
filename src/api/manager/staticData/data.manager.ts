@@ -1,11 +1,21 @@
 import { z } from 'zod';
 import { IDataManager } from './data.manager.interface';
-import { GetKlinesRequest, GetKlinesResponse, Candlestick, GetSymbolsDataRequest, GetSymbolsDataResponse, SymbolData } from './data.contracts';
+import {
+  GetKlinesRequest,
+  GetKlinesResponse,
+  Candlestick,
+  GetSymbolsDataRequest,
+  GetSymbolsDataResponse,
+  SymbolData,
+} from './data.contracts';
 import { ApiError, ApiResponse } from '@shared/http/api';
 import { request } from 'undici';
 import { parseTimestring } from '@shared/utils/time/time.utils';
 import { loadSupportedSymbols, FilteredSupportedSymbol } from '@shared/utils/supportedSymbols';
-import { fetchBinanceRollingWindowStats, fetchBinanceCurrentPrices } from '@shared/utils/binance.utils';
+import {
+  fetchBinanceRollingWindowStats,
+  fetchBinanceCurrentPrices,
+} from '@shared/utils/binance.utils';
 
 // Validation schemas
 const getKlinesSchema = z.object({
@@ -73,17 +83,20 @@ export const calculateStartTime = (interval: string) => {
 };
 
 export class DataManager implements IDataManager {
-  async getSymbolsData(request: GetSymbolsDataRequest): Promise<ApiResponse<GetSymbolsDataResponse>> {
+  async getSymbolsData(
+    request: GetSymbolsDataRequest,
+  ): Promise<ApiResponse<GetSymbolsDataResponse>> {
     try {
       const validatedRequest = getSymbolsDataSchema.parse(request);
 
       // Check if all symbols are supported and get their Binance symbols
       const supportedSymbols = loadSupportedSymbols();
       const symbolMappings: Array<{ requestedSymbol: string; binanceSymbol: string }> = [];
-      
+
       for (const requestedSymbol of validatedRequest.symbols) {
-        const symbolData = supportedSymbols.find((supportedSymbol: FilteredSupportedSymbol) => 
-          supportedSymbol.binanceSymbol === requestedSymbol
+        const symbolData = supportedSymbols.find(
+          (supportedSymbol: FilteredSupportedSymbol) =>
+            supportedSymbol.binanceSymbol === requestedSymbol,
         );
 
         if (!symbolData) {
@@ -92,26 +105,33 @@ export class DataManager implements IDataManager {
 
         symbolMappings.push({
           requestedSymbol,
-          binanceSymbol: symbolData.binanceSymbol
+          binanceSymbol: symbolData.binanceSymbol,
         });
       }
 
-      const binanceSymbols = symbolMappings.map(mapping => mapping.binanceSymbol);
+      const binanceSymbols = symbolMappings.map((mapping) => mapping.binanceSymbol);
 
       // Fetch data for different time windows and current prices in parallel
-      const [currentPricesData, twentyFourHourData, sevenDaysData, thirtyDaysData] = await Promise.all([
-        fetchBinanceCurrentPrices(binanceSymbols),
-        fetchBinanceRollingWindowStats(binanceSymbols, '1d'),
-        fetchBinanceRollingWindowStats(binanceSymbols, '7d'),
-        fetchBinanceRollingWindowStats(binanceSymbols, '30d')
-      ]);
+      const [currentPricesData, twentyFourHourData, sevenDaysData, thirtyDaysData] =
+        await Promise.all([
+          fetchBinanceCurrentPrices(binanceSymbols),
+          fetchBinanceRollingWindowStats(binanceSymbols, '1d'),
+          fetchBinanceRollingWindowStats(binanceSymbols, '7d'),
+          fetchBinanceRollingWindowStats(binanceSymbols, '30d'),
+        ]);
 
       // Create symbol data array
       const symbolsData: SymbolData[] = symbolMappings.map((mapping) => {
-        const currentPrice = currentPricesData.find((price: any) => price.symbol === mapping.binanceSymbol);
-        const twentyFourHour = twentyFourHourData.find((data: any) => data.symbol === mapping.binanceSymbol);
+        const currentPrice = currentPricesData.find(
+          (price: any) => price.symbol === mapping.binanceSymbol,
+        );
+        const twentyFourHour = twentyFourHourData.find(
+          (data: any) => data.symbol === mapping.binanceSymbol,
+        );
         const sevenDays = sevenDaysData.find((data: any) => data.symbol === mapping.binanceSymbol);
-        const thirtyDays = thirtyDaysData.find((data: any) => data.symbol === mapping.binanceSymbol);
+        const thirtyDays = thirtyDaysData.find(
+          (data: any) => data.symbol === mapping.binanceSymbol,
+        );
 
         if (!currentPrice || !twentyFourHour || !sevenDays || !thirtyDays) {
           throw new Error(`Missing data for symbol ${mapping.binanceSymbol}`);
@@ -123,13 +143,13 @@ export class DataManager implements IDataManager {
             now: currentPrice,
             twentyFourHour: twentyFourHour,
             sevenDays: sevenDays,
-            thirtyDays: thirtyDays
-          }
+            thirtyDays: thirtyDays,
+          },
         };
       });
 
       return ApiResponse({
-        symbols: symbolsData
+        symbols: symbolsData,
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -155,7 +175,6 @@ export class DataManager implements IDataManager {
             `https://api.kucoin.com/api/v1/market/candles?type=${validatedRequest.interval}&symbol=${baseAsset}-USDT&startAt=${startTime}&endAt=${endTime}`,
           );
           const body = (await response.body.json()) as any;
-          console.log('body', body);
           candlesticks[baseAsset] = body.data?.map((data: any) => ({
             baseAsset,
             quoteAsset: 'USDT',

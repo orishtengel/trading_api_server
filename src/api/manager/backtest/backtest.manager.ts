@@ -58,7 +58,6 @@ export class BacktestManager implements IBacktestManager {
       }
 
       const yamlConfig = mapBotToYaml(bot);
-      console.log('yamlConfig', yamlConfig);
 
       // Send backtest request to AI_SERVER
       const backtestPayload = {

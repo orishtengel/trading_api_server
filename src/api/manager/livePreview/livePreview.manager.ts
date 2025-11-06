@@ -3,9 +3,8 @@ import { ApiError, ApiResponse } from '@shared/http/api';
 import { AIServerApiService, KucoinApiService } from '@shared/http/api.service';
 import { ILivePreviewManager } from '@manager/livePreview/livePreview.manager.interface';
 import {
-  GetPnlRequest,
-  GetPnlResponse,
-  PnlLedgerItem,
+  GetPortfolioRequest,
+  GetPortfolioResponse,
   StartLivePreviewRequest,
   StartLivePreviewResponse,
 } from '@manager/livePreview/contracts/requestResponse';
@@ -30,10 +29,6 @@ const stopLivePreviewSchema = z.object({
 const getPnlSchema = z.object({
   botId: z.string().min(1),
   userId: z.string().min(1),
-  positions: z.array(z.object({ asset: z.string().min(1), amount: z.number(), avgPrice: z.number() })),
-  ledger: z.array(
-    z.object({ asset: z.string().min(1), amount: z.number(), timestamp: z.string().min(1) }),
-  ),
 });
 
 export class LivePreviewManager implements ILivePreviewManager {
@@ -104,43 +99,19 @@ export class LivePreviewManager implements ILivePreviewManager {
     }
   }
 
-  async getPnl(request: GetPnlRequest): Promise<ApiResponse<GetPnlResponse>> {
+  async getPortfolio(request: GetPortfolioRequest): Promise<ApiResponse<GetPortfolioResponse>> {
     try {
       const validated = getPnlSchema.parse(request);
-      let totalPrice = 0;
-      const assetsPrices: Record<string, number> = {};
-      const assetsPnl: Record<string, number> = {};
-    
-      for (const position of validated.positions) {
-        const asset = position.asset;
-        const amount = position.amount;
-        if (position.asset !== 'USDT') {
-          const tikcer = await KucoinApiService.get<{ data: { price: string } }>(
-            `/market/orderbook/level1?symbol=${asset}-USDT`,
-          );
-          console.log('tikcer', tikcer);
-          if (tikcer.error) {
-            return ApiError('Failed to get tikcer', 500);
-          }
-          const price = Number(tikcer.data!.data.price);
-          totalPrice = totalPrice + amount * price;
-          const currentValue = price * amount;
-          const avgPrice = position.avgPrice * amount;
-          assetsPnl[asset] = (currentValue - avgPrice) / avgPrice * 100;
-          assetsPrices[asset] = price;
-        } else {
-          totalPrice = totalPrice + amount;
-        }
+      console.log('validated', validated);
+      const aiServerResponse = await AIServerApiService.post<GetPortfolioResponse>(
+        '/livePreview/portfolio',
+        validated,
+      );
+      if (aiServerResponse.error) {
+        return ApiError(`AI Server error: ${aiServerResponse.error}`, aiServerResponse.status);
       }
-      const initialAmount = validated.ledger
-        .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
-        .reduce((acc, curr) => acc + curr.amount, 0);
-      console.log('totalPrice', totalPrice);
-      console.log('initialAmount', initialAmount);
-      const pnl = totalPrice - initialAmount;
-      const pnlPercentage = (pnl / initialAmount) * 100;
 
-      return ApiResponse({ pnl, pnlPercentage, totalPrice, initialAmount, assetsPrices, assetsPnl });
+      return ApiResponse(aiServerResponse.data!, 200);
     } catch (error) {
       return ApiError('Failed to get pnl', 500);
     }
