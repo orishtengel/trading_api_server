@@ -46,19 +46,12 @@ interface YamlAgent {
 }
 
 interface YamlPortfolio {
-  riskManagementAgent: {
-    policy: {
-      minConfidence: number;
-      minExposureUSD: number;
-      maxTradeAmount: number;
-      minTradeAmount: number;
-      maxExposurePerAsset: Record<string, number>;
-    };
-    model: string;
-    type: string;
-    config: {
-      ollamaUrl: string;
-    };
+  policy: {
+    minConfidence: number;
+    minExposureUSD: number;
+    maxTradeAmount: number;
+    minTradeAmount: number;
+    maxExposurePerAsset: Record<string, number>;
   };
 }
 
@@ -149,20 +142,13 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
 
   // Build portfolio configuration
   const portfolio: YamlPortfolio = {
-    riskManagementAgent: {
-      policy: {
-        minConfidence: configuration.portfolio?.minConfidence || 0.5,
-        minExposureUSD: configuration.portfolio?.minExposureUSD || 0.5,
-        maxTradeAmount: configuration.portfolio?.maxTradeAmount || 0.5,
-        minTradeAmount: configuration.portfolio?.minTradeAmount || 0.5,
-        maxExposurePerAsset:
-          configuration.portfolio?.maxExposurePerAsset || buildExposurePolicy(configuration.tokens),
-      },
-      model: DEFAULT_MODEL,
-      type: 'ollama',
-      config: {
-        ollamaUrl: OLLAMA_URL,
-      },
+    policy: {
+      minConfidence: configuration.portfolio?.minConfidence || 0.5,
+      minExposureUSD: configuration.portfolio?.minExposureUSD || 0.5,
+      maxTradeAmount: configuration.portfolio?.maxTradeAmount || 0.5,
+      minTradeAmount: configuration.portfolio?.minTradeAmount || 0.5,
+      maxExposurePerAsset:
+        configuration.portfolio?.maxExposurePerAsset || buildExposurePolicy(configuration.tokens),
     },
   };
 
