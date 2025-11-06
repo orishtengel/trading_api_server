@@ -56,7 +56,11 @@ export class LivePreviewController extends BaseController {
         res.status(200).json({ ok: true });
         return;
       }
-      res.status(response.status).json({ ...response.data });
+      if (response.error) {
+        res.status(response.status).json({ ok: false, error: response.error });
+        return;
+      }
+      res.status(response.status).json({ ...response.data, ok: true });
     } catch (error) {
       res.status(500).json({ ok: false, error: 'Failed to start live preview' });
     }
@@ -74,7 +78,11 @@ export class LivePreviewController extends BaseController {
     }
     const request: StopLivePreviewRequest = { botId, userId };
     const response = await this.livePreviewManager.stopLivePreview(request);
-    res.status(response.status).json({ ...response.data });
+    if (response.error) {
+      res.status(response.status).json({ ok: false, error: response.error });
+      return;
+    }
+    res.status(response.status).json({ ...response.data, ok: true });
   }
 
   async getPortfolio(req: Request, res: Response): Promise<void> {
@@ -89,6 +97,12 @@ export class LivePreviewController extends BaseController {
     }
     const request: GetPortfolioRequest = { botId, userId };
     const response = await this.livePreviewManager.getPortfolio(request);
-    res.status(response.status).json({ ...response.data, timestamp: new Date().getTime() });
+    if (response.error) {
+      res.status(response.status).json({ ok: false, error: response.error });
+      return;
+    }
+    res
+      .status(response.status)
+      .json({ ...response.data, timestamp: new Date().getTime(), ok: true });
   }
 }

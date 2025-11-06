@@ -108,6 +108,7 @@ export class LivePreviewManager implements ILivePreviewManager {
         validated,
       );
       if (aiServerResponse.error) {
+        console.log('aiServerResponse', aiServerResponse);
         return ApiError(`AI Server error: ${aiServerResponse.error}`, aiServerResponse.status);
       }
 
