@@ -30,6 +30,7 @@ export function mapBotEntityToBot(entity: BotEntity): Bot {
     name: entity.name,
     userId: entity.userId,
     status: entity.status,
+    mode: entity.mode,
     configuration: mapBotConfigurationEntityToBotConfiguration(entity.configuration),
     livePreview: entity.livePreview
       ? mapLivePreviewEntityToLivePreview(entity.livePreview)
@@ -144,6 +145,7 @@ function mapExecuterEntityToExecuter(entity: ExecuterEntity): Executer {
 export function mapCreateBotInputToCreateBotRequest(input: CreateBotInput): CreateBotRequest {
   return {
     name: input.name,
+    mode: input.mode,
     userId: input.userId,
     status: input.status,
     configuration: mapBotConfigurationToBotConfigurationEntity(input.configuration),
@@ -159,6 +161,7 @@ export function mapUpdateBotInputToUpdateBotRequest(input: UpdateBotInput): Upda
       ? mapBotConfigurationToBotConfigurationEntity(input.configuration)
       : undefined,
     userId: input.userId,
+    mode: input.mode
   };
 }
 

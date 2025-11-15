@@ -8,6 +8,7 @@ export interface GetBotByIdResponse {
   id: string;
   name: string;
   userId: string;
+  mode: 'stock' | 'crypto';
   status:
     | 'active'
     | 'inactive'

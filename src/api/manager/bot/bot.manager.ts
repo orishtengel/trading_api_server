@@ -127,6 +127,7 @@ const createBotSchema = z.object({
     .enum(['active', 'inactive', 'paused', 'error', 'backtesting', 'livePreview', 'idle', 'live'])
     .optional(),
   configuration: botConfigurationSchema,
+  mode: z.enum(['stock', 'crypto']),
 });
 
 const updateBotSchema = z.object({
@@ -137,6 +138,7 @@ const updateBotSchema = z.object({
     .optional(),
   configuration: botConfigurationSchema.optional(),
   userId: z.string().min(1),
+  mode: z.enum(['stock', 'crypto']).optional(),
 });
 
 const getBotByIdSchema = z.object({
@@ -161,6 +163,7 @@ export class BotManager implements IBotManager {
       const createInput: CreateBotInput = {
         name: validatedRequest.name,
         userId: validatedRequest.userId,
+        mode: validatedRequest.mode,
         status: validatedRequest.status ?? 'idle',
         configuration: validatedRequest.configuration as any, // Type assertion for complex union types
       };
@@ -178,6 +181,7 @@ export class BotManager implements IBotManager {
           id: bot.id,
           name: bot.name,
           userId: bot.userId,
+          mode: bot.mode,
           status: bot.status,
           configuration: bot.configuration,
           createdAt:
@@ -209,6 +213,7 @@ export class BotManager implements IBotManager {
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
+        mode: bot.mode,
         status: bot.livePreview?.runtime.status === 'running' ? 'livePreview' : bot.status,
         configuration: bot.configuration,
         createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
@@ -232,6 +237,7 @@ export class BotManager implements IBotManager {
         status: validatedRequest.status,
         configuration: validatedRequest.configuration as any, // Type assertion for complex union types
         userId: validatedRequest.userId,
+        mode: validatedRequest.mode,
       };
       const bot = await this.botService.updateBot(updateInput);
 
@@ -243,6 +249,7 @@ export class BotManager implements IBotManager {
         id: bot.id,
         name: bot.name,
         userId: bot.userId,
+        mode: bot.mode,
         status: bot.livePreview?.runtime.status === 'running' ? 'livePreview' : bot.status,
         configuration: bot.configuration,
         createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),
@@ -289,6 +296,7 @@ export class BotManager implements IBotManager {
           id: bot.id,
           name: bot.name,
           userId: bot.userId,
+          mode: bot.mode,
           status: bot.livePreview?.runtime.status === 'running' ? 'livePreview' : bot.status,
           configuration: bot.configuration,
           createdAt: (bot as any).createdAt?.toISOString() || new Date().toISOString(),

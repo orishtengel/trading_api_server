@@ -14,6 +14,7 @@ export interface BotEntity extends BaseEntity {
     | 'live';
   configuration: BotConfigurationEntity;
   livePreview?: LivePreviewEntity | undefined;
+  mode: 'stock' | 'crypto';
 }
 
 export interface LivePreviewEntity {

@@ -41,6 +41,7 @@ export class BotController extends BaseController {
     const createRequest: CreateBotRequest = {
       name: req.body.name,
       userId: userId, // Use the authenticated user's UID
+      mode: req.body.mode,
       status: req.body.status,
       configuration: req.body.configuration,
     };
@@ -63,6 +64,7 @@ export class BotController extends BaseController {
       id: req.params.id!,
       name: req.body.name,
       status: req.body.status,
+      mode: req.body.mode,
       configuration: req.body.configuration,
       userId: req.user?.uid!,
     };

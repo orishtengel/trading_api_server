@@ -31,6 +31,7 @@ export class BotRepository implements IBotRepository {
         name: request.name,
         userId: request.userId,
         status: request.status,
+        mode: request.mode,
         configuration: request.configuration,
         createdAt: now,
         updatedAt: now,
@@ -128,6 +129,7 @@ export class BotRepository implements IBotRepository {
         // Note: ID and userId cannot be updated
         if (request.name !== undefined) updateData.name = request.name;
         if (request.status !== undefined) updateData.status = request.status;
+        if (request.mode !== undefined) updateData.mode = request.mode;
         if (request.configuration !== undefined) updateData.configuration = request.configuration;
 
         // Remove undefined values before updating Firestore
@@ -174,7 +176,6 @@ export class BotRepository implements IBotRepository {
       const allBots: BotEntity[] = [];
       const usersCollection = db.collection('users');
       const usersSnapshot = await usersCollection.get();
-      console.log('dhasuihdiaso');
       for (const userDoc of usersSnapshot.docs) {
         const botCollection = this.getBotCollection(userDoc.id);
         const querySnapshot = await botCollection.get();

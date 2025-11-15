@@ -60,6 +60,7 @@ interface YamlCortex {
 }
 
 interface YamlConfig {
+  mode: 'stock' | 'crypto';
   rabbitmqUrl: string;
   dataSources: YamlDataSource[];
   agents: YamlAgent[];
@@ -158,6 +159,7 @@ export function mapBotToYaml(bot: Bot): YamlConfig {
   };
 
   return {
+    mode: bot.mode,
     rabbitmqUrl: RABBITMQ_URL,
     dataSources,
     agents,

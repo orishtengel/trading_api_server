@@ -3,6 +3,7 @@ import { BotConfiguration } from '@service/bot/bot.models';
 export interface CreateBotRequest {
   name: string;
   userId: string;
+  mode: 'stock' | 'crypto';
   status:
     | 'active'
     | 'inactive'
@@ -19,6 +20,7 @@ export interface CreateBotResponse {
   id: string;
   name: string;
   userId: string;
+  mode: 'stock' | 'crypto';
   status:
     | 'active'
     | 'inactive'

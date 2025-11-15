@@ -3,6 +3,7 @@ export interface Bot {
   id: string;
   name: string;
   userId: string;
+  mode: 'stock' | 'crypto';
   status:
     | 'active'
     | 'inactive'
@@ -108,6 +109,7 @@ export interface Agent extends BaseAgent {
 export interface CreateBotInput {
   name: string;
   userId: string;
+  mode: 'stock' | 'crypto';
   status:
     | 'active'
     | 'inactive'
@@ -123,6 +125,7 @@ export interface CreateBotInput {
 export interface UpdateBotInput {
   id: string;
   name?: string;
+  mode?: 'stock' | 'crypto';
   status?:
     | 'active'
     | 'inactive'

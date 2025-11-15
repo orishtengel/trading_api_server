@@ -3,6 +3,7 @@ import { BotConfiguration } from '@service/bot/bot.models';
 export interface UpdateBotRequest {
   id: string;
   name?: string;
+  mode?: 'stock' | 'crypto';
   status?:
     | 'active'
     | 'inactive'
@@ -20,6 +21,7 @@ export interface UpdateBotResponse {
   id: string;
   name: string;
   userId: string;
+  mode: 'stock' | 'crypto';
   status:
     | 'active'
     | 'inactive'
